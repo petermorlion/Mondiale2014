@@ -26,6 +26,7 @@ namespace KotProno2
 
             app.UseTwitterAuthentication(
                consumerKey: "ABzwJl3lBu4aX6FbVMcQOK4ox",
+               //TODO: change and ignore file before push to public github
                consumerSecret: "LQTe46uSBdpXTkssc4SMyS22m0MNYd3NJa6woFvEk98rLYigwc");
 
             //app.UseFacebookAuthentication(

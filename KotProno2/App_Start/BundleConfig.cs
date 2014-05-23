@@ -25,7 +25,9 @@ namespace KotProno2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/flags/common.css",
+                      "~/Content/flags/flags48.css"));
         }
     }
 }
