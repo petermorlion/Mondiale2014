@@ -27,7 +27,12 @@ namespace KotProno2
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-animate.js",
                       "~/Scripts/angular-route.js",
-                      "~/Scripts/angular-sanitize.js"));
+                      "~/Scripts/angular-sanitize.js",
+                      "~/Scripts/app/app.js",
+                      "~/Scripts/app/config.js",
+                      "~/Scripts/app/config.route.js",
+                      "~/Scripts/app/main.js",
+                      "~/Scripts/app/games/games.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
