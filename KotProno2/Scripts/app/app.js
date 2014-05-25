@@ -13,16 +13,12 @@
 
         // 3rd Party Modules
         'ui.bootstrap',     // ui-bootstrap (ex: carousel, pagination, dialog)
-
+        */
         // breeze
         'breeze.angular'
-        */
     ]);
 
-    // Handle routing errors and success events
-    //app.run(['$route', 'breeze', function ($route, breeze) {
-    //    // Include $route to kick start the router.
-    //}]);
-    app.run(['$route', function ($route) {
+    app.run(['$route', 'breeze', function ($route, breeze) {
+        // Include $route to kick start the router.
     }]);
 })();

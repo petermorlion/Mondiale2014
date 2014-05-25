@@ -1,3 +1,19 @@
-﻿<div ng-controller="games as vm">
-    {{vm.title}} and more!
-</div>
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="games as vm">
+    <h1>{{vm.title}}</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-repeat="gameBettingGroup in vm.gameBettingGroups" class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <h4>{{gameBettingGroup.date | date}}</h4>
+                <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
+                    <div class="f48">
+                        <span>{{gameBetting.date | date:'HH:mm'}}</span>
+                        <span class="flag {{gameBetting.homeIso}}"></span>
+                        <input ng-model="gameBetting.homeBetting" />
+                        <input ng-model="gameBetting.awayBetting" />
+                        <span class="flag {{gameBetting.awayIso}}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
