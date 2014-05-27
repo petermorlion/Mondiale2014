@@ -34,6 +34,35 @@ namespace KotProno2
             //   appSecret: "");
 
             //app.UseGoogleAuthentication();
+
+            // Return 401 instead of 302 when not authorized and doing a WebAPI call (OWIN turns it into a 302)
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //    {
+            //        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            //        LoginPath = new PathString("/Account/Login"),
+            //        Provider = new CookieAuthenticationProvider
+            //        {
+            //            OnApplyRedirect = ctx =>
+            //                {
+            //                    if (!IsAjaxRequest(ctx.Request))
+            //                    {
+            //                        ctx.Response.Redirect(ctx.RedirectUri);
+            //                    }
+            //                }
+            //        }
+            //    });
         }
+
+        //private bool IsAjaxRequest(IOwinRequest owinRequest)
+        //{
+        //    var query = owinRequest.Query;
+        //    if ((query != null) && (query["X-Requested-With"] == "XMLHttpRequest"))
+        //    {
+        //        return true;
+        //    }
+
+        //    var headers = owinRequest.Headers;
+        //    return ((headers != null) && headers["X-Requested-With"] == "XMLHttpRequest");
+        //}
     }
 }

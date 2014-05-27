@@ -18,6 +18,7 @@ namespace KotProno2.Controllers
         private readonly MatchesContext _contextProvider = new MatchesContext();
 
         [HttpGet]
+        [Authorize]
         public string Metadata()
         {
             return _contextProvider.Metadata();
@@ -26,6 +27,7 @@ namespace KotProno2.Controllers
         // ~/breeze/matches/Matches
         // ~/breeze/matches/Matches?$filter=HomeTeamId eq 1
         [HttpGet]
+        [Authorize]
         public IQueryable<Match> Matches()
         {
             return _contextProvider.Context.Matches;
@@ -34,6 +36,7 @@ namespace KotProno2.Controllers
         // ~/breeze/matches/Bettings
         // ~/breeze/matches/Bettings?$filter=HomeTeamId eq 1
         [HttpGet]
+        [Authorize]
         public IQueryable<Betting> Bettings()
         {
             //TODO: use DB

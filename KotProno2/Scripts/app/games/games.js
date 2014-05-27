@@ -4,13 +4,6 @@
     angular.module('app')
     //.controller(controllerId, ['common', 'datacontext', 'breeze', function (common, datacontext, breeze) {
     .controller(controllerId, ['$q', 'breeze', function ($q, breeze) {
-        //var $q = common.$q;
-        //var EntityQuery = breeze.EntityQuery;
-        //var manager = new breeze.EntityManager('/breeze/matches');
-
-        //var getLogFn = common.logger.getLogFn;
-        //var log = getLogFn(controllerId);
-
         var EntityQuery = breeze.EntityQuery;
         var manager = new breeze.EntityManager('/breeze/matches');
 
@@ -25,7 +18,6 @@
             var promises = [getMatches(), getBettings()];
 
             $q.all(promises).then(gameBettingsQuerySucceeded).catch(queryFailed);
-            //manager.executeQuery(matchesQuery).then(matchesQuerySucceeded).catch(queryFailed);
         }
 
         var games;
@@ -47,7 +39,12 @@
         }
 
         function bettingsQuerySucceeded(data) {
-            bettings = data.results;
+            // TODO: vuil
+            if (data.results[0].indexOf("<title>Log in") > 0) {
+                document.location = "/Account/Login";
+            } else {
+                bettings = data.results;
+            }
         }
 
         function gameBettingsQuerySucceeded(data) {
