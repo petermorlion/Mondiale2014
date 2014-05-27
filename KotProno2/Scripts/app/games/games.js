@@ -40,7 +40,8 @@
 
         function bettingsQuerySucceeded(data) {
             // TODO: vuil
-            if (data.results[0].indexOf("<title>Log in") > 0) {
+            if (Object.prototype.toString.call(data.results) === '[object Array]' 
+                && data.results[0].toString().indexOf("<title>Log in") > 0) {
                 document.location = "/Account/Login";
             } else {
                 bettings = data.results;
@@ -95,7 +96,7 @@
 
         function queryFailed(data) {
             // TODO
-            alert('error!');
+            alert('Er is een fout gebeurd. My bad...');
         };
 
         function GetTeams() {
