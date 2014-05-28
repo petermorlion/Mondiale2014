@@ -9,6 +9,7 @@
 
         var vm = this;
         vm.title = "De matchen";
+        vm.save = save;
 
         //TODO: async
         getGameBettings();
@@ -62,9 +63,11 @@
                 var betting = bettingsByGameId[games[i].Id];
                 var homeBetting = '';
                 var awayBetting = '';
+                var isReadOnly = false;
                 if (betting) {
                     homeBetting = betting.HomeScore;
                     awayBetting = betting.AwayScore;
+                    isReadOnly = true;
                 }
 
                 var currentDate = games[i].DateTime;
@@ -87,7 +90,8 @@
                     homeDescription: teams[games[i].HomeTeamIsoCode],
                     awayDescription: teams[games[i].AwayTeamIsoCode],
                     homeBetting: homeBetting,
-                    awayBetting: awayBetting
+                    awayBetting: awayBetting,
+                    isReadOnly: isReadOnly
                 };
 
                 previousGameBettingGroup.gameBettings.push(gameBetting);
@@ -141,6 +145,10 @@
                 ru: 'Rusland',
                 kr: 'Zuid-Korea',
             };
+        }
+
+        function save() {
+            alert('save');
         }
     }]);
 })();
