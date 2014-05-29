@@ -3,7 +3,7 @@
     var controllerId = 'games';
     angular.module('app')
     //.controller(controllerId, ['common', 'datacontext', 'breeze', function (common, datacontext, breeze) {
-    .controller(controllerId, ['$q', 'breeze', function ($q, breeze) {
+    .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
         var EntityQuery = breeze.EntityQuery;
         var manager = new breeze.EntityManager('/breeze/matches');
 
@@ -42,6 +42,7 @@
         function bettingsQuerySucceeded(data) {
             // TODO: vuil
             if (Object.prototype.toString.call(data.results) === '[object Array]' 
+                && data.results.length > 0
                 && data.results[0].toString().indexOf("<title>Log in") > 0) {
                 document.location = "/Account/Login";
             } else {
@@ -85,6 +86,7 @@
 
                 var gameBetting = {
                     date: currentDate,
+                    matchId: games[i].Id,
                     homeIso: games[i].HomeTeamIsoCode,
                     awayIso: games[i].AwayTeamIsoCode,
                     homeDescription: teams[games[i].HomeTeamIsoCode],
@@ -148,7 +150,33 @@
         }
 
         function save() {
-            alert('save');
+            //TODO: async
+            var newBettings = [];
+            for (var i = 0; i < vm.gameBettingGroups.length; i++) {
+                for (var j = 0; j < vm.gameBettingGroups[i].gameBettings.length; j++) {
+                    var gameBetting = vm.gameBettingGroups[i].gameBettings[j];
+                    if (gameBetting.homeBetting !== '' && gameBetting.awayBetting !== '' && !gameBetting.isReadOnly) {
+                        newBettings.push({
+                            gameBetting: gameBetting,
+                            matchId: gameBetting.matchId,
+                            homeBetting: gameBetting.homeBetting,
+                            awayBetting: gameBetting.awayBetting
+                        });
+                    }
+                }
+            }
+
+            $http({
+                method: 'POST',
+                url: '/breeze/matches/AddBettings',
+                data: newBettings
+            }).success(function (data, status, headers, config) {
+                for (var i = 0; i < newBettings.length; i++) {
+                    newBettings[i].gameBetting.isReadOnly = true;
+                }
+            }).error(function (data, status, headers, config) {
+                alert('error');
+            });
         }
     }]);
 })();

@@ -37,13 +37,7 @@ namespace KotProno2.Controllers
         [Authorize]
         public IQueryable<Betting> Bettings()
         {
-            //TODO: use DB
-            return new[] 
-            {
-                new Betting { MatchId = 1, HomeScore = 1, AwayScore = 2 },
-                new Betting { MatchId = 2, HomeScore = 1, AwayScore = 0 },
-                new Betting { MatchId = 3, HomeScore = 0, AwayScore = 2 },
-            }.AsQueryable();
+            return _contextProvider.Context.Bettings.Where(x => x.UserName == User.Identity.Name).AsQueryable<Betting>();
         }
 
         // ~/breeze/matches/SaveChanges
@@ -51,6 +45,23 @@ namespace KotProno2.Controllers
         public SaveResult SaveChanges(JObject saveBundle)
         {
             return _contextProvider.SaveChanges(saveBundle);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public void AddBettings(object data)
+        {
+            var command = new AddBettingsCommand
+            {
+                DateTime = DateTime.Now,
+                Name = "AddBettings",
+                Data = data,
+                UserName = User.Identity.Name
+            };
+
+            command.Execute(_contextProvider.Context);
+            _contextProvider.Context.Commands.Add(command);
+            _contextProvider.Context.SaveChangesAsync();
         }
     }
 }

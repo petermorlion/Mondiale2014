@@ -9,7 +9,7 @@ namespace KotProno2.EntityFramework
 {
     public class MatchesDbContext : DbContext
     {
-        public static string ContextName { get { return "Mondiale2014"; } }
+        public static string ContextName { get { return "KotProno2"; } }
 
         public MatchesDbContext()
             : base(ContextName)
@@ -22,5 +22,9 @@ namespace KotProno2.EntityFramework
         }
 
         public DbSet<Match> Matches { get; set; }
+
+        public DbSet<Command> Commands { get; set; }
+
+        public DbSet<Betting> Bettings { get; set; }
     }
 }

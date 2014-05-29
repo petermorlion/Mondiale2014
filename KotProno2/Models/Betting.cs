@@ -8,7 +8,6 @@ namespace KotProno2.Models
 {
     public class Betting
     {
-        //TODO: userid
         public int Id { get; set; }
 
         public int MatchId { get; set; }
@@ -18,5 +17,6 @@ namespace KotProno2.Models
 
         public int HomeScore { get; set; }
         public int AwayScore { get; set; }
+        public string UserName { get; set; }
     }
 }
