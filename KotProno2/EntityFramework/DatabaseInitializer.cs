@@ -43,8 +43,8 @@ namespace KotProno2.EntityFramework
         {
             public static Team Brasil = new Team { GroupLetter = "A", Name = "Brazilië", IsoCode = "br" };
             public static Team Croatia = new Team { GroupLetter = "A", Name = "Kroatië", IsoCode = "hr" };
-            public static Team Mexico = new Team { GroupLetter = "A", Name = "Mexico", IsoCode = "me" };
-            public static Team Cameroon = new Team { GroupLetter = "A", Name = "Kameroen", IsoCode = "ka" };
+            public static Team Mexico = new Team { GroupLetter = "A", Name = "Mexico", IsoCode = "mx" };
+            public static Team Cameroon = new Team { GroupLetter = "A", Name = "Kameroen", IsoCode = "cm" };
 
             public static Team Spain = new Team { GroupLetter = "B", Name = "Spanje", IsoCode = "es" };
             public static Team Netherlands = new Team { GroupLetter = "B", Name = "Nederland", IsoCode = "nl" };

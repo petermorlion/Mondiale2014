@@ -13,19 +13,22 @@ namespace KotProno2.Models
         {
             var data = this.Data as JArray;
             //TODO: save multiple bettings
-            var matchId = (int)data[0]["matchId"];
-            var homeBetting = (int)data[0]["homeBetting"];
-            var awayBetting = (int)data[0]["awayBetting"];
-            var userName = UserName;
-            var betting = new Betting
+            foreach (var betting in data)
             {
-                MatchId = matchId,
-                HomeScore = homeBetting,
-                AwayScore = awayBetting,
-                UserName = UserName
-            };
+                var matchId = (int)betting["matchId"];
+                var homeBetting = (int)betting["homeBetting"];
+                var awayBetting = (int)betting["awayBetting"];
+                var userName = UserName;
+                var newBetting = new Betting
+                {
+                    MatchId = matchId,
+                    HomeScore = homeBetting,
+                    AwayScore = awayBetting,
+                    UserName = UserName
+                };
 
-            context.Bettings.Add(betting);
+                context.Bettings.Add(newBetting);   
+            }
         }
     }
 }

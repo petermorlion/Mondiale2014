@@ -10,10 +10,10 @@
                 <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                     <div class="f48">
                         <span>{{gameBetting.date | date:'HH:mm'}}</span>
-                        <span class="flag {{gameBetting.homeIso}}"></span>
+                        <span class="flag {{gameBetting.homeIso}}" title="{{gameBetting.homeDescription}}"></span>
                         <input ng-model="gameBetting.homeBetting" ng-disabled="gameBetting.isReadOnly" />
                         <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" />
-                        <span class="flag {{gameBetting.awayIso}}"></span>
+                        <span class="flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                     </div>
                 </div>
             </div>
