@@ -4,7 +4,7 @@
         <div class="game-bettings-save">
             <button ng-click="vm.save()">Opslaan</button>
         </div>
-        <div class="match-details">
+        <div class="match-details" ng-hide="vm.matchDetails == null">
             {{vm.matchDetails.HomeTeamIsoCode}} vs {{vm.matchDetails.AwayTeamIsoCode}} - {{vm.matchDetails.DateTime}}
             <table>
                 <tr>
@@ -34,7 +34,8 @@
                         <span class="flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                         <i class="other-bettings-icon glyphicon glyphicon-question-sign" 
                            title="De andere pronostieken bekijken"
-                           ng-click="vm.showOtherBettings(gameBetting.matchId)"></i>
+                           ng-click="vm.showOtherBettings(gameBetting.matchId)"
+                           ng-show="gameBetting.isReadOnly"></i>
                     </div>
                 </div>
             </div>
