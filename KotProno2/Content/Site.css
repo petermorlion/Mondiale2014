@@ -42,5 +42,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 .game-bettings-save {
+}
+
+.other-bettings-icon {
+    cursor: pointer;
+}
+
+.match-details {
+}
+
+.matches-side-panel {
     position: fixed;
 }

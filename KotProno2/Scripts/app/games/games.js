@@ -10,6 +10,7 @@
         var vm = this;
         vm.title = "De matchen";
         vm.save = save;
+        vm.showOtherBettings = showOtherBettings;
 
         //TODO: async
         getGameBettings();
@@ -174,6 +175,18 @@
                 for (var i = 0; i < newBettings.length; i++) {
                     newBettings[i].gameBetting.isReadOnly = true;
                 }
+            }).error(function (data, status, headers, config) {
+                alert('error');
+            });
+        }
+
+        function showOtherBettings(matchId) {
+            $http({
+                method: 'GET',
+                url: '/breeze/matches/MatchDetails',
+                params: { matchId: matchId }
+            }).success(function (data, status, headers, config) {
+                vm.matchDetails = data;
             }).error(function (data, status, headers, config) {
                 alert('error');
             });

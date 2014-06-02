@@ -63,5 +63,22 @@ namespace KotProno2.Controllers
             _contextProvider.Context.Commands.Add(command);
             _contextProvider.Context.SaveChangesAsync();
         }
+
+        [HttpGet]
+        [Authorize]
+        public MatchDetails MatchDetails(int matchId)
+        {
+            var match = _contextProvider.Context.Matches.Single(x => x.Id == matchId);
+            var bettings = _contextProvider.Context.Bettings.Where(x => x.MatchId == matchId);
+
+            return new MatchDetails
+            {
+                Id = match.Id,
+                HomeTeamIsoCode = match.HomeTeamIsoCode,
+                AwayTeamIsoCode = match.AwayTeamIsoCode,
+                DateTime = match.DateTime,
+                Bettings = bettings.ToList()
+            };
+        }
     }
 }
