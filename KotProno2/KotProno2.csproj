@@ -277,6 +277,8 @@
     <Content Include="Scripts\app\main\main.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Mondiale2014 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Mondiale2014 - Web Deploy.pubxml" />
     <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\breeze.angular.js" />
     <Content Include="Scripts\breeze.debug.js" />
