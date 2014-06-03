@@ -74,8 +74,8 @@ namespace KotProno2.Controllers
             return new MatchDetails
             {
                 Id = match.Id,
-                HomeTeamIsoCode = match.HomeTeamIsoCode,
-                AwayTeamIsoCode = match.AwayTeamIsoCode,
+                HomeTeamName = Teams.All.Single(x => x.IsoCode == match.HomeTeamIsoCode).Name,
+                AwayTeamName = Teams.All.Single(x => x.IsoCode == match.AwayTeamIsoCode).Name,
                 DateTime = match.DateTime,
                 Bettings = bettings.ToList()
             };
