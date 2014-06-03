@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using KotProno2.App_Start;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -25,9 +26,9 @@ namespace KotProno2
             //    clientSecret: "");
 
             app.UseTwitterAuthentication(
-               consumerKey: "ABzwJl3lBu4aX6FbVMcQOK4ox",
+               consumerKey: Secrets.TwitterKey,
                //TODO: change and ignore file before push to public github
-               consumerSecret: "LQTe46uSBdpXTkssc4SMyS22m0MNYd3NJa6woFvEk98rLYigwc");
+               consumerSecret: Secrets.TwitterSecret);
 
             //app.UseFacebookAuthentication(
             //   appId: "",
