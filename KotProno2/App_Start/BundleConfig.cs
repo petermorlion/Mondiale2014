@@ -23,7 +23,8 @@ namespace KotProno2
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+            // TODO: a scriptbundle would be better but the minification is breaking angular
+            bundles.Add(new Bundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-animate.js",
                       "~/Scripts/angular-route.js",

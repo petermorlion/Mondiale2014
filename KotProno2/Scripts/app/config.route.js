@@ -8,6 +8,7 @@
     
     // Configure the routes and route resolvers
     app.config(['$routeProvider', 'routes', routeConfigurator]);
+
     function routeConfigurator($routeProvider, routes) {
 
         routes.forEach(function (r) {

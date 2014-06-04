@@ -2,7 +2,6 @@
     'use strict';
     var controllerId = 'games';
     angular.module('app')
-    //.controller(controllerId, ['common', 'datacontext', 'breeze', function (common, datacontext, breeze) {
     .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
         var EntityQuery = breeze.EntityQuery;
         var manager = new breeze.EntityManager('/breeze/matches');
