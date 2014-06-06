@@ -10,7 +10,7 @@ namespace KotProno2.EntityFramework
 {
     public class MatchesDbContext : DbContext
     {
-        public static string ContextName { get { return "KotProno2"; } }
+        public static string ContextName { get { return "DefaultConnection"; } }
 
         public MatchesDbContext()
             : base(ContextName)

@@ -22,13 +22,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("About", "About", "Home")</li>
-    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li><a href="/#/">Stand</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a href="/#/games">Pronostieken</a></li>
                     }
+                    @*@if (User.IsInRole("admin"))
+                    {
+                        <li><a href="/#/admin">Admin gedeelte</a></li>
+                    }*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

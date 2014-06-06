@@ -24,8 +24,11 @@
             	url: '/',
             	templateUrl: '/Scripts/app/main/main.html'
             }, {
-            	url: '/games',
-            	templateUrl: '/Scripts/app/games/games.html'
+                url: '/games',
+                templateUrl: '/Scripts/app/games/games.html'
+            }, {
+                url: '/admin',
+                templateUrl: '/Scripts/app/admin/admin.html'
             }
         ];
     }

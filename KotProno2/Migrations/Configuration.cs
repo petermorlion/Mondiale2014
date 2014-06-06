@@ -1,11 +1,13 @@
 namespace KotProno2.Migrations
 {
+    using KotProno2.EntityFramework;
     using KotProno2.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Security;
 
     internal sealed class Configuration : DbMigrationsConfiguration<KotProno2.EntityFramework.MatchesDbContext>
     {
@@ -15,7 +17,7 @@ namespace KotProno2.Migrations
             ContextKey = "KotProno2.EntityFramework.MatchesDbContext";
         }
 
-        protected override void Seed(KotProno2.EntityFramework.MatchesDbContext context)
+        protected override void Seed(MatchesDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -29,6 +31,27 @@ namespace KotProno2.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            CreateGroupRoundMatches(context);
+            // TODO: has nothing to do with matches, shouldn't be here.
+            //CreateAdminRole();
+        }
+
+        //private void CreateAdminRole()
+        //{
+        //    if (!Roles.RoleExists("admin"))
+        //    {
+        //        Roles.CreateRole("admin");
+        //    }
+        //}
+
+        private void CreateGroupRoundMatches(MatchesDbContext context)
+        {
+            var lastMatch = new Match { DateTime = new DateTime(2014, 6, 26, 22, 0, 0), HomeTeamIsoCode = Teams.Algeria.IsoCode, AwayTeamIsoCode = Teams.Russia.IsoCode };
+            if (context.Matches.SingleOrDefault(x => x.DateTime == lastMatch.DateTime && x.HomeTeamIsoCode == lastMatch.HomeTeamIsoCode && x.AwayTeamIsoCode == lastMatch.AwayTeamIsoCode) != null)
+            {
+                return;
+            }
 
             var matches = new List<Match>
                 {
@@ -93,16 +116,12 @@ namespace KotProno2.Migrations
                     new Match { DateTime = new DateTime(2014, 6, 26, 18, 0, 0), HomeTeamIsoCode = Teams.USA.IsoCode, AwayTeamIsoCode = Teams.Germany.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 26, 18, 0, 0), HomeTeamIsoCode = Teams.Portugal.IsoCode, AwayTeamIsoCode = Teams.Ghana.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 26, 22, 0, 0), HomeTeamIsoCode = Teams.Korea.IsoCode, AwayTeamIsoCode = Teams.Belgium.IsoCode },
-                    new Match { DateTime = new DateTime(2014, 6, 26, 22, 0, 0), HomeTeamIsoCode = Teams.Algeria.IsoCode, AwayTeamIsoCode = Teams.Russia.IsoCode },
+                    lastMatch,
                 };
 
             foreach (var match in matches)
             {
-                // TODO: not the most efficient (separate query every time)
-                if (context.Matches.SingleOrDefault(x => x.DateTime == match.DateTime && x.HomeTeamIsoCode == match.HomeTeamIsoCode && x.AwayTeamIsoCode == match.AwayTeamIsoCode) == null)
-                {
-                    context.Matches.AddOrUpdate(match);
-                }
+                context.Matches.AddOrUpdate(match);
             }
         }
     }

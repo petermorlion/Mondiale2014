@@ -21,7 +21,14 @@ namespace KotProno2.Controllers
         [HttpGet]
         public string Metadata()
         {
-            return _contextProvider.Metadata();
+            try
+            {
+                return _contextProvider.Metadata();
+            }
+            catch (Exception e)
+            {
+                return e.Message + Environment.NewLine + Environment.NewLine + e.StackTrace;
+            }
         }
 
         // ~/breeze/matches/Matches
