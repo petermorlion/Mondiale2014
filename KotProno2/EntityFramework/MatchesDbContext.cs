@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using KotProno2.Migrations;
 
 namespace KotProno2.EntityFramework
 {
@@ -18,7 +19,7 @@ namespace KotProno2.EntityFramework
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
 
-            Database.SetInitializer<MatchesDbContext>(new DatabaseInitializer());
+            Database.SetInitializer<MatchesDbContext>(new System.Data.Entity.MigrateDatabaseToLatestVersion<MatchesDbContext, Configuration>());
         }
 
         public DbSet<Match> Matches { get; set; }
