@@ -54,3 +54,7 @@ input[type="checkbox"].input-validation-error {
 .matches-side-panel {
     position: fixed;
 }
+
+.betting-flag {
+    vertical-align: middle;
+}
