@@ -2,7 +2,7 @@
     <h1>{{vm.title}}</h1>
     <div class="matches-side-panel">
         <div class="game-bettings-save">
-            <button ng-click="vm.save()">Opslaan</button>
+            <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
         </div>
         <div class="match-details" ng-hide="vm.matchDetails == null">
             {{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}
