@@ -1,5 +1,16 @@
 ﻿(function () {
     'use strict';
+
+    // 1e32 is enogh for working with 32-bit
+    // 1e8 for 8-bit (100000000)
+    // in your case 1e4 (aka 10000) should do it
+    // TODO: should be in a filters.js file
+    angular.module('app').filter('numberFixedLen', function () {
+        return function (a, b) {
+            return (1e4 + a + "").slice(-b)
+        }
+    });
+
     var controllerId = 'games';
     angular.module('app')
     .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
@@ -16,7 +27,7 @@
 
         function getGameBettings() {
             
-            var promises = [getMatches(), getBettings()];
+            var promises = [getMatches(), getBettings(), getTopScorer()];
 
             $q.all(promises).then(gameBettingsQuerySucceeded).catch(queryFailed);
         }
@@ -37,6 +48,20 @@
         function getBettings() {
             var bettingsQuery = EntityQuery.from('Bettings');
             return manager.executeQuery(bettingsQuery).then(bettingsQuerySucceeded).catch(queryFailed);
+        }
+
+        function getTopScorer() {
+            var topScorerQuery = EntityQuery.from('TopScorer');
+            return manager.executeQuery(topScorerQuery).then(topScorerQuerySucceeded).catch(queryFailed);
+        }
+
+        function topScorerQuerySucceeded(data) {
+            if (data.results.length > 0) {
+                vm.topscorer = data.results[0];
+                vm.topscorer.isReadOnly = true;
+            } else {
+                vm.topScorer = { topScorerName : '', isReadOnly : false };
+            }
         }
 
         function bettingsQuerySucceeded(data) {
@@ -71,26 +96,26 @@
                     isReadOnly = true;
                 }
 
-                var currentDate = games[i].DateTime;
-                if (!previousDate || currentDate.setHours(0, 0, 0, 0) !== previousDate.setHours(0, 0, 0, 0)) {
+                var currentGame = games[i];
+                var currentDate = new Date(currentGame.DateTime).setUTCHours(0);
+                if (!previousDate || currentDate !== previousDate) {
                     var gameBettingGroup = {
-                        date: currentDate,
+                        date: new Date(currentDate),
                         gameBettings: []
                     }
 
                     vm.gameBettingGroups.push(gameBettingGroup);
                     previousGameBettingGroup = gameBettingGroup;
                     previousDate = currentDate;
-
                 }
 
                 var gameBetting = {
-                    date: currentDate,
-                    matchId: games[i].Id,
-                    homeIso: games[i].HomeTeamIsoCode,
-                    awayIso: games[i].AwayTeamIsoCode,
-                    homeDescription: teams[games[i].HomeTeamIsoCode],
-                    awayDescription: teams[games[i].AwayTeamIsoCode],
+                    date: currentGame.DateTime,
+                    matchId: currentGame.Id,
+                    homeIso: currentGame.HomeTeamIsoCode,
+                    awayIso: currentGame.AwayTeamIsoCode,
+                    homeDescription: teams[currentGame.HomeTeamIsoCode],
+                    awayDescription: teams[currentGame.AwayTeamIsoCode],
                     homeBetting: homeBetting,
                     awayBetting: awayBetting,
                     isReadOnly: isReadOnly
@@ -124,7 +149,7 @@
 
                 uy: 'Uruguay',
                 cr: 'Costa Rica',
-                en: 'Engeland',
+                gb: 'Engeland',
                 it: 'Italië',
 
                 ch: 'Zwitserland',
@@ -169,7 +194,7 @@
             $http({
                 method: 'POST',
                 url: '/breeze/matches/AddBettings',
-                data: newBettings
+                data: { newBettings: newBettings, topScorer: vm.topscorer }
             }).success(function (data, status, headers, config) {
                 for (var i = 0; i < newBettings.length; i++) {
                     newBettings[i].gameBetting.isReadOnly = true;

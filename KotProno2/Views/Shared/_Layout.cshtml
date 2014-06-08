@@ -29,10 +29,11 @@
                     {
                         <li><a href="/#/games">Pronostieken</a></li>
                     }
-                    @*@if (User.IsInRole("admin"))
+                    @*Ugly and wrong, but IsInRole doesn't work and no time*@
+                    @if (User.Identity.Name == "petermorlion")
                     {
                         <li><a href="/#/admin">Admin gedeelte</a></li>
-                    }*@
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -64,7 +64,7 @@ namespace KotProno2.Controllers
                 DateTime = DateTime.Now,
                 Name = "AddBettings",
                 Data = data,
-                UserName = User.Identity.Name
+                UserName = User.Identity.Name,
             };
 
             command.Execute(_contextProvider.Context);
@@ -87,6 +87,14 @@ namespace KotProno2.Controllers
                 DateTime = match.DateTime,
                 Bettings = bettings.ToList()
             };
+        }
+
+        // ~/breeze/matches/TopScorer
+        [HttpGet]
+        [Authorize]
+        public TopScorer TopScorer()
+        {
+            return _contextProvider.Context.TopScorers.SingleOrDefault(x => x.UserName == User.Identity.Name);
         }
     }
 }

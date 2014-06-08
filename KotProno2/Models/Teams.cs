@@ -63,7 +63,7 @@ namespace KotProno2.Models
 
         public static Team Spain = new Team { GroupLetter = "B", Name = "Spanje", IsoCode = "es" };
         public static Team Netherlands = new Team { GroupLetter = "B", Name = "Nederland", IsoCode = "nl" };
-        public static Team Chili = new Team { GroupLetter = "B", Name = "Chili", IsoCode = "ch" };
+        public static Team Chili = new Team { GroupLetter = "B", Name = "Chili", IsoCode = "cl" };
         public static Team Australia = new Team { GroupLetter = "B", Name = "Australië", IsoCode = "au" };
 
         public static Team Colombia = new Team { GroupLetter = "C", Name = "Colombia", IsoCode = "co" };
@@ -71,9 +71,9 @@ namespace KotProno2.Models
         public static Team IvoryCoast = new Team { GroupLetter = "C", Name = "Ivoorkust", IsoCode = "ci" };
         public static Team Japan = new Team { GroupLetter = "C", Name = "Japan", IsoCode = "jp" };
 
-        public static Team Uruguay = new Team { GroupLetter = "D", Name = "Uruguay", IsoCode = "es" };
+        public static Team Uruguay = new Team { GroupLetter = "D", Name = "Uruguay", IsoCode = "uy" };
         public static Team CostaRica = new Team { GroupLetter = "D", Name = "Costa Rica", IsoCode = "cr" };
-        public static Team England = new Team { GroupLetter = "D", Name = "Engeland", IsoCode = "en" };
+        public static Team England = new Team { GroupLetter = "D", Name = "Engeland", IsoCode = "gb" };
         public static Team Italy = new Team { GroupLetter = "D", Name = "Italië", IsoCode = "it" };
 
         public static Team Switzerland = new Team { GroupLetter = "E", Name = "Zwitserland", IsoCode = "ch" };

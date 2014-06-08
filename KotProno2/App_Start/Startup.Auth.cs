@@ -21,9 +21,9 @@ namespace KotProno2
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: Secrets.MicrosoftClientId,
+                clientSecret: Secrets.MicrosoftClientSecret);
 
             app.UseTwitterAuthentication(
                consumerKey: Secrets.TwitterKey,
@@ -34,7 +34,7 @@ namespace KotProno2
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
 
             // Return 401 instead of 302 when not authorized and doing a WebAPI call (OWIN turns it into a 302)
             //app.UseCookieAuthentication(new CookieAuthenticationOptions

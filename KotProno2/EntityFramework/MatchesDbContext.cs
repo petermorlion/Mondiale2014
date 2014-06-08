@@ -27,5 +27,7 @@ namespace KotProno2.EntityFramework
         public DbSet<Command> Commands { get; set; }
 
         public DbSet<Betting> Bettings { get; set; }
+
+        public DbSet<TopScorer> TopScorers { get; set; }
     }
 }

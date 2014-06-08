@@ -11,9 +11,10 @@ namespace KotProno2.Models
     {
         public override void Execute(MatchesDbContext context)
         {
-            var data = this.Data as JArray;
+            var data = this.Data as JObject;
+            var bettings = data["newBettings"] as JArray;
             //TODO: save multiple bettings
-            foreach (var betting in data)
+            foreach (var betting in bettings)
             {
                 var matchId = (int)betting["matchId"];
                 var homeBetting = (int)betting["homeBetting"];
@@ -28,6 +29,17 @@ namespace KotProno2.Models
                 };
 
                 context.Bettings.Add(newBetting);   
+            }
+
+            var topScorer = data["topScorer"].ToString();
+            var currentTopScorer = context.TopScorers.SingleOrDefault(x => x.UserName == UserName);
+            if (currentTopScorer == null)
+            {
+                context.TopScorers.Add(new TopScorer { UserName = UserName, TopScorerName = topScorer });
+            }
+            else
+            {
+                currentTopScorer.TopScorerName = topScorer;
             }
         }
     }
