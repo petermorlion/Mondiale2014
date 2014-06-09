@@ -49,9 +49,6 @@ input[type="checkbox"].input-validation-error {
     font-size: 18px;
 }
 
-.match-details {
-}
-
 .matches-side-panel {
     position: fixed;
 }

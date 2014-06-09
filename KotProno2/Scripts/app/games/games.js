@@ -60,7 +60,7 @@
                 vm.topscorer = data.results[0];
                 vm.topscorer.isReadOnly = true;
             } else {
-                vm.topScorer = { topScorerName : '', isReadOnly : false };
+                vm.topScorer = { TopScorerName : '', isReadOnly : false };
             }
         }
 
@@ -199,6 +199,9 @@
                 for (var i = 0; i < newBettings.length; i++) {
                     newBettings[i].gameBetting.isReadOnly = true;
                 }
+                if (vm.topscorer.TopScorerName !== '') {
+                    vm.topscorer.isReadOnly = true;
+                }
             }).error(function (data, status, headers, config) {
                 alert('error');
             });
@@ -211,6 +214,17 @@
                 params: { matchId: matchId }
             }).success(function (data, status, headers, config) {
                 vm.matchDetails = data;
+            }).error(function (data, status, headers, config) {
+                alert('error');
+            });
+        }
+
+        function showAllTopscorers() {
+            $http({
+                method: 'GET',
+                url: '/breeze/matches/TopScorers'
+            }).success(function (data, status, headers, config) {
+                vm.allTopscorers = data.results;
             }).error(function (data, status, headers, config) {
                 alert('error');
             });

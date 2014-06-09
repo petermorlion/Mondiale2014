@@ -18,6 +18,19 @@
         <div class="game-bettings-save">
             <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
         </div>
+        <div ng-hide="vm.allTopscorers == null">
+            Alle topscorer-pronostieken
+            <table class="table table-striped"
+                <tr>
+                    <th>Gebruiker</th>
+                    <th>Topscorer</th>
+                </tr>
+                <tr ng-repeat="topscorer in vm.allTopscorers">
+                    <td>{{topscorer.UserName}}</td>
+                    <td>{{topscorer.TopScorerName}}</td>
+                </tr>
+            </table>
+        </div>
         <div class="match-details" ng-hide="vm.matchDetails == null">
             {{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}
             <table class="table table-striped"
@@ -58,7 +71,7 @@
                             <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" class="form-control form-inline" />
                             <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                             <button type="button"
-                                    class="other-bettings-icon glyphicon glyphicon-question-sign"
+                                    class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
                                     title="De andere pronostieken bekijken"
                                     ng-click="vm.showOtherBettings(gameBetting.matchId)"
                                     ng-show="gameBetting.isReadOnly"></button>

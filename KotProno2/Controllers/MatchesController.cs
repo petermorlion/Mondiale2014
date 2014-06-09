@@ -96,5 +96,13 @@ namespace KotProno2.Controllers
         {
             return _contextProvider.Context.TopScorers.SingleOrDefault(x => x.UserName == User.Identity.Name);
         }
+
+        // ~/breeze/matches/TopScorers
+        [HttpGet]
+        [Authorize]
+        public IQueryable<TopScorer> TopScorers()
+        {
+            return _contextProvider.Context.TopScorers;
+        }
     }
 }
