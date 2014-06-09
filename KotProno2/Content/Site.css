@@ -60,3 +60,7 @@ input[type="checkbox"].input-validation-error {
 .betting-input {
     width: 150px;
 }
+
+.bettings-main {
+    padding-left: 400px;
+}
