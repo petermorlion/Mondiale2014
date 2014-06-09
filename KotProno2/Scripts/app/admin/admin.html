@@ -12,7 +12,7 @@
                 <div class="row">
                     <div ng-repeat="game in vm.games" class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <div class="f48">
-                            <span>{{game.DateTime | date}}</span>
+                            <span>{{game.DateTime}}</span>
                             <span class="betting-flag flag {{game.HomeTeamIsoCode}}" title="{{game.HomeTeamIsoCode}}"></span>
                             <input ng-model="game.HomeScore" class="betting-input form-control form-inline" />
                             <input ng-model="game.AwayScore" class="betting-input form-control form-inline" />
