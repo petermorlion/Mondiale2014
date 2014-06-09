@@ -104,5 +104,27 @@ namespace KotProno2.Controllers
         {
             return _contextProvider.Context.TopScorers;
         }
+
+        [HttpPost]
+        [Authorize]
+        public void AddScores(object data)
+        {
+            if (User.Identity.Name != "petermorlion")
+            {
+                return;
+            }
+
+            var command = new AddScoresCommand
+            {
+                DateTime = DateTime.Now,
+                Name = "AddScores",
+                Data = data,
+                UserName = User.Identity.Name,
+            };
+
+            command.Execute(_contextProvider.Context);
+            _contextProvider.Context.Commands.Add(command);
+            _contextProvider.Context.SaveChangesAsync();
+        }
     }
 }

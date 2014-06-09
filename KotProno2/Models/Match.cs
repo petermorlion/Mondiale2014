@@ -25,5 +25,8 @@ namespace KotProno2.Models
 
         public string Date { get; set; }
         public string Time { get; set; }
+
+        public int? HomeScore { get; set; }
+        public int? AwayScore { get; set; }
     }
 }

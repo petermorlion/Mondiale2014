@@ -13,7 +13,6 @@ namespace KotProno2.Models
         {
             var data = this.Data as JObject;
             var bettings = data["newBettings"] as JArray;
-            //TODO: save multiple bettings
             foreach (var betting in bettings)
             {
                 var matchId = (int)betting["matchId"];

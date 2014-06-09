@@ -18,8 +18,6 @@ namespace KotProno2.EntityFramework
             // TODO: not necessary? See 'Create your ObjectContext/DbContext Dynamically (in the documentation)
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
-
-            Database.SetInitializer<MatchesDbContext>(new System.Data.Entity.MigrateDatabaseToLatestVersion<MatchesDbContext, Configuration>());
         }
 
         public DbSet<Match> Matches { get; set; }

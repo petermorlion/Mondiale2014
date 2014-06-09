@@ -1,4 +1,5 @@
 ﻿using KotProno2.EntityFramework;
+using KotProno2.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,6 +16,8 @@ namespace KotProno2
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<MatchesDbContext>(new MigrateDatabaseToLatestVersion<MatchesDbContext, Configuration>());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

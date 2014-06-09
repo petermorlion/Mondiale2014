@@ -218,8 +218,13 @@
     <Compile Include="Migrations\201406081936342_v1.1.0.Designer.cs">
       <DependentUpon>201406081936342_v1.1.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406091516167_v1.2.0.cs" />
+    <Compile Include="Migrations\201406091516167_v1.2.0.Designer.cs">
+      <DependentUpon>201406091516167_v1.2.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddScoresCommand.cs" />
     <Compile Include="Models\AddBettingsCommand.cs" />
     <Compile Include="Models\Betting.cs" />
     <Compile Include="Models\Command.cs" />
@@ -606,6 +611,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406081936342_v1.1.0.resx">
       <DependentUpon>201406081936342_v1.1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406091516167_v1.2.0.resx">
+      <DependentUpon>201406091516167_v1.2.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
