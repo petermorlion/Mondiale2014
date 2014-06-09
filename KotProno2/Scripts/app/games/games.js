@@ -21,6 +21,7 @@
         vm.title = "De matchen";
         vm.save = save;
         vm.showOtherBettings = showOtherBettings;
+        vm.showAllTopscorers = showAllTopscorers;
 
         //TODO: async
         getGameBettings();
@@ -191,10 +192,11 @@
                 }
             }
 
+
             $http({
                 method: 'POST',
                 url: '/breeze/matches/AddBettings',
-                data: { newBettings: newBettings, topScorer: vm.topscorer }
+                data: { newBettings: newBettings, topScorer: { TopScorerName: vm.topscorer.TopScorerName } }
             }).success(function (data, status, headers, config) {
                 for (var i = 0; i < newBettings.length; i++) {
                     newBettings[i].gameBetting.isReadOnly = true;
@@ -220,14 +222,12 @@
         }
 
         function showAllTopscorers() {
-            $http({
-                method: 'GET',
-                url: '/breeze/matches/TopScorers'
-            }).success(function (data, status, headers, config) {
-                vm.allTopscorers = data.results;
-            }).error(function (data, status, headers, config) {
-                alert('error');
-            });
+            var topScorerQuery = EntityQuery.from('TopScorers');
+            return manager.executeQuery(topScorerQuery)
+                .then(function (data) {
+                    vm.allTopscorers = data.results;
+                })
+                .catch(queryFailed);
         }
     }]);
 })();

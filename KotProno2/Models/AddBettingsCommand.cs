@@ -31,6 +31,11 @@ namespace KotProno2.Models
                 context.Bettings.Add(newBetting);   
             }
 
+            if (data["topScorer"] == null)
+            {
+                return;
+            }
+
             var topScorer = data["topScorer"]["TopScorerName"].ToString();
             if (string.IsNullOrEmpty(topScorer))
             {
