@@ -13,9 +13,7 @@
         Vergeet ook niet in te vullen wie je denkt dat topscorer zal worden over het hele toernooi. Ook dit kan je achteraf
         niet meer wijzigen.
     </p>
-    <p>
-        De topscorer wordt <input class="form-control form-inline" ng-model="vm.topscorer.TopScorerName" ng-disabled="vm.topscorer.isReadOnly" />
-    </p>
+    
     <div class="matches-side-panel">
         <div class="game-bettings-save">
             <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
@@ -39,6 +37,16 @@
     
     <form class="form-inline">
         <div class="container-fluid">
+            <div class="row text-center">
+                <p>
+                    De topscorer wordt <input class="form-control form-inline" ng-model="vm.topscorer.TopScorerName" ng-disabled="vm.topscorer.isReadOnly" />
+                    <button type="button"
+                            class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
+                            title="De andere topscorer-pronostieken bekijken"
+                            ng-click="vm.showAllTopscorers()"
+                            ng-show="vm.topscorer.isReadOnly"></button>
+                </p>
+            </div>
             <div class="row">
                 <div ng-repeat="gameBettingGroup in vm.gameBettingGroups" class="col-md-12 col-sm-12 col-xs-12 text-center">
                     <h4>{{gameBettingGroup.date | date}}</h4>
@@ -49,10 +57,11 @@
                             <input ng-model="gameBetting.homeBetting" ng-disabled="gameBetting.isReadOnly" class="form-control form-inline" />
                             <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" class="form-control form-inline" />
                             <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
-                            <i class="other-bettings-icon glyphicon glyphicon-question-sign"
-                               title="De andere pronostieken bekijken"
-                               ng-click="vm.showOtherBettings(gameBetting.matchId)"
-                               ng-show="gameBetting.isReadOnly"></i>
+                            <button type="button"
+                                    class="other-bettings-icon glyphicon glyphicon-question-sign"
+                                    title="De andere pronostieken bekijken"
+                                    ng-click="vm.showOtherBettings(gameBetting.matchId)"
+                                    ng-show="gameBetting.isReadOnly"></button>
                         </div>
                     </div>
                 </div>

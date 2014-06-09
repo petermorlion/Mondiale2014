@@ -46,6 +46,7 @@ input[type="checkbox"].input-validation-error {
 
 .other-bettings-icon {
     cursor: pointer;
+    font-size: 18px;
 }
 
 .match-details {
