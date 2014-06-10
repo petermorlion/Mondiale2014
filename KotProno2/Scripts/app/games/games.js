@@ -61,7 +61,7 @@
                 vm.topscorer = data.results[0];
                 vm.topscorer.isReadOnly = true;
             } else {
-                vm.topScorer = { TopScorerName : '', isReadOnly : false };
+                vm.topscorer = { TopScorerName : '', isReadOnly : false };
             }
         }
 

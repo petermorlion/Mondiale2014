@@ -28,5 +28,26 @@ namespace KotProno2.Models
 
         public int? HomeScore { get; set; }
         public int? AwayScore { get; set; }
+
+        public MatchResult GetMatchResult()
+        {
+            if (!HomeScore.HasValue || !AwayScore.HasValue)
+            {
+                return MatchResult.Draw;
+            }
+
+            if (HomeScore - AwayScore > 0)
+            {
+                return MatchResult.HomeWon;
+            }
+            else if (HomeScore - AwayScore < 0)
+            {
+                return MatchResult.AwayWon;
+            }
+            else
+            {
+                return MatchResult.Draw;
+            }
+        }
     }
 }

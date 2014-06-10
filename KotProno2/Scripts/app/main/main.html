@@ -1,4 +1,17 @@
-﻿<div>
-    <h1>De stand</h1>
-    Hier komt weldra de stand van onze onderlinge pronostiek :)
-</div>
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="points as vm">
+    <h1>{{vm.title}}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Gebruiker</th>
+                <th>Punten</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="points in vm.points">
+                <td>{{points.UserName}}</td>
+                <td>{{points.Total}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

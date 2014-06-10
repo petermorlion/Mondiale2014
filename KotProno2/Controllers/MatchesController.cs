@@ -126,5 +126,48 @@ namespace KotProno2.Controllers
             _contextProvider.Context.Commands.Add(command);
             _contextProvider.Context.SaveChangesAsync();
         }
+
+        // ~/breeze/matches/Points
+        [HttpGet]
+        [Authorize]
+        public IQueryable<Points> Points()
+        {
+            var result = new List<Points>();
+            var bettings = _contextProvider.Context.Bettings.ToList();
+            var matches = _contextProvider.Context.Matches.ToList();
+            foreach (var match in matches)
+            {
+                var bettingsForMatch = bettings.Where(x => x.MatchId == match.Id);
+                foreach (var bettingForMatch in bettingsForMatch)
+                {
+                    var userName = bettingForMatch.UserName;
+                    var points = result.SingleOrDefault(x => x.UserName == userName);
+                    if (points == null)
+                    {
+                        points = new Points { UserName = userName };
+                        result.Add(points);
+                    }
+
+                    if (bettingForMatch.HomeScore == match.HomeScore
+                        && bettingForMatch.AwayScore == match.AwayScore)
+                    {
+                        points.Total += 2;
+                    }
+                    else if (BettingHasCorrectResult(bettingForMatch, match))
+                    {
+                        points.Total += 1;
+                    }
+                }
+            }
+
+            return result.AsQueryable();
+        }
+
+        private bool BettingHasCorrectResult(Betting bettingForMatch, Match match)
+        {
+            var bettingResult = bettingForMatch.GetMatchResult();
+            var realResult = match.GetMatchResult();
+            return bettingResult == realResult;
+        }
     }
 }

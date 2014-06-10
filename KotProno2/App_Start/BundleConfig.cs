@@ -36,7 +36,8 @@ namespace KotProno2
                       "~/Scripts/app/config.route.js",
                       "~/Scripts/app/main.js",
                       "~/Scripts/app/games/games.js",
-                      "~/Scripts/app/admin/admin.js"));
+                      "~/Scripts/app/admin/admin.js",
+                      "~/Scripts/app/main/points.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
