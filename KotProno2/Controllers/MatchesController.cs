@@ -135,6 +135,13 @@ namespace KotProno2.Controllers
             var result = new List<Points>();
             var bettings = _contextProvider.Context.Bettings.ToList();
             var matches = _contextProvider.Context.Matches.ToList();
+            var users = new ApplicationDbContext().Users.ToList();
+
+            foreach (var user in users)
+            {
+                result.Add(new Points { UserName = user.UserName });
+            }
+
             foreach (var match in matches)
             {
                 var bettingsForMatch = bettings.Where(x => x.MatchId == match.Id);

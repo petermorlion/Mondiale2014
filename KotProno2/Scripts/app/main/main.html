@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="points in vm.points">
+            <tr ng-repeat="points in vm.points | orderBy:'Total':true">
                 <td>{{points.UserName}}</td>
                 <td>{{points.Total}}</td>
             </tr>
