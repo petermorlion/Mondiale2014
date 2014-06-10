@@ -144,6 +144,11 @@ namespace KotProno2.Controllers
 
             foreach (var match in matches)
             {
+                if (!match.HomeScore.HasValue && !match.AwayScore.HasValue)
+                {
+                    continue;
+                }
+
                 var bettingsForMatch = bettings.Where(x => x.MatchId == match.Id);
                 foreach (var bettingForMatch in bettingsForMatch)
                 {
