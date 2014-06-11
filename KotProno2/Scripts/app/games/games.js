@@ -20,6 +20,7 @@
         var vm = this;
         vm.title = "De matchen";
         vm.save = save;
+        vm.gamesHaveBegun = true;
         vm.showOtherBettings = showOtherBettings;
         vm.showAllTopscorers = showAllTopscorers;
 
@@ -27,15 +28,24 @@
         getGameBettings();
 
         function getGameBettings() {
-            
-            var promises = [getMatches(), getBettings(), getTopScorer()];
-
+            var promises = [getMatches(), getBettings(), getTopScorer(), getCanSave()];
             $q.all(promises).then(gameBettingsQuerySucceeded).catch(queryFailed);
         }
 
         var games;
         var bettings;
         var teams = GetTeams();
+
+        function getCanSave() {
+            return $http({
+                method: 'GET',
+                url: '/breeze/matches/CanSave'
+            }).success(function (data, status, headers, config) {
+                vm.gamesHaveBegun = !data;
+            }).error(function (data, status, headers, config) {
+                alert('error');
+            });
+        }
 
         function getMatches() {
             var matchesQuery = EntityQuery.from('Matches');

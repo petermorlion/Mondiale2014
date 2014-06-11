@@ -129,7 +129,6 @@ namespace KotProno2.Controllers
 
         // ~/breeze/matches/Points
         [HttpGet]
-        [Authorize]
         public IQueryable<Points> Points()
         {
             var result = new List<Points>();
@@ -180,6 +179,13 @@ namespace KotProno2.Controllers
             var bettingResult = bettingForMatch.GetMatchResult();
             var realResult = match.GetMatchResult();
             return bettingResult == realResult;
+        }
+
+        // ~/breeze/matches/CanSave
+        [HttpGet]
+        public bool CanSave()
+        {
+            return DateTime.UtcNow < new DateTime(2014, 6, 12, 16, 0, 0, DateTimeKind.Utc);
         }
     }
 }
