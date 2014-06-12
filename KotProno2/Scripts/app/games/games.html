@@ -3,9 +3,9 @@
         <div class="game-bettings-save">
             <button type="button" class="btn btn-default" ng-click="vm.save()" ng-disabled="vm.gamesHaveBegun">Opslaan</button>
         </div>
-        <div style="overflow:scroll; height:80%;">
+        <div class="side-panel-details">
             <div ng-hide="vm.allTopscorers == null">
-                <h2>Alle topscorer-pronostieken</h2>
+                <h4>Alle topscorer-pronostieken</h4>
                 <table class="table table-striped"
                     <tr>
                         <th>Gebruiker</th>
@@ -19,7 +19,7 @@
             </div>
 
             <div ng-hide="vm.matchDetails == null">
-                <h2>{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h2>
+                <h4>{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h4>
                 <table class="table table-striped"
                     <tr>
                         <th>Gebruiker</th>
