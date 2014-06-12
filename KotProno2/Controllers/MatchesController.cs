@@ -59,7 +59,12 @@ namespace KotProno2.Controllers
         [Authorize]
         public void AddBettings(object data)
         {
-                        var command = new AddBettingsCommand
+            if (!CanSave())
+            {
+                return;
+            }
+
+            var command = new AddBettingsCommand
             {
                 DateTime = DateTime.Now,
                 Name = "AddBettings",
