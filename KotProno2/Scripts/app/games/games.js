@@ -18,7 +18,7 @@
         var manager = new breeze.EntityManager('/breeze/matches');
 
         var vm = this;
-        vm.title = "De matchen";
+        vm.title = "Pronostieken";
         vm.save = save;
         vm.gamesHaveBegun = true;
         vm.showOtherBettings = showOtherBettings;
