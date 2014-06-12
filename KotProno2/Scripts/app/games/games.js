@@ -226,6 +226,7 @@
                 params: { matchId: matchId }
             }).success(function (data, status, headers, config) {
                 vm.matchDetails = data;
+                vm.allTopscorers = null;
             }).error(function (data, status, headers, config) {
                 alert('error');
             });
@@ -236,6 +237,7 @@
             return manager.executeQuery(topScorerQuery)
                 .then(function (data) {
                     vm.allTopscorers = data.results;
+                    vm.matchDetails = null;
                 })
                 .catch(queryFailed);
         }

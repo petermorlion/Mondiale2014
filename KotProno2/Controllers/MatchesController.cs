@@ -59,7 +59,7 @@ namespace KotProno2.Controllers
         [Authorize]
         public void AddBettings(object data)
         {
-            var command = new AddBettingsCommand
+                        var command = new AddBettingsCommand
             {
                 DateTime = DateTime.Now,
                 Name = "AddBettings",
@@ -185,7 +185,7 @@ namespace KotProno2.Controllers
         [HttpGet]
         public bool CanSave()
         {
-            return DateTime.UtcNow < new DateTime(2014, 6, 12, 16, 0, 0, DateTimeKind.Utc);
+            return DateTime.UtcNow < new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
         }
     }
 }
