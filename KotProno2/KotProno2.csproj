@@ -232,6 +232,8 @@
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\MatchDetails.cs" />
     <Compile Include="Models\MatchResult.cs" />
+    <Compile Include="Models\Overview.cs" />
+    <Compile Include="Models\OverviewMatch.cs" />
     <Compile Include="Models\Points.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Teams.cs" />

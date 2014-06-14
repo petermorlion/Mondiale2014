@@ -29,6 +29,9 @@
             }, {
                 url: '/admin',
                 templateUrl: '/Scripts/app/admin/admin.html'
+            }, {
+                url: '/overview',
+                templateUrl: '/Scripts/app/overview/overview.html'
             }
         ];
     }

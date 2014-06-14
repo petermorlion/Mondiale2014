@@ -1,9 +1,23 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="overview as vm">
+    <h1>{{vm.title}}</h1>
 
-</body>
-</html>
+    <div class="loading-panel" ng-show="vm.isLoading">
+    </div>
+
+    <table class="table table-striped" ng-hide="vm.isLoading">
+        <thead>
+            <tr>
+                <th>Match</th>
+                <th>Score</th>
+                <th ng-repeat="user in vm.overview.UserNames">{{user}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="match in vm.overview.OverviewMatches">
+                <td>{{match.HomeTeamIsoCode}} - {{match.AwayTeamIsoCode}}</td>
+                <td>{{match.HomeScore}} - {{match.AwayScore}}</td>
+            </tr>
+        </tbody>
+    </table> 
+
+</section>

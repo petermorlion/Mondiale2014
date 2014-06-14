@@ -22,9 +22,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/#/">Stand</a></li>
+                    <li><a href="/#/overview">Overzicht</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a href="/#/games">Pronostieken</a></li>
+                        <li><a href="/#/games">Mijn pronostieken</a></li>
                     }
                     @*Ugly and wrong, but IsInRole doesn't work and no time*@
                     @if (User.Identity.Name == "petermorlion")

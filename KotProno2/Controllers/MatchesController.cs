@@ -192,5 +192,34 @@ namespace KotProno2.Controllers
         {
             return DateTime.UtcNow < new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
         }
+
+        // ~/breeze/matches/Overview
+        [HttpGet]
+        public Overview Overview()
+        {
+            var result = new Overview();
+            var users = new ApplicationDbContext().Users.OrderBy(x => x.UserName).ToList();
+            var bettings = _contextProvider.Context.Bettings.ToList();
+            var matches = _contextProvider.Context.Matches.OrderBy(x => x.DateTime).ToList();
+
+            foreach (var user in users)
+            {
+                result.UserNames.Add(user.UserName);
+            }
+
+            foreach (var match in matches)
+            {
+                var overviewMatch = new OverviewMatch();
+
+                overviewMatch.HomeTeamIsoCode = match.HomeTeamIsoCode;
+                overviewMatch.AwayTeamIsoCode = match.AwayTeamIsoCode;
+                overviewMatch.HomeScore = match.HomeScore;
+                overviewMatch.AwayScore = match.AwayScore;
+
+                result.OverviewMatches.Add(overviewMatch);
+            }
+
+            return result;
+        }
     }
 }
