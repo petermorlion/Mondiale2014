@@ -10,16 +10,18 @@
         vm.title = "Admin gedeelte";
         vm.games = [];
         vm.save = save;
-
+        
         getGames();
 
         function getGames() {
+            vm.isLoading = true;
             var matchesQuery = EntityQuery.from('Matches');
             return manager.executeQuery(matchesQuery).then(matchesQuerySucceeded).catch(queryFailed);
         }
 
         function matchesQuerySucceeded(data) {
             vm.games = data.results;
+            vm.isLoading = false;
         }
 
         function save() {

@@ -262,6 +262,7 @@
     <Content Include="Content\images\flags\flags48_semi.png" />
     <Content Include="Content\images\flags\flags64.png" />
     <Content Include="Content\images\flags\flags64_semi.png" />
+    <Content Include="Content\images\loading.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

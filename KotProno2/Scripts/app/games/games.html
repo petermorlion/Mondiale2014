@@ -39,19 +39,6 @@
 
     <div class="bettings-main">
         <h1>{{vm.title}}</h1>
-        <p>
-            Voer hier je pronostieken in. <strong>Opgepast!</strong> Eenmaal je een pronostiek voor een match hebt
-            ingevuld, kan je deze niet meer aanpassen. Je kan dan wel de pronostiek van de anderen zien door op
-            het vraagteken ernaast te klikken.
-        </p>
-        <p>
-            Klik op opslaan wanneer je zeker bent van je pronostieken. Je hoeft uiteraard niet alles in één keer
-            in te vullen. Je hebt tijd om een pronostiek in te vullen tot net vóór de match.
-        </p>
-        <p>
-            Vergeet ook niet in te vullen wie je denkt dat topscorer zal worden over het hele toernooi. Ook dit kan je achteraf
-            niet meer wijzigen.
-        </p>
 
         <form class="form-inline">
             <div class="container-fluid">
@@ -65,6 +52,10 @@
                                 ng-show="vm.topscorer.isReadOnly"></button>
                     </p>
                 </div>
+
+                <div class="loading-panel" ng-show="vm.isLoading">
+                </div>
+                
                 <div class="row">
                     <div ng-repeat="gameBettingGroup in vm.gameBettingGroups" class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <h4>{{gameBettingGroup.date | date}}</h4>

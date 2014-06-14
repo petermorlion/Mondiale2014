@@ -28,6 +28,7 @@
         getGameBettings();
 
         function getGameBettings() {
+            vm.isLoading = true;
             var promises = [getMatches(), getBettings(), getTopScorer(), getCanSave()];
             $q.all(promises).then(gameBettingsQuerySucceeded).catch(queryFailed);
         }
@@ -134,6 +135,8 @@
 
                 previousGameBettingGroup.gameBettings.push(gameBetting);
             }
+
+            vm.isLoading = false;
         };
 
         function queryFailed(data) {

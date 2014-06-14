@@ -9,6 +9,10 @@
     <div class="bettings-main">
         <form class="form-inline">
             <div class="container-fluid">
+
+                <div class="loading-panel" ng-show="vm.isLoading">
+                </div>
+
                 <div class="row">
                     <div ng-repeat="game in vm.games" class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <div class="f48">
