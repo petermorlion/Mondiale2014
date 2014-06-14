@@ -1,15 +1,9 @@
 ﻿<section id="dashboard-view" class="mainbar" data-ng-controller="points as vm">
     <h1>{{vm.title}}</h1>
-    <!--<p> Hier komt weldra de stand van onze onderlinge pronostiek :)</p>
-
-    <p>Ondertussen kan je je registreren (zie rechtsboven in de menubalk). Als je een Twitter, Microsoft of Google account hebt, kan je ook daar mee inloggen.</p>
-
-    <p>Als er vragen zijn: <a href="mailto:peter.morlion@live.be">peter.morlion@live.be</a> .</p>-->
-
     <div class="loading-panel" ng-show="vm.isLoading">
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped" ng-hide="vm.isLoading">
         <thead>
             <tr>
                 <th>Gebruiker</th>
