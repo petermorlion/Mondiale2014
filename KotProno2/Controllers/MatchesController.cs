@@ -242,6 +242,11 @@ namespace KotProno2.Controllers
 
         private string GetPointsClass(Betting betting, Match match)
         {
+            if (!match.HomeScore.HasValue && !match.AwayScore.HasValue)
+            {
+                return "";
+            }
+
             if (betting.HomeScore == match.HomeScore && betting.AwayScore == match.AwayScore)
             {
                 return "two-points";
