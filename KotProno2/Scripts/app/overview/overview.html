@@ -13,12 +13,12 @@
     <div class="loading-panel" ng-show="vm.isLoading">
     </div>
 
-    <table class="table table-striped table-hover" ng-hide="vm.isLoading">
+    <table class="table table-striped table-hover table-condensed" ng-hide="vm.isLoading">
         <thead>
             <tr>
                 <th>Match</th>
                 <th>Score</th>
-                <th ng-repeat="user in vm.overview.UserNames">{{user}}</th>
+                <th ng-repeat="user in vm.overview.UserNames" class="overview-betting">{{user}}</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
                     <span class="betting-flag flag {{match.AwayTeamIsoCode}}" title="{{match.AwayTeam}}"></span>
                 </td>
                 <td>{{match.HomeScore}} - {{match.AwayScore}}</td>
-                <td ng-repeat="betting in match.OverviewBettings" class="{{betting.PointsClass}}">{{betting.HomeScore}} - {{betting.AwayScore}}</td> 
+                <td ng-repeat="betting in match.OverviewBettings" class="overview-betting {{betting.PointsClass}}" >{{betting.HomeScore}} - {{betting.AwayScore}}</td>
             </tr>
         </tbody>
     </table> 

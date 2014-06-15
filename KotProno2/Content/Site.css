@@ -92,3 +92,7 @@ input[type="checkbox"].input-validation-error {
 .example-points {
     padding: 8px;
 }
+
+.overview-betting {
+    text-align: center;
+}
