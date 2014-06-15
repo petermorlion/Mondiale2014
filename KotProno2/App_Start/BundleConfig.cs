@@ -44,7 +44,8 @@ namespace KotProno2
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/flags/common.css",
-                      "~/Content/flags/flags48.css"));
+                      "~/Content/flags/flags48.css",
+                      "~/Content/flags/flags24.css"));
         }
     }
 }

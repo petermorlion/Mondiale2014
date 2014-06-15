@@ -12,6 +12,8 @@ namespace KotProno2.Models
             OverviewBettings = new List<OverviewBetting>();
         }
 
+        public string HomeTeam { get; set; }
+        public string AwayTeam { get; set; }
         public string HomeTeamIsoCode { get; set; }
         public string AwayTeamIsoCode { get; set; }
         public int? HomeScore { get; set; }

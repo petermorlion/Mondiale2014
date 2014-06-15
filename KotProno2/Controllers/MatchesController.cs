@@ -217,6 +217,18 @@ namespace KotProno2.Controllers
                 overviewMatch.HomeScore = match.HomeScore;
                 overviewMatch.AwayScore = match.AwayScore;
 
+                var homeTeam = Teams.All.SingleOrDefault(x => x.IsoCode == match.HomeTeamIsoCode);
+                if (homeTeam != null)
+                {
+                    overviewMatch.HomeTeam = homeTeam.Name;
+                }
+
+                var awayTeam = Teams.All.SingleOrDefault(x => x.IsoCode == match.AwayTeamIsoCode);
+                if (awayTeam != null)
+                {
+                    overviewMatch.AwayTeam = awayTeam.Name;
+                }
+
                 if (bettings.Contains(match.Id))
                 {
                     var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);

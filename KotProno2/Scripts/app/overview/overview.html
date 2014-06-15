@@ -24,9 +24,9 @@
         <tbody>
             <tr ng-repeat="match in vm.overview.OverviewMatches">
                 <td class="f24">
-                    <span class="betting-flag flag {{match.HomeTeamIsoCode}}"></span>
+                    <span class="betting-flag flag {{match.HomeTeamIsoCode}}" title="{{match.HomeTeam}}"></span>
                     -
-                    <span class="betting-flag flag {{match.AwayTeamIsoCode}}"></span>
+                    <span class="betting-flag flag {{match.AwayTeamIsoCode}}" title="{{match.AwayTeam}}"></span>
                 </td>
                 <td>{{match.HomeScore}} - {{match.AwayScore}}</td>
                 <td ng-repeat="betting in match.OverviewBettings" class="{{betting.PointsClass}}">{{betting.HomeScore}} - {{betting.AwayScore}}</td> 
