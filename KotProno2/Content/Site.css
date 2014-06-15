@@ -80,3 +80,15 @@ input[type="checkbox"].input-validation-error {
     background-size: 40px;
     background-repeat: no-repeat;
 }
+
+.two-points {
+    background-color: #4dbf2c !important;
+}
+
+.one-point {
+    background-color: #fc7318 !important;
+}
+
+.example-points {
+    padding: 8px;
+}

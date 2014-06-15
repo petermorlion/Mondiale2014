@@ -199,9 +199,10 @@ namespace KotProno2.Controllers
         {
             var result = new Overview();
             var users = new ApplicationDbContext().Users.OrderBy(x => x.UserName).ToList();
-            var bettings = _contextProvider.Context.Bettings.ToList();
+            var bettings = _contextProvider.Context.Bettings.ToLookup(x => x.MatchId);
             var matches = _contextProvider.Context.Matches.OrderBy(x => x.DateTime).ToList();
 
+            //TODO: this code assumes all users have entered all bettings
             foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
@@ -216,10 +217,42 @@ namespace KotProno2.Controllers
                 overviewMatch.HomeScore = match.HomeScore;
                 overviewMatch.AwayScore = match.AwayScore;
 
+                if (bettings.Contains(match.Id))
+                {
+                    var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);
+                    foreach (var betting in bettingsForMatch)
+                    {
+                        var overviewBetting = new OverviewBetting
+                        {
+                            HomeScore = betting.HomeScore,
+                            AwayScore = betting.AwayScore,
+                            PointsClass = GetPointsClass(betting, match)
+                        };
+
+                        overviewMatch.OverviewBettings.Add(overviewBetting);
+                    }
+                }
+                               
+
                 result.OverviewMatches.Add(overviewMatch);
             }
 
             return result;
+        }
+
+        private string GetPointsClass(Betting betting, Match match)
+        {
+            if (betting.HomeScore == match.HomeScore && betting.AwayScore == match.AwayScore)
+            {
+                return "two-points";
+            }
+
+            if (betting.GetMatchResult() == match.GetMatchResult())
+            {
+                return "one-point";
+            }
+
+            return "";
         }
     }
 }
