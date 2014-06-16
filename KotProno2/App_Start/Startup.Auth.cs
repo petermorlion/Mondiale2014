@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System.Configuration;
 
 namespace KotProno2
 {
@@ -22,13 +23,12 @@ namespace KotProno2
 
             // Uncomment the following lines to enable logging in with third party login providers
             app.UseMicrosoftAccountAuthentication(
-                clientId: Secrets.MicrosoftClientId,
-                clientSecret: Secrets.MicrosoftClientSecret);
+                clientId: ConfigurationManager.AppSettings["MicrosoftClientId"],
+                clientSecret: ConfigurationManager.AppSettings["MicrosoftClientSecret"]);
 
             app.UseTwitterAuthentication(
-               consumerKey: Secrets.TwitterKey,
-               //TODO: change and ignore file before push to public github
-               consumerSecret: Secrets.TwitterSecret);
+               consumerKey: ConfigurationManager.AppSettings["TwitterKey"],
+               consumerSecret: ConfigurationManager.AppSettings["TwitterSecret"]);
 
             //app.UseFacebookAuthentication(
             //   appId: "",
