@@ -299,6 +299,7 @@
     <Content Include="Scripts\app\main\points.js" />
     <Content Include="Scripts\app\overview\overview.html" />
     <Content Include="Scripts\app\overview\overview.js" />
+    <Content Include="Scripts\app\tableheader.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Mondiale2014 - FTP.pubxml" />
