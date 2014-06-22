@@ -1,7 +1,5 @@
 ﻿(function ($) {
-
-
-    var initializeTable = function() {
+    var initializeTable = function () {
         var table = $('table.table-fixed-header');
         var tableHeader = table.find('thead');
         var clonedHeader = tableHeader.clone(true);
@@ -17,17 +15,29 @@
             .appendTo(fixedTable);
 
         var y = tableHeader.position().top - navbarHeight;
-        console.log('y: ' + y);
-
-        $(window).scroll(function () {
+        var handleScroll = function () {
             if ($(window).scrollTop() > y) {
                 clonedHeader.show();
             } else {
                 clonedHeader.hide();
             }
+        };
+
+        handleScroll();
+        
+        $(window).scroll(function () {
+            handleScroll();
         });
     };
 
-    setTimeout(function () { initializeTable(); }, 3000);
+    var isInitialized = false;
+    $(window).scroll(function () {
+        if (!isInitialized) {
+            console.log('initializing...');
+            initializeTable();
+            isInitialized = true;
+            console.log('initialized!');
+        }
+    });
 
 })(jQuery);
