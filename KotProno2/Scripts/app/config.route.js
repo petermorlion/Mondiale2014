@@ -32,6 +32,9 @@
             }, {
                 url: '/overview',
                 templateUrl: '/Scripts/app/overview/overview.html'
+            }, {
+                url: '/statistics',
+                templateUrl: '/Scripts/app/statistics/statistics.html'
             }
         ];
     }

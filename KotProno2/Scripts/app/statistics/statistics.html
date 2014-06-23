@@ -1,0 +1,19 @@
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="statistics as vm">
+    <h1>{{vm.title}}</h1>
+    
+    <div class="loading-panel" ng-show="vm.isLoading">
+    </div>
+
+    <div ng-hide="vm.isLoading">
+        Meeste keren een exact juiste pronostiek ({{vm.mostExactResults}} keer):
+        <span ng-repeat="username in vm.mostExactResultsUsers">{{username}}{{$last === false ? ',' : ''}}</span>
+    </div>
+
+    <div ng-hide="vm.isLoading">
+        Minste keren een exact juiste pronostiek ({{vm.leastExactResults}} keer):
+        <span ng-repeat="username in vm.leastExactResultsUsers">{{username}}{{$last === false ? ',' : ''}}</span>
+    </div>
+
+    <div id="container" style="margin: 0 auto"></div>
+
+</section>
