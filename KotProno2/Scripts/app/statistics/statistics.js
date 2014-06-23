@@ -10,11 +10,23 @@
             
             vm.isLoading = true;
 
+            Highcharts.setOptions({
+                lang: {
+                    resetZoom: 'Zoom resetten'
+                }
+            });
+
             $http({
                 method: 'GET',
                 url: '/breeze/matches/Statistics'
             }).success(function (data, status, headers, config) {
                 var pointsGraphData = {
+                    chart: { zoomType: 'xy' },
+                    subtitle: {
+                        text: document.ontouchstart === undefined ?
+                            'Klik en trek een kader op de grafiek om in te zoomen' :
+                            'Gebruik twee vingers om in te zoomen'
+                    },
                     title: {
                         text: 'Puntenopbouw',
                         x: -20 //center
@@ -24,7 +36,10 @@
                         crosshairs: true
                     },
                     xAxis: { categories: [] },
-                    yAxis: { plotLines: [{ value: 0, width: 1, color: '#808080' }] },
+                    yAxis: {
+                        plotLines: [{ value: 0, width: 1, color: '#808080' }],
+                        min: 0
+                    },
                     series: []
                 }
 
