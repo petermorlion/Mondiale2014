@@ -24,8 +24,8 @@
                     chart: { zoomType: 'xy' },
                     subtitle: {
                         text: document.ontouchstart === undefined ?
-                            'Klik en trek een kader op de grafiek om in te zoomen' :
-                            'Gebruik twee vingers om in te zoomen'
+                            'Klik en trek een kader op de grafiek om in te zoomen. Klik op een naam om die lijn in/uit te schakelen.' :
+                            'Gebruik twee vingers om in te zoomen. Druk op een naam om die lijn in/uit te schakelen.'
                     },
                     title: {
                         text: 'Puntenopbouw',
@@ -38,7 +38,8 @@
                     xAxis: { categories: [] },
                     yAxis: {
                         plotLines: [{ value: 0, width: 1, color: '#808080' }],
-                        min: 0
+                        min: 0,
+                        title: { text: 'Punten' }
                     },
                     series: []
                 }
