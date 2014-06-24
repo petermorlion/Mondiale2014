@@ -32,23 +32,40 @@ namespace KotProno2.Migrations
             //    );
             //
 
-            CreateGroupRoundMatches(context);
-            // TODO: has nothing to do with matches, shouldn't be here.
-            //CreateAdminRole();
+            CreateGroupstageMatches(context);
+            UpdateGroupStageMatches(context);
+            CreateEighthFinalMatches(context);
         }
 
-        //private void CreateAdminRole()
-        //{
-        //    if (!Roles.RoleExists("admin"))
-        //    {
-        //        Roles.CreateRole("admin");
-        //    }
-        //}
+        private void CreateEighthFinalMatches(MatchesDbContext context)
+        {
+            var persistedEighthFinalMatches = context.Matches.Where(x => x.DateTime > new DateTime(2014, 6, 26, 22, 0, 0)).ToList();
+            var eighthFinal1 = new Match { DateTime = new DateTime(2014, 6, 28, 18, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Chili.IsoCode };
+            var eighthFinal2 = new Match { DateTime = new DateTime(2014, 6, 29, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode };
+            var eighthFinalMatches = new[] { eighthFinal1, eighthFinal2 };
+            foreach (var match in eighthFinalMatches)
+            {
+                if (!persistedEighthFinalMatches.Any(x => x.IsSameAs(match)))
+                {
+                    context.Matches.Add(match);
+                }
+            }
+        }
 
-        private void CreateGroupRoundMatches(MatchesDbContext context)
+        private void UpdateGroupStageMatches(MatchesDbContext context)
+        {
+            var groupStageMatches = context.Matches.Where(x => x.DateTime <= new DateTime(2014, 6, 26, 22, 0, 0));
+            foreach (var match in groupStageMatches)
+            {
+                match.Stage = Stage.GroupStage;
+            }
+        }
+
+        private void CreateGroupstageMatches(MatchesDbContext context)
         {
             var lastMatch = new Match { DateTime = new DateTime(2014, 6, 26, 22, 0, 0), HomeTeamIsoCode = Teams.Algeria.IsoCode, AwayTeamIsoCode = Teams.Russia.IsoCode };
-            if (context.Matches.SingleOrDefault(x => x.DateTime == lastMatch.DateTime && x.HomeTeamIsoCode == lastMatch.HomeTeamIsoCode && x.AwayTeamIsoCode == lastMatch.AwayTeamIsoCode) != null)
+            var persistedMatches = context.Matches.ToList();
+            if (persistedMatches.SingleOrDefault(x => x.IsSameAs(lastMatch)) != null)
             {
                 return;
             }

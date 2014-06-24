@@ -29,6 +29,8 @@ namespace KotProno2.Models
         public int? HomeScore { get; set; }
         public int? AwayScore { get; set; }
 
+        public Stage Stage { get; set; }
+
         public MatchResult GetMatchResult()
         {
             if (!HomeScore.HasValue || !AwayScore.HasValue)
@@ -48,6 +50,13 @@ namespace KotProno2.Models
             {
                 return MatchResult.Draw;
             }
+        }
+
+        public bool IsSameAs(Match match)
+        {
+            return DateTime == match.DateTime 
+                && HomeTeamIsoCode == match.HomeTeamIsoCode 
+                && AwayTeamIsoCode == match.AwayTeamIsoCode;
         }
     }
 }
