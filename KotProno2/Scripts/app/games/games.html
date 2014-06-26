@@ -3,37 +3,51 @@
         <div class="game-bettings-save">
             
         </div>
-        <div class="side-panel-details">
-            <div ng-hide="vm.allTopscorers == null">
-                <h4>Alle topscorer-pronostieken</h4>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Gebruiker</th>
-                        <th>Topscorer</th>
-                    </tr>
-                    <tr ng-repeat="topscorer in vm.allTopscorers">
-                        <td>{{topscorer.UserName}}</td>
-                        <td>{{topscorer.TopScorerName}}</td>
-                    </tr>
-                </table>
-            </div>
+        <div class="modal" id="detailsModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" ng-hide="vm.matchDetails == null">{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h4>
+                        <h4 class="modal-title" ng-hide="vm.allTopscorers == null">Alle topscorer-pronostieken</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div ng-hide="vm.allTopscorers == null">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Gebruiker</th>
+                                    <th>Topscorer</th>
+                                </tr>
+                                <tr ng-repeat="topscorer in vm.allTopscorers">
+                                    <td>{{topscorer.UserName}}</td>
+                                    <td>{{topscorer.TopScorerName}}</td>
+                                </tr>
+                            </table>
+                        </div>
 
-            <div ng-hide="vm.matchDetails == null">
-                <h4>{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h4>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Gebruiker</th>
-                        <th>{{vm.matchDetails.HomeTeamName}}</th>
-                        <th>{{vm.matchDetails.AwayTeamName}}</th>
-                    </tr>
-                    <tr ng-repeat="betting in vm.matchDetails.Bettings">
-                        <td>{{betting.UserName}}</td>
-                        <td>{{betting.HomeScore}}</td>
-                        <td>{{betting.AwayScore}}</td>
-                    </tr>
-                </table>
+                        <div ng-hide="vm.matchDetails == null">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Gebruiker</th>
+                                    <th>{{vm.matchDetails.HomeTeamName}}</th>
+                                    <th>{{vm.matchDetails.AwayTeamName}}</th>
+                                </tr>
+                                <tr ng-repeat="betting in vm.matchDetails.Bettings">
+                                    <td>{{betting.UserName}}</td>
+                                    <td>{{betting.HomeScore}}</td>
+                                    <td>{{betting.AwayScore}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 
@@ -58,7 +72,9 @@
                                 class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
                                 title="De andere topscorer-pronostieken bekijken"
                                 ng-click="vm.showAllTopscorers()"
-                                ng-show="vm.topscorer.isReadOnly"></button>
+                                ng-show="vm.topscorer.isReadOnly"
+                                data-toggle="modal"
+                                data-target="#detailsModal"></button>
                     </p>
                 </div>
 
@@ -79,7 +95,9 @@
                                         class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
                                         title="De andere pronostieken bekijken"
                                         ng-click="vm.showOtherBettings(gameBetting.matchId)"
-                                        ng-show="gameBetting.isReadOnly"></button>
+                                        ng-show="gameBetting.isReadOnly"
+                                        data-toggle="modal"
+                                        data-target="#detailsModal"></button>
                             </div>
                         </div>
                     </div>
