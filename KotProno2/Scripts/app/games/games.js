@@ -23,6 +23,9 @@
         vm.gamesHaveBegun = true;
         vm.showOtherBettings = showOtherBettings;
         vm.showAllTopscorers = showAllTopscorers;
+        vm.showStage = showStage;
+        vm.isActiveStage = isActiveStage;
+        vm.stageFilter = { stage: 'GroupStage' };
 
         //TODO: async
         getGameBettings();
@@ -112,7 +115,8 @@
                 if (!previousDate || currentDate !== previousDate) {
                     var gameBettingGroup = {
                         date: new Date(currentDate),
-                        gameBettings: []
+                        gameBettings: [],
+                        stage: currentGame.Stage
                     }
 
                     vm.gameBettingGroups.push(gameBettingGroup);
@@ -242,6 +246,14 @@
                     vm.matchDetails = null;
                 })
                 .catch(queryFailed);
+        }
+
+        function showStage(stage) {
+            vm.stageFilter.stage = stage;
+        }
+
+        function isActiveStage(stage) {
+            return stage === vm.stageFilter.stage;
         }
     }]);
 })();

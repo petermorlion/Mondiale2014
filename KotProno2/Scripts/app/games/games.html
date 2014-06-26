@@ -38,7 +38,11 @@
     </div>
 
     <div class="bettings-main">
-        <h1>{{vm.title}}</h1>
+
+        <ul class="nav nav-tabs">
+            <li ng-class="{ active: vm.isActiveStage('GroupStage')}"><a href="" ng-click="vm.showStage('GroupStage')">Groepsronde</a></li>
+            <li ng-class="{ active: vm.isActiveStage('EighthFinals')}"><a href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
+        </ul>
 
         <form class="form-inline">
             <div class="container-fluid">
@@ -57,7 +61,7 @@
                 </div>
                 
                 <div class="row">
-                    <div ng-repeat="gameBettingGroup in vm.gameBettingGroups" class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage" class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <h4>{{gameBettingGroup.date | date}}</h4>
                         <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                             <div class="f48">

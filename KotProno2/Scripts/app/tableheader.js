@@ -1,6 +1,9 @@
 ﻿(function ($) {
     var initializeTable = function () {
         var table = $('table.table-fixed-header');
+        if (table.length === 0)
+            return;
+
         var tableHeader = table.find('thead');
         var clonedHeader = tableHeader.clone(true);
 
