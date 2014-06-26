@@ -40,8 +40,8 @@ namespace KotProno2.Migrations
         private void CreateEighthFinalMatches(MatchesDbContext context)
         {
             var persistedEighthFinalMatches = context.Matches.Where(x => x.DateTime > new DateTime(2014, 6, 26, 22, 0, 0)).ToList();
-            var eighthFinal1 = new Match { DateTime = new DateTime(2014, 6, 28, 18, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Chili.IsoCode };
-            var eighthFinal2 = new Match { DateTime = new DateTime(2014, 6, 29, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode };
+            var eighthFinal1 = new Match { DateTime = new DateTime(2014, 6, 28, 18, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Chili.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal2 = new Match { DateTime = new DateTime(2014, 6, 29, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode, Stage = Stage.EighthFinals };
             var eighthFinalMatches = new[] { eighthFinal1, eighthFinal2 };
             foreach (var match in eighthFinalMatches)
             {

@@ -31,6 +31,8 @@ namespace KotProno2.Models
 
         public Stage Stage { get; set; }
 
+        public bool IsReadOnly { get; set; }
+
         public MatchResult GetMatchResult()
         {
             if (!HomeScore.HasValue || !AwayScore.HasValue)

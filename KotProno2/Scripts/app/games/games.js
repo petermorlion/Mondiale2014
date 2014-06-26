@@ -101,11 +101,10 @@
                 var betting = bettingsByGameId[games[i].Id];
                 var homeBetting = '';
                 var awayBetting = '';
-                var isReadOnly = false;
+                
                 if (betting) {
                     homeBetting = betting.HomeScore;
                     awayBetting = betting.AwayScore;
-                    isReadOnly = true;
                 }
 
                 var currentGame = games[i];
@@ -130,7 +129,7 @@
                     awayDescription: teams[currentGame.AwayTeamIsoCode],
                     homeBetting: homeBetting,
                     awayBetting: awayBetting,
-                    isReadOnly: isReadOnly
+                    isReadOnly: currentGame.IsReadOnly
                 };
 
                 previousGameBettingGroup.gameBettings.push(gameBetting);

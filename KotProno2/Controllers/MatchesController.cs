@@ -36,7 +36,34 @@ namespace KotProno2.Controllers
         [HttpGet]
         public IQueryable<Match> Matches()
         {
-            return _contextProvider.Context.Matches;
+            // TODO: split into a domain Match and a viewmodel Match
+            var matches = _contextProvider.Context.Matches;
+            foreach (var match in matches)
+            {
+                switch (match.Stage)
+                {
+                    case Stage.GroupStage:
+                        match.IsReadOnly = DateTime.UtcNow >= new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.EighthFinals:
+                        match.IsReadOnly = DateTime.UtcNow >= new DateTime(2014, 6, 28, 16, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.QuarterFinals:
+                        match.IsReadOnly = DateTime.UtcNow >= new DateTime(2014, 7, 04, 16, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.SemiFinals:
+                        match.IsReadOnly = DateTime.UtcNow >= new DateTime(2014, 7, 08, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.Finals:
+                        match.IsReadOnly = DateTime.UtcNow >= new DateTime(2014, 7, 12, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    default:
+                        match.IsReadOnly = true;
+                        break;
+                }
+            }
+
+            return matches;
         }
 
         // ~/breeze/matches/Bettings
