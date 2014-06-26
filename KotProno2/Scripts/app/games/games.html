@@ -1,7 +1,7 @@
 ﻿<section id="dashboard-view" class="mainbar" data-ng-controller="games as vm">
     <div class="matches-side-panel">
         <div class="game-bettings-save">
-            <button type="button" class="btn btn-default" ng-click="vm.save()" ng-disabled="vm.gamesHaveBegun">Opslaan</button>
+            
         </div>
         <div class="side-panel-details">
             <div ng-hide="vm.allTopscorers == null">
@@ -37,17 +37,22 @@
         </div>
     </div>
 
-    <div class="bettings-main">
-
+    <div class="bettings-tabs">
         <ul class="nav nav-tabs">
             <li ng-class="{ active: vm.isActiveStage('GroupStage')}"><a href="" ng-click="vm.showStage('GroupStage')">Groepsronde</a></li>
             <li ng-class="{ active: vm.isActiveStage('EighthFinals')}"><a href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
         </ul>
+    </div>
 
-        <form class="form-inline">
+    <div class="bettings-main">
+        <form class="form-inline games-list">
+            <div class="save-container">
+                <button type="button" class="btn btn-default" ng-click="vm.save()" ng-disabled="vm.gamesHaveBegun">Opslaan</button>
+            </div>
+
             <div class="container-fluid">
                 <div class="row text-center">
-                    <p>
+                    <p ng-show="vm.isActiveStage('GroupStage')">
                         De topscorer wordt <input class="form-control form-inline" ng-model="vm.topscorer.TopScorerName" ng-disabled="vm.topscorer.isReadOnly" />
                         <button type="button"
                                 class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
