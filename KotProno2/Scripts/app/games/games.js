@@ -20,7 +20,6 @@
         var vm = this;
         vm.title = "Pronostieken";
         vm.save = save;
-        vm.gamesHaveBegun = true;
         vm.showOtherBettings = showOtherBettings;
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
@@ -32,24 +31,13 @@
 
         function getGameBettings() {
             vm.isLoading = true;
-            var promises = [getMatches(), getBettings(), getTopScorer(), getCanSave()];
+            var promises = [getMatches(), getBettings(), getTopScorer()];
             $q.all(promises).then(gameBettingsQuerySucceeded).catch(queryFailed);
         }
 
         var games;
         var bettings;
         var teams = GetTeams();
-
-        function getCanSave() {
-            return $http({
-                method: 'GET',
-                url: '/breeze/matches/CanSave'
-            }).success(function (data, status, headers, config) {
-                vm.gamesHaveBegun = !data;
-            }).error(function (data, status, headers, config) {
-                alert('error');
-            });
-        }
 
         function getMatches() {
             var matchesQuery = EntityQuery.from('Matches');
@@ -195,9 +183,16 @@
             //TODO: async
             var newBettings = [];
             for (var i = 0; i < vm.gameBettingGroups.length; i++) {
-                for (var j = 0; j < vm.gameBettingGroups[i].gameBettings.length; j++) {
-                    var gameBetting = vm.gameBettingGroups[i].gameBettings[j];
-                    if (gameBetting.homeBetting !== '' && gameBetting.awayBetting !== '' && !gameBetting.isReadOnly) {
+                var gameBettingGroup = vm.gameBettingGroups[i];
+                if (gameBettingGroup.stage != vm.stageFilter.stage) {
+                    continue;
+                }
+
+                for (var j = 0; j < gameBettingGroup.gameBettings.length; j++) {
+                    var gameBetting = gameBettingGroup.gameBettings[j];
+                    if (gameBetting.homeBetting !== ''
+                            && gameBetting.awayBetting !== ''
+                            && !gameBetting.isReadOnly) {
                         newBettings.push({
                             gameBetting: gameBetting,
                             matchId: gameBetting.matchId,
@@ -214,9 +209,6 @@
                 url: '/breeze/matches/AddBettings',
                 data: { newBettings: newBettings, topScorer: { TopScorerName: vm.topscorer.TopScorerName } }
             }).success(function (data, status, headers, config) {
-                for (var i = 0; i < newBettings.length; i++) {
-                    newBettings[i].gameBetting.isReadOnly = true;
-                }
                 if (vm.topscorer.TopScorerName !== '') {
                     vm.topscorer.isReadOnly = true;
                 }
