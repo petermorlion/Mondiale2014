@@ -24,7 +24,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'GroupStage' };
+        vm.stageFilter = { stage: 'EighthFinals' };
 
         //TODO: async
         getGameBettings();
@@ -212,6 +212,8 @@
                 if (vm.topscorer.TopScorerName !== '') {
                     vm.topscorer.isReadOnly = true;
                 }
+
+                alert('De scores werden opgeslaan.')
             }).error(function (data, status, headers, config) {
                 alert('error');
             });
