@@ -19,19 +19,6 @@ namespace KotProno2.Migrations
 
         protected override void Seed(MatchesDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
             CreateGroupstageMatches(context);
             UpdateGroupStageMatches(context);
             CreateEighthFinalMatches(context);
@@ -41,8 +28,14 @@ namespace KotProno2.Migrations
         {
             var persistedEighthFinalMatches = context.Matches.Where(x => x.DateTime > new DateTime(2014, 6, 26, 22, 0, 0)).ToList();
             var eighthFinal1 = new Match { DateTime = new DateTime(2014, 6, 28, 18, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Chili.IsoCode, Stage = Stage.EighthFinals };
-            var eighthFinal2 = new Match { DateTime = new DateTime(2014, 6, 29, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode, Stage = Stage.EighthFinals };
-            var eighthFinalMatches = new[] { eighthFinal1, eighthFinal2 };
+            var eighthFinal2 = new Match { DateTime = new DateTime(2014, 6, 28, 22, 0, 0), HomeTeamIsoCode = Teams.Colombia.IsoCode, AwayTeamIsoCode = Teams.Uruguay.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal3 = new Match { DateTime = new DateTime(2014, 6, 29, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal4 = new Match { DateTime = new DateTime(2014, 6, 29, 22, 0, 0), HomeTeamIsoCode = Teams.CostaRica.IsoCode, AwayTeamIsoCode = Teams.Greece.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal5 = new Match { DateTime = new DateTime(2014, 6, 30, 18, 0, 0), HomeTeamIsoCode = Teams.France.IsoCode, AwayTeamIsoCode = Teams.Nigeria.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal6 = new Match { DateTime = new DateTime(2014, 6, 30, 22, 0, 0), HomeTeamIsoCode = Teams.Germany.IsoCode, AwayTeamIsoCode = Teams.Algeria.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal7 = new Match { DateTime = new DateTime(2014, 7, 01, 18, 0, 0), HomeTeamIsoCode = Teams.Argentinia.IsoCode, AwayTeamIsoCode = Teams.Switzerland.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinal8 = new Match { DateTime = new DateTime(2014, 7, 01, 22, 0, 0), HomeTeamIsoCode = Teams.Belgium.IsoCode, AwayTeamIsoCode = Teams.USA.IsoCode, Stage = Stage.EighthFinals };
+            var eighthFinalMatches = new[] { eighthFinal1, eighthFinal2, eighthFinal3, eighthFinal4, eighthFinal5, eighthFinal6, eighthFinal7, eighthFinal8 };
             foreach (var match in eighthFinalMatches)
             {
                 if (!persistedEighthFinalMatches.Any(x => x.IsSameAs(match)))
