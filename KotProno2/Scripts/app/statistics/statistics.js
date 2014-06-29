@@ -67,7 +67,7 @@
 
                 vm.isLoading = false;
             }).error(function (data, status, headers, config) {
-                alert('error');
+                toastr.error('Er is helaas een fout gebeurd.');
             });
         
     }]);

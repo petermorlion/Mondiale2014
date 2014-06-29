@@ -41,14 +41,16 @@ namespace KotProno2
                       "~/Scripts/app/statistics/statistics.js",
                       "~/Scripts/app/overview/overview.js",
                       "~/Scripts/app/tableheader.js",
-                      "~/Scripts/highcharts/highcharts.js"));
+                      "~/Scripts/highcharts/highcharts.js",
+                      "~/Scripts/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/flags/common.css",
                       "~/Content/flags/flags48.css",
-                      "~/Content/flags/flags24.css"));
+                      "~/Content/flags/flags24.css",
+                      "~/Content/toastr.css"));
         }
     }
 }

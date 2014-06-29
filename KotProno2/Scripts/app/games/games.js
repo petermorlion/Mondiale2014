@@ -132,7 +132,7 @@
 
         function queryFailed(data) {
             // TODO
-            alert('Er is een fout gebeurd. My bad...');
+            toastr.error('Er is helaas een fout gebeurd.');
         };
 
         function GetTeams() {
@@ -213,9 +213,9 @@
                     vm.topscorer.isReadOnly = true;
                 }
 
-                alert('De scores werden opgeslaan.')
+                toastr.info('De scores werden opgeslaan.');
             }).error(function (data, status, headers, config) {
-                alert('error');
+                toastr.error('Er is helaas een fout gebeurd...');
             });
         }
 
@@ -229,7 +229,7 @@
                 vm.matchDetails = data;
                 vm.allTopscorers = null;
             }).error(function (data, status, headers, config) {
-                alert('error');
+                toastr.error('Er is helaas een fout gebeurd...');
             });
         }
 

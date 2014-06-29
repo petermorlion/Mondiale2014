@@ -45,15 +45,15 @@
                 url: '/breeze/matches/AddScores',
                 data: { newScores: newScores }
             }).success(function (data, status, headers, config) {
-                alert('saved!');
+                toastr.info('De scores zijn opgeslaan.');
             }).error(function (data, status, headers, config) {
-                alert('error');
+                toastr.error('Er is helaas een fout gebeurd.');
             });
         }
 
         function queryFailed(data) {
             // TODO
-            alert('Er is een fout gebeurd. My bad...');
+            toastr.error('Er is helaas een fout gebeurd.');
         };
     }]);
 })();
