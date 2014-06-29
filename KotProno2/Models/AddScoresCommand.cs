@@ -11,7 +11,8 @@ namespace KotProno2.Models
     {
         public override void Execute(MatchesDbContext context)
         {
-            var data = this.Data as JObject;
+            var jObject = JObject.Parse(this.Data);
+            var data = jObject;
             var newScores = data["newScores"] as JArray;
             var matches = context.Matches.ToList();
 

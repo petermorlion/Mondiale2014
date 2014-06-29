@@ -220,6 +220,7 @@
         }
 
         function showOtherBettings(matchId) {
+            vm.matchDetails = null;
             $http({
                 method: 'GET',
                 url: '/breeze/matches/MatchDetails',
@@ -233,6 +234,7 @@
         }
 
         function showAllTopscorers() {
+            vm.allTopscorers = null;
             var topScorerQuery = EntityQuery.from('TopScorers');
             return manager.executeQuery(topScorerQuery)
                 .then(function (data) {

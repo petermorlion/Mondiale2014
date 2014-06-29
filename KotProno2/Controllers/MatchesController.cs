@@ -90,7 +90,7 @@ namespace KotProno2.Controllers
             {
                 DateTime = DateTime.Now,
                 Name = "AddBettings",
-                Data = data,
+                Data = data.ToString(),
                 UserName = User.Identity.Name,
             };
 
@@ -145,7 +145,7 @@ namespace KotProno2.Controllers
             {
                 DateTime = DateTime.Now,
                 Name = "AddScores",
-                Data = data,
+                Data = data.ToString(),
                 UserName = User.Identity.Name,
             };
 
@@ -225,13 +225,41 @@ namespace KotProno2.Controllers
             var matches = _contextProvider.Context.Matches.OrderBy(x => x.DateTime).ToList();
 
             //TODO: this code assumes all users have entered all bettings
-            foreach (var user in users)
+foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
             }
 
             foreach (var match in matches)
             {
+                var canShowInOverview = false;
+                switch (match.Stage)
+                {
+                    case Stage.GroupStage:
+                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.EighthFinals:
+                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 6, 28, 16, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.QuarterFinals:
+                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 04, 16, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.SemiFinals:
+                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 08, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    case Stage.Finals:
+                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 12, 20, 0, 0, DateTimeKind.Utc);
+                        break;
+                    default:
+                        canShowInOverview = false;
+                        break;
+                }
+
+                if (!canShowInOverview)
+                {
+                    continue;
+                }
+
                 var overviewMatch = new OverviewMatch();
 
                 overviewMatch.HomeTeamIsoCode = match.HomeTeamIsoCode;

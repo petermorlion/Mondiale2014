@@ -33,6 +33,8 @@ namespace KotProno2.Models
 
         public bool IsReadOnly { get; set; }
 
+        public PenaltyWinner? PenaltyWinner { get; set; }
+
         public MatchResult GetMatchResult()
         {
             if (!HomeScore.HasValue || !AwayScore.HasValue)
@@ -59,6 +61,11 @@ namespace KotProno2.Models
             return DateTime == match.DateTime 
                 && HomeTeamIsoCode == match.HomeTeamIsoCode 
                 && AwayTeamIsoCode == match.AwayTeamIsoCode;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", HomeTeamIsoCode, AwayTeamIsoCode);
         }
     }
 }

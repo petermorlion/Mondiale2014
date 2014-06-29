@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201406241640083_v1.3.0.Designer.cs">
       <DependentUpon>201406241640083_v1.3.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406290719429_v1.4.0.cs" />
+    <Compile Include="Migrations\201406290719429_v1.4.0.Designer.cs">
+      <DependentUpon>201406290719429_v1.4.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddScoresCommand.cs" />
@@ -238,6 +242,7 @@
     <Compile Include="Models\Overview.cs" />
     <Compile Include="Models\OverviewBetting.cs" />
     <Compile Include="Models\OverviewMatch.cs" />
+    <Compile Include="Models\PenaltyWinner.cs" />
     <Compile Include="Models\Points.cs" />
     <Compile Include="Models\Stage.cs" />
     <Compile Include="Models\Statistics.cs" />
@@ -668,6 +673,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406241640083_v1.3.0.resx">
       <DependentUpon>201406241640083_v1.3.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406290719429_v1.4.0.resx">
+      <DependentUpon>201406290719429_v1.4.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

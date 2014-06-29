@@ -20,12 +20,17 @@
             .appendTo(fixedTable);
 
         var y = tableHeader.position().top - navbarHeight;
+        
         var handleScroll = function () {
             if ($(window).scrollTop() > y) {
                 clonedHeader.show();
             } else {
                 clonedHeader.hide();
             }
+
+            var move = $(window).scrollLeft();
+            var origin = table.position().left;
+            fixedTable.css('left', origin-move);
         };
 
         handleScroll();

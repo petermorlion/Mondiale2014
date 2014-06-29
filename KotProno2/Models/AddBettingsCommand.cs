@@ -11,29 +11,42 @@ namespace KotProno2.Models
     {
         public override void Execute(MatchesDbContext context)
         {
-            var data = this.Data as JObject;
+            var jObject = JObject.Parse(this.Data);
+            var data = jObject;
             var bettings = data["newBettings"] as JArray;
             var matches = context.Matches;
+            var currentBettings = context.Bettings.Where(x => x.UserName == UserName);
+
             foreach (var betting in bettings)
             {
                 var matchId = (int)betting["matchId"];
                 var homeBetting = (int)betting["homeBetting"];
                 var awayBetting = (int)betting["awayBetting"];
                 var userName = UserName;
-                var newBetting = new Betting
-                {
-                    MatchId = matchId,
-                    HomeScore = homeBetting,
-                    AwayScore = awayBetting,
-                    UserName = UserName
-                };
 
-                if (!CanSave(newBetting, matches))
+                if (!CanSave(matchId, matches))
                 {
                     continue;
                 }
 
-                context.Bettings.Add(newBetting);   
+                var existingBetting = currentBettings.SingleOrDefault(x => x.MatchId == matchId);
+                if (existingBetting == null)
+                {
+                    var newBetting = new Betting
+                    {
+                        MatchId = matchId,
+                        HomeScore = homeBetting,
+                        AwayScore = awayBetting,
+                        UserName = UserName
+                    };
+
+                    context.Bettings.Add(newBetting);   
+                }
+                else
+                {
+                    existingBetting.HomeScore = homeBetting;
+                    existingBetting.AwayScore = awayBetting;
+                }
             }
 
             if (data["topScorer"] == null)
@@ -58,9 +71,9 @@ namespace KotProno2.Models
             }
         }
 
-        private bool CanSave(Betting newBetting, IEnumerable<Match> matches)
+        private bool CanSave(int matchId, IEnumerable<Match> matches)
         {
-            var match = matches.SingleOrDefault(x => x.Id == newBetting.MatchId);
+            var match = matches.SingleOrDefault(x => x.Id == matchId);
 
             if (match == null)
                 return false;
