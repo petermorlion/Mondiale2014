@@ -1,9 +1,6 @@
 ﻿<section id="dashboard-view" class="mainbar" data-ng-controller="games as vm">
-    <div class="matches-side-panel">
-        <div class="game-bettings-save">
-            
-        </div>
-        <div class="modal" id="detailsModal">
+
+    <div class="modal" id="detailsModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -49,12 +46,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="bettings-tabs">
         <ul class="nav nav-tabs">
             <li ng-class="{ active: vm.isActiveStage('GroupStage')}"><a href="" ng-click="vm.showStage('GroupStage')">Groepsronde</a></li>
             <li ng-class="{ active: vm.isActiveStage('EighthFinals')}"><a href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
+            <li ng-class="{ active: vm.isActiveStage('QuarterFinals')}"><a href="" ng-click="vm.showStage('QuarterFinals')">kwartfinales</a></li>
         </ul>
     </div>
 

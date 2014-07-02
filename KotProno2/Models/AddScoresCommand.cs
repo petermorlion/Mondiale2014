@@ -21,6 +21,7 @@ namespace KotProno2.Models
                 var matchId = (int)newScore["matchId"];
                 var homeScore = (int)newScore["homeScore"];
                 var awayScore = (int)newScore["awayScore"];
+                var penaltyWinnerString = (string)newScore["penaltyWinner"];
 
                 var match = matches.SingleOrDefault(x => x.Id == matchId);
                 if (match == null)
@@ -28,6 +29,16 @@ namespace KotProno2.Models
 
                 match.HomeScore = homeScore;
                 match.AwayScore = awayScore;
+
+                PenaltyWinner penaltyWinner;
+                if (Enum.TryParse<PenaltyWinner>(penaltyWinnerString, out penaltyWinner))
+                {
+                    match.PenaltyWinner = penaltyWinner;
+                }
+                else
+                {
+                    match.PenaltyWinner = null;
+                }
             }
         }
     }

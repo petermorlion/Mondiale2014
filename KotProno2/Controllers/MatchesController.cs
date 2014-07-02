@@ -187,7 +187,8 @@ namespace KotProno2.Controllers
                     }
 
                     if (bettingForMatch.HomeScore == match.HomeScore
-                        && bettingForMatch.AwayScore == match.AwayScore)
+                        && bettingForMatch.AwayScore == match.AwayScore 
+                        && match.Stage == Stage.GroupStage)
                     {
                         points.Total += 2;
                     }

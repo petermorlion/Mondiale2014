@@ -1,13 +1,12 @@
 ﻿<section id="dashboard-view" class="mainbar" data-ng-controller="admin as vm">
     <h1>{{vm.title}}</h1>
-    <div class="matches-side-panel">
-        <div class="game-bettings-save">
-            <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
-        </div>
-    </div>
 
     <div class="bettings-main">
-        <form class="form-inline">
+        <form class="form-inline games-list">
+            <div class="save-container">
+                <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
+            </div>
+
             <div class="container-fluid">
 
                 <div class="loading-panel" ng-show="vm.isLoading">
@@ -21,6 +20,10 @@
                             <input ng-model="game.HomeScore" class="betting-input form-control form-inline" />
                             <input ng-model="game.AwayScore" class="betting-input form-control form-inline" />
                             <span class="betting-flag flag {{game.AwayTeamIsoCode}}" title="{{game.AwayTeamIsoCode}}"></span>
+                            <select ng-model="game.PenaltyWinner">
+                                <option value="Home">{{game.HomeTeamIsoCode}}</option>
+                                <option value="Away">{{game.AwayTeamIsoCode}}</option>
+                            </select>
                         </div>
                     </div>
                 </div>

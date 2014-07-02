@@ -52,7 +52,18 @@ namespace KotProno2.Models
             }
             else
             {
-                return MatchResult.Draw;
+                if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Home)
+                {
+                    return MatchResult.HomeWon;
+                }
+                else if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Away)
+                {
+                    return MatchResult.AwayWon;
+                }
+                else
+                {
+                    return MatchResult.Draw;
+                }
             }
         }
 

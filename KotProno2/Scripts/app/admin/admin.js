@@ -32,7 +32,8 @@
                     var score = {
                         matchId: vm.games[i].Id,
                         homeScore: vm.games[i].HomeScore,
-                        awayScore: vm.games[i].AwayScore
+                        awayScore: vm.games[i].AwayScore,
+                        penaltyWinner: vm.games[i].PenaltyWinner
                     };
 
                     newScores.push(score);
