@@ -16,7 +16,7 @@
             }).success(function (data, status, headers, config) {
                 vm.overview = data;
                 vm.isLoading = false;
-                initializeTable();
+                setTimeout(initializeTable, 1);
             }).error(function (data, status, headers, config) {
                 toastr.error('Er is helaas een fout gebeurd.');
             });

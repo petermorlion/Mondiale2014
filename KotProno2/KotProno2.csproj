@@ -315,7 +315,6 @@
     <Content Include="Scripts\app\overview\overview.js" />
     <Content Include="Scripts\app\statistics\statistics.html" />
     <Content Include="Scripts\app\statistics\statistics.js" />
-    <Content Include="Scripts\app\tableheader.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\toastr.scss" />

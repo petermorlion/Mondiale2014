@@ -30,8 +30,8 @@ namespace KotProno2.Migrations
             var persistedQuarterFinalMatches = context.Matches.Where(x => x.DateTime > new DateTime(2014, 7, 1, 22, 0, 0)).ToList();
             var quarterFinal1 = new Match { DateTime = new DateTime(2014, 7, 4, 18, 0, 0), HomeTeamIsoCode = Teams.France.IsoCode, AwayTeamIsoCode = Teams.Germany.IsoCode, Stage = Stage.QuarterFinals};
             var quarterFinal2 = new Match { DateTime = new DateTime(2014, 7, 4, 22, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Colombia.IsoCode, Stage = Stage.QuarterFinals };
-            var quarterFinal3 = new Match { DateTime = new DateTime(2014, 7, 5, 18, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.CostaRica.IsoCode, Stage = Stage.QuarterFinals };
-            var quarterFinal4 = new Match { DateTime = new DateTime(2014, 7, 5, 22, 0, 0), HomeTeamIsoCode = Teams.Argentinia.IsoCode, AwayTeamIsoCode = Teams.Belgium.IsoCode, Stage = Stage.QuarterFinals };
+            var quarterFinal3 = new Match { DateTime = new DateTime(2014, 7, 5, 18, 0, 0), HomeTeamIsoCode = Teams.Argentinia.IsoCode, AwayTeamIsoCode = Teams.Belgium.IsoCode, Stage = Stage.QuarterFinals };
+            var quarterFinal4 = new Match { DateTime = new DateTime(2014, 7, 5, 22, 0, 0), HomeTeamIsoCode = Teams.Netherlands.IsoCode, AwayTeamIsoCode = Teams.CostaRica.IsoCode, Stage = Stage.QuarterFinals };
             var quarterFinalMatches = new[] { quarterFinal1, quarterFinal2, quarterFinal3, quarterFinal4 };
             foreach (var match in quarterFinalMatches)
             {
