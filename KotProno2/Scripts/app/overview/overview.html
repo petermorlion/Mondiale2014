@@ -9,6 +9,10 @@
         <span class="two-points example-points">Exacte score correct = 2 punten</span>
         <span class="one-point example-points">Correct winnend team of gelijkspel = 1 punt</span>
     </p>
+    <p>
+        Een asterisk (*) naast de vlag wil zeggen dat de ploeg met penalties gewonnen heeft. 
+        In dat geval kan je slechts 1 punt verdienen, als je de correcte winnaar hebt aangeduid.
+    </p>
 
     <div class="loading-panel" ng-show="vm.isLoading">
     </div>
@@ -25,8 +29,10 @@
             <tr ng-repeat="match in vm.overview.OverviewMatches">
                 <td class="f24">
                     <span class="betting-flag flag {{match.HomeTeamIsoCode}}" title="{{match.HomeTeam}}"></span>
+                    <span ng-show="match.PenaltyWinner === 'Home'">*</span>
                     -
                     <span class="betting-flag flag {{match.AwayTeamIsoCode}}" title="{{match.AwayTeam}}"></span>
+                    <span ng-show="match.PenaltyWinner === 'Away'">*</span>
                 </td>
                 <td>{{match.HomeScore}} - {{match.AwayScore}}</td>
                 <td ng-repeat="betting in match.OverviewBettings" class="overview-betting {{betting.PointsClass}}">{{betting.HomeScore}} - {{betting.AwayScore}}</td>

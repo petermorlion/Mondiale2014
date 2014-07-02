@@ -226,7 +226,7 @@ namespace KotProno2.Controllers
             var matches = _contextProvider.Context.Matches.OrderBy(x => x.DateTime).ToList();
 
             //TODO: this code assumes all users have entered all bettings
-foreach (var user in users)
+            foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
             }
@@ -267,6 +267,7 @@ foreach (var user in users)
                 overviewMatch.AwayTeamIsoCode = match.AwayTeamIsoCode;
                 overviewMatch.HomeScore = match.HomeScore;
                 overviewMatch.AwayScore = match.AwayScore;
+                overviewMatch.PenaltyWinner = match.PenaltyWinner;
 
                 var homeTeam = Teams.All.SingleOrDefault(x => x.IsoCode == match.HomeTeamIsoCode);
                 if (homeTeam != null)
