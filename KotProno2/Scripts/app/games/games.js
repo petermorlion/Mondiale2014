@@ -24,7 +24,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'QuarterFinals' };
+        vm.stageFilter = { stage: 'SemiFinals' };
 
         //TODO: async
         getGameBettings();
@@ -190,9 +190,7 @@
 
                 for (var j = 0; j < gameBettingGroup.gameBettings.length; j++) {
                     var gameBetting = gameBettingGroup.gameBettings[j];
-                    if (gameBetting.homeBetting !== ''
-                            && gameBetting.awayBetting !== ''
-                            && !gameBetting.isReadOnly) {
+                    if (gameBetting.homeBetting !== '' && gameBetting.awayBetting !== '' && !gameBetting.isReadOnly) {
                         newBettings.push({
                             gameBetting: gameBetting,
                             matchId: gameBetting.matchId,
