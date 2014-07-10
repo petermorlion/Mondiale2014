@@ -53,6 +53,7 @@
             <li ng-class="{ active: vm.isActiveStage('EighthFinals')}"><a href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
             <li ng-class="{ active: vm.isActiveStage('QuarterFinals')}"><a href="" ng-click="vm.showStage('QuarterFinals')">Kwartfinales</a></li>
             <li ng-class="{ active: vm.isActiveStage('SemiFinals')}"><a href="" ng-click="vm.showStage('SemiFinals')">Halve finales</a></li>
+            <li ng-class="{ active: vm.isActiveStage('Finals')}"><a href="" ng-click="vm.showStage('Finals')">Finales</a></li>
         </ul>
     </div>
 
@@ -79,7 +80,7 @@
                 <div class="loading-panel" ng-show="vm.isLoading"></div>
                 
                 <div class="row">
-                    <div ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage" class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage:true" class="col-md-12 col-sm-12 col-xs-12 text-center">
                         <h4>{{gameBettingGroup.date | date}}</h4>
                         <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                             <div class="f48">

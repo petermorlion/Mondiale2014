@@ -24,6 +24,22 @@ namespace KotProno2.Migrations
             CreateEighthFinalMatches(context);
             CreateQuarterFinalMatches(context);
             CreateSemiFinalMatches(context);
+            CreateFinalMatches(context);
+        }
+
+        private void CreateFinalMatches(MatchesDbContext context)
+        {
+            var persistedFinalMatches = context.Matches.Where(x => x.DateTime > new DateTime(2014, 7, 12, 0, 0, 0)).ToList();
+            var final1 = new Match { DateTime = new DateTime(2014, 7, 12, 22, 0, 0), HomeTeamIsoCode = Teams.Brasil.IsoCode, AwayTeamIsoCode = Teams.Netherlands.IsoCode, Stage = Stage.Finals };
+            var final2 = new Match { DateTime = new DateTime(2014, 7, 13, 21, 0, 0), HomeTeamIsoCode = Teams.Germany.IsoCode, AwayTeamIsoCode = Teams.Argentinia.IsoCode, Stage = Stage.Finals };
+            var finalMatches = new[] { final1, final2 };
+            foreach (var match in finalMatches)
+            {
+                if (!persistedFinalMatches.Any(x => x.IsSameAs(match)))
+                {
+                    context.Matches.Add(match);
+                }
+            }
         }
 
         private void CreateSemiFinalMatches(MatchesDbContext context)
