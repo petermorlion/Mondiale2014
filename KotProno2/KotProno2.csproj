@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201406290719429_v1.4.0.Designer.cs">
       <DependentUpon>201406290719429_v1.4.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605171031256_v2.0.0.cs" />
+    <Compile Include="Migrations\201605171031256_v2.0.0.Designer.cs">
+      <DependentUpon>201605171031256_v2.0.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddScoresCommand.cs" />
@@ -251,6 +255,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Teams.cs" />
     <Compile Include="Models\TopScorer.cs" />
+    <Compile Include="Models\Tournament.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -686,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406290719429_v1.4.0.resx">
       <DependentUpon>201406290719429_v1.4.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605171031256_v2.0.0.resx">
+      <DependentUpon>201605171031256_v2.0.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
