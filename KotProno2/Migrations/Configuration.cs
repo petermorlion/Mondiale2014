@@ -1,15 +1,13 @@
+using KotProno2.EntityFramework;
+using KotProno2.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
+
 namespace KotProno2.Migrations
 {
-    using KotProno2.EntityFramework;
-    using KotProno2.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-    using System.Web.Security;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<KotProno2.EntityFramework.MatchesDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MatchesDbContext>
     {
         public Configuration()
         {
