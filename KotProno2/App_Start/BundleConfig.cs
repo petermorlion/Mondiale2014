@@ -38,6 +38,7 @@ namespace KotProno2
                       "~/Scripts/app/games/games.js",
                       "~/Scripts/app/admin/admin.js",
                       "~/Scripts/app/main/points.js",
+                      "~/Scripts/app/tournaments/tournaments.js",
                       "~/Scripts/app/statistics/statistics.js",
                       "~/Scripts/app/overview/overview.js",
                       "~/Scripts/highcharts/highcharts.js",

@@ -21,6 +21,10 @@
     function getRoutes() {
         return [
             {
+                url: '/tournaments',
+                templateUrl: '/Scripts/app/tournaments/tournaments.html'
+            },
+            {
             	url: '/',
             	templateUrl: '/Scripts/app/main/main.html'
             }, {
