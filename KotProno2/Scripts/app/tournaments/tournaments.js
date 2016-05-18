@@ -16,7 +16,7 @@
                     method: 'GET',
                     url: '/api/tournaments'
                 }).success(function (data) {
-
+                    vm.tournaments = data;
                     vm.isLoading = false;
                     toastr.info('Succes');
                 }).error(function () {
