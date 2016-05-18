@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using KotProno2.Models;
+using KotProno2.EntityFramework;
 
 namespace KotProno2.Controllers
 {
     public class TournamentsController : ApiController
     {
+        private readonly MatchesContext _contextProvider = new MatchesContext();
+
+        // ~/api/tournaments
+        [HttpGet]
+        public IList<Tournament> Get()
+        {
+            var tournaments = _contextProvider.Context.Tournaments.ToList();
+
+            return tournaments;
+        }
+
         // ~/api/tournaments/id
         [HttpGet]
-        public IList<Tournament> Get(int id)
+        public Tournament Get(int id)
         {
-            return new List<Tournament>();
+            var tournament = _contextProvider.Context.Tournaments.SingleOrDefault(x => x.Id == id);
+
+            return tournament;
         }
     }
 }
