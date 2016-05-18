@@ -7,7 +7,7 @@
     // TODO: should be in a filters.js file
     angular.module('app').filter('numberFixedLen', function () {
         return function (a, b) {
-            return (1e4 + a + "").slice(-b)
+            return (1e4 + a + "").slice(-b);
         }
     });
 
