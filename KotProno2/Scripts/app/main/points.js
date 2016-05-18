@@ -18,6 +18,7 @@
                 vm.points = data;
                 vm.isLoading = false;
             }).error(function (data, status, headers, config) {
+                vm.isLoading = false;
                 toastr.error('Er is helaas een fout gebeurd.');
             });
         }
