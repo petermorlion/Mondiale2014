@@ -19,6 +19,15 @@ namespace KotProno2.Migrations
             AddColumn("dbo.Matches", "Tournament_Id", c => c.Int());
             CreateIndex("dbo.Matches", "Tournament_Id");
             AddForeignKey("dbo.Matches", "Tournament_Id", "dbo.Tournaments", "Id");
+
+            Sql("INSERT INTO dbo.Tournaments(Name) VALUES('WK 2014'), ('EK 2016');");
+            Sql("UPDATE dbo.Matches SET Tournament_Id = (SELECT Id FROM dbo.Tournaments WHERE Name = 'WK 2014');");
+            Sql("INSERT INTO dbo.Matches (HomeTeamIsoCode, AwayTeamIsoCode, DateTime, Stage, IsReadOnly)" +
+                "VALUES ('fr', 'ro', '2016/06/10 21:00', 0, 0)," +
+                "       ('gb', 'ru', '2016/06/11 21:00', 0, 0)," +
+                "       ('_Wales', 'sk', '2016/06/11 18:00', 0, 0)," +
+                "       ('al', 'ch', '2016/06/11 18:00', 0, 0);" 
+                );
         }
         
         public override void Down()
@@ -27,6 +36,8 @@ namespace KotProno2.Migrations
             DropIndex("dbo.Matches", new[] { "Tournament_Id" });
             DropColumn("dbo.Matches", "Tournament_Id");
             DropTable("dbo.Tournaments");
+
+            Sql("DELETE FROM dbo.Matches WHERE DateTime > '2016/01/01'");
         }
     }
 }
