@@ -9,46 +9,51 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Mondiale 2014", "Index", "Home", null, new { @class = "navbar-brand" })
+    <div ng-app="app">
+        <div ng-controller="main as vm">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Mondiale 2014", "Index", "Home", null, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/#/tournaments">Toernooien</a></li>
+                            <li><a href="/#/">Stand</a></li>
+                            <li><a href="/#/overview">Overzicht</a></li>
+                            <li><a href="/#/statistics">Statistieken</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="/#/games">Mijn pronostieken</a></li>
+                            }@*Ugly and wrong, but IsInRole doesn't work and no time*@
+                            @if (User.Identity.Name == "petermorlion")
+                            {
+                                <li><a href="/#/admin">Admin gedeelte</a></li>
+                            }
+                        </ul>
+
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/#/tournaments">Toernooien</a></li>
-                    <li><a href="/#/">Stand</a></li>
-                    <li><a href="/#/overview">Overzicht</a></li>
-                    <li><a href="/#/statistics">Statistieken</a></li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li><a href="/#/games">Mijn pronostieken</a></li>
-                    }
-                    @*Ugly and wrong, but IsInRole doesn't work and no time*@
-                    @if (User.Identity.Name == "petermorlion")
-                    {
-                        <li><a href="/#/admin">Admin gedeelte</a></li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                @*<footer>
+                        <p>&copy; @DateTime.Now.Year - Peter Morlion</p>
+                    </footer>*@
             </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        @*<footer>
-            <p>&copy; @DateTime.Now.Year - Peter Morlion</p>
-        </footer>*@
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -2,11 +2,8 @@
     ViewBag.Title = "Home Page";
 }
 
-<div ng-app="app">
-    <div ng-controller="main as vm">
+
         <div ng-view class="shuffle-animation"></div>
-    </div> 
-</div>
 
 @section scripts {
     @Scripts.Render("~/bundles/angular")

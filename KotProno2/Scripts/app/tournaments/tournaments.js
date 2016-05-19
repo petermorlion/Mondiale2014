@@ -18,7 +18,6 @@
                 }).success(function (data) {
                     vm.tournaments = data;
                     vm.isLoading = false;
-                    toastr.info('Succes');
                 }).error(function () {
                     vm.isLoading = false;
                     toastr.error('Er is helaas een fout gebeurd...');
