@@ -25,6 +25,10 @@
                 templateUrl: '/Scripts/app/tournaments/tournaments.html'
             },
             {
+                url: '/tournaments/:id',
+                templateUrl: '/Scripts/app/tournaments/tournament.html'
+            },
+            {
             	url: '/',
             	templateUrl: '/Scripts/app/main/main.html'
             }, {

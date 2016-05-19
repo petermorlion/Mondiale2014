@@ -329,6 +329,8 @@
     <Content Include="Scripts\app\overview\overview.js" />
     <Content Include="Scripts\app\statistics\statistics.html" />
     <Content Include="Scripts\app\statistics\statistics.js" />
+    <Content Include="Scripts\app\tournaments\tournament.html" />
+    <Content Include="Scripts\app\tournaments\tournament.js" />
     <Content Include="Scripts\app\tournaments\tournaments.js" />
     <Content Include="Scripts\app\tournaments\tournaments.html" />
     <Content Include="Scripts\bootstrap.js" />

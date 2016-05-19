@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-lg-6" ng-repeat="tournament in vm.tournaments">
-            {{tournament.Name}}
+            <a href="/#/tournaments/{{tournament.Id}}">{{tournament.Name}}</a>
         </div>
     </div>
 
