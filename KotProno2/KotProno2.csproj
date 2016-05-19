@@ -324,6 +324,7 @@
     <Content Include="Scripts\app\main.js" />
     <Content Include="Scripts\app\main\main.html" />
     <Content Include="Scripts\app\main\points.js" />
+    <Content Include="Scripts\app\nav.js" />
     <Content Include="Scripts\app\overview\overview.html" />
     <Content Include="Scripts\app\overview\overview.js" />
     <Content Include="Scripts\app\statistics\statistics.html" />
