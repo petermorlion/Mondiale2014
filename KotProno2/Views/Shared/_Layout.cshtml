@@ -30,7 +30,9 @@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li><a href="/#/games">Mijn pronostieken</a></li>
-                            }@*Ugly and wrong, but IsInRole doesn't work and no time*@
+                            }
+                            
+                            @*Ugly and wrong, but IsInRole doesn't work and no time*@
                             @if (User.Identity.Name == "petermorlion")
                             {
                                 <li><a href="/#/admin">Admin gedeelte</a></li>
