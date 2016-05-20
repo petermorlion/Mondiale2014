@@ -8,5 +8,10 @@ namespace KotProno2.Controllers
         {
             return View();
         }
+
+        public ActionResult TournamentNav()
+        {
+            return View();
+        }
     }
 }
