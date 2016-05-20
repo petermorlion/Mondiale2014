@@ -25,7 +25,7 @@
                 templateUrl: '/Scripts/app/tournaments/tournaments.html'
             },
             {
-                url: '/tournaments/:id',
+                url: '/tournaments/:tournamentId',
                 templateUrl: '/Scripts/app/tournaments/tournament.html'
             },
             {
