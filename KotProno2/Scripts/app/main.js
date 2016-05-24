@@ -2,9 +2,10 @@
     'use strict';
 
     var controllerId = 'main';
-    angular.module('app').controller(controllerId, ['$rootScope', main]);
+    angular.module('app').controller(controllerId, ['$stateParams', main]);
 
-    function main($rootScope) {
+    function main($stateParams) {
         var vm = this;
+        alert($stateParams.tournamentId);
     };
 })();

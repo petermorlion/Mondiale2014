@@ -2,7 +2,7 @@
     'use strict';
     var controllerId = 'points';
     angular.module('app')
-    .controller(controllerId, ['$q', '$http', function ($q, $http) {
+    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
         var vm = this;
         vm.title = "De onderlinge stand";
         vm.points = [];

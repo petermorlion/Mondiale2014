@@ -4,19 +4,19 @@
 
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li><a href="/#/tournaments">Toernooien</a></li>
-        <li><a href="/#/">Stand</a></li>
-        <li><a href="/#/overview">Overzicht</a></li>
-        <li><a href="/#/statistics">Statistieken</a></li>
+        <li><a ui-sref="tournaments">Toernooien</a></li>
+        <li><a ui-sref="tournament.points">Stand</a></li>
+        <li><a ui-sref="tournament.overview">Overzicht</a></li>
+        <li><a ui-sref="tournament.statistics">Statistieken</a></li>
         @if (User.Identity.IsAuthenticated)
         {
-            <li><a href="/#/games">Mijn pronostieken</a></li>
+            <li><a ui-sref="tournament.games">Mijn pronostieken</a></li>
         }
 
         @*Ugly and wrong, but IsInRole doesn't work and no time*@
         @if (User.Identity.Name == "petermorlion")
         {
-            <li><a href="/#/admin">Admin gedeelte</a></li>
+            <li><a ui-sref="admin">Admin gedeelte</a></li>
         }
     </ul>
 

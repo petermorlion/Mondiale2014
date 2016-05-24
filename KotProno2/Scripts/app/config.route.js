@@ -3,47 +3,56 @@
 
     var app = angular.module('app');
 
-    // Collect the routes
-    app.constant('routes', getRoutes());
-    
     // Configure the routes and route resolvers
-    app.config(['$routeProvider', 'routes', routeConfigurator]);
+    app.config(['$stateProvider', '$urlRouterProvider', routeConfigurator]);
 
-    function routeConfigurator($routeProvider, routes) {
+    function routeConfigurator($stateProvider, $urlRouterProvider) {
+        
+        $urlRouterProvider.otherwise("/tournaments");
 
-        routes.forEach(function (r) {
-        	$routeProvider.when(r.url, { templateUrl: r.templateUrl });
-        });
-        $routeProvider.otherwise({ redirectTo: '/' });
-    }
-
-    // Define the routes 
-    function getRoutes() {
-        return [
-            {
-                url: '/tournaments',
-                templateUrl: '/Scripts/app/tournaments/tournaments.html'
-            },
-            {
-                url: '/tournaments/:tournamentId',
-                templateUrl: '/Scripts/app/tournaments/tournament.html'
-            },
-            {
-            	url: '/',
-            	templateUrl: '/Scripts/app/main/main.html'
-            }, {
-                url: '/games',
-                templateUrl: '/Scripts/app/games/games.html'
-            }, {
-                url: '/admin',
-                templateUrl: '/Scripts/app/admin/admin.html'
-            }, {
-                url: '/overview',
-                templateUrl: '/Scripts/app/overview/overview.html'
-            }, {
-                url: '/statistics',
-                templateUrl: '/Scripts/app/statistics/statistics.html'
-            }
-        ];
+        $stateProvider
+            .state('tournaments', {
+                url: "/tournaments",
+                templateUrl: '/Scripts/app/tournaments/tournaments.html',
+                controller: 'tournaments',
+                controllerAs: 'vm'
+            })
+            .state('tournament', {
+                url: "/tournament/:tournamentId",
+                templateUrl: "/Scripts/app/tournament/tournament.html",
+                controller: 'tournament',
+                controllerAs: 'vm',
+                abstract: true
+            })
+            .state('tournament.points', {
+                url: "",
+                templateUrl: "/Scripts/app/points/points.html",
+                controller: 'points',
+                controllerAs: 'vm'
+            })
+            .state('tournament.games', {
+                url: "/games",
+                templateUrl: "/Scripts/app/games/games.html",
+                controller: 'tournaments',
+                controllerAs: 'vm'
+            })
+            .state('tournament.overview', {
+                url: "/overview",
+                templateUrl: "/Scripts/app/overview/overview.html",
+                controller: 'overview',
+                controllerAs: 'vm'
+            })
+            .state('tournament.statistics', {
+                url: "/statistics",
+                templateUrl: "/Scripts/app/statistics/statistics.html",
+                controller: 'statistics',
+                controllerAs: 'vm'
+            })
+            .state('admin', {
+                url: "/admin",
+                templateUrl: "/Scripts/app/admin/admin.html",
+                controller: 'tournaments',
+                controllerAs: 'vm'
+            });
     }
 })();

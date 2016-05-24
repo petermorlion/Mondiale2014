@@ -3,9 +3,10 @@
 
     var controllerId = 'tournament';
     angular.module('app')
-        .controller(controllerId, ['$routeParams', '$http', function ($routeParams, $http) {
+        .controller(controllerId, ['$stateParams', '$http', function ($stateParams, $http) {
         
             var vm = this;
+            vm.tournamentId = $stateParams.tournamentId;
 
             loadTournament();
 
@@ -13,7 +14,7 @@
                 vm.isLoading = true;
                 $http({
                     method: 'GET',
-                    url: '/api/tournaments/' + $routeParams.tournamentId
+                    url: '/api/tournaments/' + vm.tournamentId
                 }).success(function (data) {
                     vm.tournament = data;
                     vm.isLoading = false;

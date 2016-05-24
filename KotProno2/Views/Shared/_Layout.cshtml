@@ -10,7 +10,7 @@
 </head>
 <body>
     <div ng-app="app">
-        <div ng-controller="main as vm">
+        <div>
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -36,6 +36,7 @@
 
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
             @RenderSection("scripts", required: false)
 
         </div>
