@@ -13,7 +13,7 @@
             vm.isLoading = true;
             $http({
                 method: 'GET',
-                url: '/breeze/matches/points'
+                url: '/api/points/' + $stateParams.tournamentId
             }).success(function (data, status, headers, config) {
                 vm.points = data;
                 vm.isLoading = false;

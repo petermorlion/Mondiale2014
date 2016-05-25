@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KotProno2.Models
 {
@@ -7,6 +8,13 @@ namespace KotProno2.Models
         private DateTime _dateTime;
 
         public int Id { get; set; }
+
+        [Column("Tournament_Id")]
+        public int TournamentId { get; set; }
+
+        [ForeignKey("TournamentId")]
+        public Tournament Tournament { get; set; }
+
         public string HomeTeamIsoCode { get; set; }
         public string AwayTeamIsoCode { get; set; }
         public DateTime DateTime

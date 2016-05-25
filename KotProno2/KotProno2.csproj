@@ -206,6 +206,7 @@
     <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\PointsController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="EntityFramework\MatchesContext.cs" />
     <Compile Include="EntityFramework\MatchesDbContext.cs" />
@@ -235,6 +236,10 @@
     <Compile Include="Migrations\201605171031256_v2.0.0.cs" />
     <Compile Include="Migrations\201605171031256_v2.0.0.Designer.cs">
       <DependentUpon>201605171031256_v2.0.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605251050339_v2.1.0.cs" />
+    <Compile Include="Migrations\201605251050339_v2.1.0.Designer.cs">
+      <DependentUpon>201605251050339_v2.1.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1217,6 +1222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605171031256_v2.0.0.resx">
       <DependentUpon>201605171031256_v2.0.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605251050339_v2.1.0.resx">
+      <DependentUpon>201605251050339_v2.1.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

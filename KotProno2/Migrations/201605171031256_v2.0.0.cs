@@ -22,11 +22,13 @@ namespace KotProno2.Migrations
 
             Sql("INSERT INTO dbo.Tournaments(Name) VALUES('WK 2014'), ('EK 2016');");
             Sql("UPDATE dbo.Matches SET Tournament_Id = (SELECT Id FROM dbo.Tournaments WHERE Name = 'WK 2014');");
-            Sql("INSERT INTO dbo.Matches (HomeTeamIsoCode, AwayTeamIsoCode, DateTime, Stage, IsReadOnly)" +
-                "VALUES ('fr', 'ro', '2016/06/10 21:00', 0, 0)," +
-                "       ('gb', 'ru', '2016/06/11 21:00', 0, 0)," +
-                "       ('_Wales', 'sk', '2016/06/11 18:00', 0, 0)," +
-                "       ('al', 'ch', '2016/06/11 18:00', 0, 0);" 
+            Sql("DECLARE @TournamentId INT;" +
+                "SET @TournamentId = (SELECT Id FROM dbo.Tournaments WHERE Name = 'EK 2016');" +
+                "INSERT INTO dbo.Matches (HomeTeamIsoCode, AwayTeamIsoCode, DateTime, Stage, IsReadOnly, Tournament_Id)" +
+                "VALUES ('fr', 'ro', '2016/06/10 21:00', 0, 0, @TournamentId)," +
+                "       ('gb', 'ru', '2016/06/11 21:00', 0, 0, @TournamentId)," +
+                "       ('_Wales', 'sk', '2016/06/11 18:00', 0, 0, @TournamentId)," +
+                "       ('al', 'ch', '2016/06/11 18:00', 0, 0, @TournamentId);"
                 );
         }
         
