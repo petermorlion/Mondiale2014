@@ -43,7 +43,7 @@ namespace KotProno2
                       "~/Scripts/app/tournament/tournament.js",
                       "~/Scripts/app/statistics/statistics.js",
                       "~/Scripts/app/overview/overview.js",
-                      //"~/Scripts/app/tournamentNav.js",
+                      "~/Scripts/app/nav.js",
                       "~/Scripts/highcharts/highcharts.js",
                       "~/Scripts/toastr.js"));
 

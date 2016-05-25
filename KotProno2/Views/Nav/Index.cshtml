@@ -2,15 +2,15 @@
     Layout = null;
 }
 
-<div class="navbar-collapse collapse">
+<div class="navbar-collapse collapse" ng-controller="nav as vm">
     <ul class="nav navbar-nav">
         <li><a ui-sref="tournaments">Toernooien</a></li>
-        <li><a ui-sref="tournament.points">Stand</a></li>
-        <li><a ui-sref="tournament.overview">Overzicht</a></li>
-        <li><a ui-sref="tournament.statistics">Statistieken</a></li>
+        <li><a ui-sref="tournament.points" ng-if="vm.hasTournament">Stand</a></li>
+        <li><a ui-sref="tournament.overview" ng-if="vm.hasTournament">Overzicht</a></li>
+        <li><a ui-sref="tournament.statistics" ng-if="vm.hasTournament">Statistieken</a></li>
         @if (User.Identity.IsAuthenticated)
         {
-            <li><a ui-sref="tournament.games">Mijn pronostieken</a></li>
+            <li><a ui-sref="tournament.games" ng-if="vm.hasTournament">Mijn pronostieken</a></li>
         }
 
         @*Ugly and wrong, but IsInRole doesn't work and no time*@
