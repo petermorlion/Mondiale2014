@@ -33,7 +33,7 @@
             .state('tournament.games', {
                 url: "/games",
                 templateUrl: "/Scripts/app/games/games.html",
-                controller: 'tournaments',
+                controller: 'games',
                 controllerAs: 'vm'
             })
             .state('tournament.overview', {
