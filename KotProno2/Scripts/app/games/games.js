@@ -115,7 +115,7 @@
                 }
 
                 var gameBetting = {
-                    date: currentGame.DateTime,
+                    date: new Date(currentGame.DateTime),
                     matchId: currentGame.Id,
                     homeIso: currentGame.HomeTeamIsoCode,
                     awayIso: currentGame.AwayTeamIsoCode,

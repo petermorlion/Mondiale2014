@@ -14,7 +14,7 @@ namespace KotProno2.Controllers
         [HttpGet]
         public IList<Match> Get(int id)
         {
-            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).ToList();
+            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
             var groupStageStart = GetStageStart(matches, Stage.GroupStage);
             var eighthFinalStart = GetStageStart(matches, Stage.EighthFinals);
