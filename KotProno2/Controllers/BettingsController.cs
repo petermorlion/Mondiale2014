@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using KotProno2.EntityFramework;
 using KotProno2.Models;
@@ -8,6 +10,13 @@ namespace KotProno2.Controllers
     public class BettingsController : ApiController
     {
         private readonly MatchesContext _contextProvider = new MatchesContext();
+
+        [HttpGet]
+        [Authorize]
+        public IList<Betting> Get()
+        {
+            return _contextProvider.Context.Bettings.Where(x => x.UserName == User.Identity.Name).ToList();
+        }
 
         [HttpPost]
         [Authorize]

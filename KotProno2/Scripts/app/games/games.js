@@ -51,8 +51,10 @@
         }
 
         function getBettings() {
-            var bettingsQuery = EntityQuery.from('Bettings');
-            return manager.executeQuery(bettingsQuery).then(bettingsQuerySucceeded).catch(queryFailed);
+            return $http({
+                method: 'GET',
+                url: '/api/bettings/'
+            }).then(bettingsQuerySucceeded).catch(queryFailed);
         }
 
         function getTopScorer() {
@@ -69,15 +71,12 @@
             }
         }
 
-        function bettingsQuerySucceeded(data) {
-            // TODO: vuil
-            if (Object.prototype.toString.call(data.results) === '[object Array]' 
-                && data.results.length > 0
-                && data.results[0].toString().indexOf("<title>Log in") > 0) {
+        function bettingsQuerySucceeded(response) {
+            if (typeof response.data === "string") {
                 document.location = "/Account/Login";
-            } else {
-                bettings = data.results;
             }
+
+            bettings = response.data;
         }
 
         function gameBettingsQuerySucceeded(data) {
