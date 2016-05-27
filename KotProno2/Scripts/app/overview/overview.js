@@ -3,7 +3,7 @@
 
     var controllerId = 'overview';
     angular.module('app')
-        .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
+        .controller(controllerId, ['$q', 'breeze', '$http', '$stateParams', function ($q, breeze, $http, $stateParams) {
         
             var vm = this;
             vm.title = 'Een overzicht';
@@ -12,7 +12,7 @@
 
             $http({
                 method: 'GET',
-                url: '/breeze/matches/Overview'
+                url: '/api/Overview/' + $stateParams.tournamentId
             }).success(function (data, status, headers, config) {
                 vm.overview = data;
                 vm.isLoading = false;
@@ -25,7 +25,7 @@
             var initializeTable = function () {
                 var table = $('table.table-fixed-header');
                 if (table.length === 0) {
-                    console.log('nothing found!')
+                    console.log('nothing found!');
                     return;
                 }
 

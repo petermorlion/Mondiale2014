@@ -178,94 +178,6 @@ namespace KotProno2.Controllers
             return DateTime.UtcNow < new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
         }
 
-        // ~/breeze/matches/Overview
-        [HttpGet]
-        public Overview Overview()
-        {
-            var result = new Overview();
-            var users = new ApplicationDbContext().Users.OrderBy(x => x.UserName).ToList();
-            var bettings = _contextProvider.Context.Bettings.ToLookup(x => x.MatchId);
-            var matches = _contextProvider.Context.Matches.OrderBy(x => x.DateTime).ToList();
-
-            //TODO: this code assumes all users have entered all bettings
-            foreach (var user in users)
-            {
-                result.UserNames.Add(user.UserName);
-            }
-
-            foreach (var match in matches)
-            {
-                var canShowInOverview = false;
-                switch (match.Stage)
-                {
-                    case Stage.GroupStage:
-                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
-                        break;
-                    case Stage.EighthFinals:
-                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 6, 28, 16, 0, 0, DateTimeKind.Utc);
-                        break;
-                    case Stage.QuarterFinals:
-                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 04, 16, 0, 0, DateTimeKind.Utc);
-                        break;
-                    case Stage.SemiFinals:
-                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 08, 20, 0, 0, DateTimeKind.Utc);
-                        break;
-                    case Stage.Finals:
-                        canShowInOverview = DateTime.UtcNow >= new DateTime(2014, 7, 12, 20, 0, 0, DateTimeKind.Utc);
-                        break;
-                    default:
-                        canShowInOverview = false;
-                        break;
-                }
-
-                if (!canShowInOverview)
-                {
-                    continue;
-                }
-
-                var overviewMatch = new OverviewMatch();
-
-                overviewMatch.HomeTeamIsoCode = match.HomeTeamIsoCode;
-                overviewMatch.AwayTeamIsoCode = match.AwayTeamIsoCode;
-                overviewMatch.HomeScore = match.HomeScore;
-                overviewMatch.AwayScore = match.AwayScore;
-                overviewMatch.PenaltyWinner = match.PenaltyWinner;
-
-                var homeTeam = Teams.All.SingleOrDefault(x => x.IsoCode == match.HomeTeamIsoCode);
-                if (homeTeam != null)
-                {
-                    overviewMatch.HomeTeam = homeTeam.Name;
-                }
-
-                var awayTeam = Teams.All.SingleOrDefault(x => x.IsoCode == match.AwayTeamIsoCode);
-                if (awayTeam != null)
-                {
-                    overviewMatch.AwayTeam = awayTeam.Name;
-                }
-
-                if (bettings.Contains(match.Id))
-                {
-                    var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);
-                    foreach (var betting in bettingsForMatch)
-                    {
-                        var overviewBetting = new OverviewBetting
-                        {
-                            HomeScore = betting.HomeScore,
-                            AwayScore = betting.AwayScore,
-                            PointsClass = GetPointsClass(betting, match)
-                        };
-
-                        overviewMatch.OverviewBettings.Add(overviewBetting);
-                    }
-                }
-                               
-
-                result.OverviewMatches.Add(overviewMatch);
-            }
-
-            return result;
-        }
-
         // ~/breeze/matches/PointsGraph
         [HttpGet]
         public Statistics Statistics()
@@ -330,26 +242,6 @@ namespace KotProno2.Controllers
                 .Select(x => x.Key).ToList();
 
             return result;
-        }
-
-        private string GetPointsClass(Betting betting, Match match)
-        {
-            if (!match.HomeScore.HasValue && !match.AwayScore.HasValue)
-            {
-                return "";
-            }
-
-            if (betting.HomeScore == match.HomeScore && betting.AwayScore == match.AwayScore)
-            {
-                return "two-points";
-            }
-
-            if (betting.GetMatchResult() == match.GetMatchResult())
-            {
-                return "one-point";
-            }
-
-            return "";
         }
     }
 }
