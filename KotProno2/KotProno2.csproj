@@ -212,6 +212,7 @@
     <Compile Include="Controllers\OverviewController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
+    <Compile Include="Controllers\TopScorerController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="EntityFramework\MatchesContext.cs" />
     <Compile Include="EntityFramework\MatchesDbContext.cs" />

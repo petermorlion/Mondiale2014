@@ -58,13 +58,15 @@
         }
 
         function getTopScorer() {
-            var topScorerQuery = EntityQuery.from('TopScorer');
-            return manager.executeQuery(topScorerQuery).then(topScorerQuerySucceeded).catch(queryFailed);
+            return $http({
+                method: 'GET',
+                url: '/api/topscorer/'
+            }).then(topScorerQuerySucceeded).catch(queryFailed);
         }
 
-        function topScorerQuerySucceeded(data) {
-            if (data.results.length > 0) {
-                vm.topscorer = data.results[0];
+        function topScorerQuerySucceeded(response) {
+            if (response.data) {
+                vm.topscorer = response.data;
                 vm.topscorer.isReadOnly = true;
             } else {
                 vm.topscorer = { TopScorerName : '', isReadOnly : false };

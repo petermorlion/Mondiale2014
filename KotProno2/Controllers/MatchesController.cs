@@ -53,14 +53,6 @@ namespace KotProno2.Controllers
             };
         }
 
-        // ~/breeze/matches/TopScorer
-        [HttpGet]
-        [Authorize]
-        public TopScorer TopScorer()
-        {
-            return _contextProvider.Context.TopScorers.SingleOrDefault(x => x.UserName == User.Identity.Name);
-        }
-
         // ~/breeze/matches/TopScorers
         [HttpGet]
         [Authorize]
