@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using KotProno2.Controllers;
 
 namespace KotProno2.Models
 {
@@ -78,22 +79,10 @@ namespace KotProno2.Models
             if (match == null)
                 return false;
 
-            // TODO: more or less duplicate from controller
-            switch (match.Stage)
-            {
-                case Stage.GroupStage:
-                    return DateTime.UtcNow < new DateTime(2014, 6, 12, 20, 0, 0, DateTimeKind.Utc);
-                case Stage.EighthFinals:
-                    return DateTime.UtcNow < new DateTime(2014, 6, 28, 16, 0, 0, DateTimeKind.Utc);
-                case Stage.QuarterFinals:
-                    return DateTime.UtcNow < new DateTime(2014, 7, 04, 16, 0, 0, DateTimeKind.Utc);
-                case Stage.SemiFinals:
-                    return DateTime.UtcNow < new DateTime(2014, 7, 08, 20, 0, 0, DateTimeKind.Utc);
-                case Stage.Finals:
-                    return DateTime.UtcNow < new DateTime(2014, 7, 12, 20, 0, 0, DateTimeKind.Utc);
-                default:
-                    return false;
-            }
+            var tournamentId = match.TournamentId;
+            var stage = match.Stage;
+
+            return !(new HasStageStartedQuery().Execute(tournamentId, stage));
         }
     }
 }

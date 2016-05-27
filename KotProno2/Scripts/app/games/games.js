@@ -206,7 +206,7 @@
 
             $http({
                 method: 'POST',
-                url: '/breeze/matches/AddBettings',
+                url: '/api/Bettings',
                 data: { newBettings: newBettings, topScorer: { TopScorerName: vm.topscorer.TopScorerName } }
             }).success(function (data, status, headers, config) {
                 if (vm.topscorer.TopScorerName !== '') {

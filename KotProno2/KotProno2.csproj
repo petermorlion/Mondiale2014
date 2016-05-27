@@ -203,6 +203,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BettingsController.cs" />
+    <Compile Include="Controllers\HasStageStartedQuery.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
