@@ -23,7 +23,6 @@ namespace KotProno2.Models
                 var matchId = (int)betting["matchId"];
                 var homeBetting = (int)betting["homeBetting"];
                 var awayBetting = (int)betting["awayBetting"];
-                var userName = UserName;
 
                 if (!CanSave(matchId, matches))
                 {
