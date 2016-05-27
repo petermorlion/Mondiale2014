@@ -29,59 +29,6 @@ namespace KotProno2.Controllers
             }
         }
 
-        private DateTime GetStageStart(IList<Match> matches, Stage stage)
-        {
-            var firstMatch = matches.Where(x => x.Stage == stage).OrderBy(x => x.DateTime).FirstOrDefault();
-            if (firstMatch == null)
-            {
-                return DateTime.MaxValue;
-            }
-
-            return firstMatch.DateTime;
-        }
-
-        // ~/breeze/matches/Matches
-        // ~/breeze/matches/Matches?$filter=HomeTeamId eq 1
-        [HttpGet]
-        public IQueryable<Match> Matches(int tournamentId)
-        {
-            // TODO: split into a domain Match and a viewmodel Match
-            var matches = _contextProvider.Context.Matches.Where(x => x.TournamentId == tournamentId).ToList();
-
-            var groupStageStart = GetStageStart(matches, Stage.GroupStage);
-            var eighthFinalStart = GetStageStart(matches, Stage.EighthFinals);
-            var quarterFinalsStart = GetStageStart(matches, Stage.QuarterFinals);
-            var semiFinalsStart = GetStageStart(matches, Stage.SemiFinals);
-            var finalsStart = GetStageStart(matches, Stage.Finals);
-
-            foreach (var match in matches)
-            {
-                switch (match.Stage)
-                {
-                    case Stage.GroupStage:
-                        match.IsReadOnly = DateTime.UtcNow >= groupStageStart;
-                        break;
-                    case Stage.EighthFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= eighthFinalStart;
-                        break;
-                    case Stage.QuarterFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= quarterFinalsStart;
-                        break;
-                    case Stage.SemiFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= semiFinalsStart;
-                        break;
-                    case Stage.Finals:
-                        match.IsReadOnly = DateTime.UtcNow >= finalsStart;
-                        break;
-                    default:
-                        match.IsReadOnly = true;
-                        break;
-                }
-            }
-
-            return matches.AsQueryable();
-        }
-
         // ~/breeze/matches/Bettings
         // ~/breeze/matches/Bettings?$filter=HomeTeamId eq 1
         [HttpGet]
