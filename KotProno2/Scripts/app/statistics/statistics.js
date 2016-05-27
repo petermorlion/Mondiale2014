@@ -3,7 +3,7 @@
 
     var controllerId = 'statistics';
     angular.module('app')
-        .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
+        .controller(controllerId, ['$q', '$stateParams', '$http', function ($q, $stateParams, $http) {
         
             var vm = this;
             vm.title = 'Enkele statistieken';
@@ -18,7 +18,7 @@
 
             $http({
                 method: 'GET',
-                url: '/breeze/matches/Statistics'
+                url: '/api/Stats/' + $stateParams.tournamentId
             }).success(function (data, status, headers, config) {
                 var pointsGraphData = {
                     chart: { zoomType: 'xy' },
