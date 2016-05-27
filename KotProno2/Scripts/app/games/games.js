@@ -60,7 +60,7 @@
         function getTopScorer() {
             return $http({
                 method: 'GET',
-                url: '/api/topscorer/'
+                url: '/api/topscorer/' + $stateParams.tournamentId
             }).then(topScorerQuerySucceeded).catch(queryFailed);
         }
 
@@ -208,7 +208,7 @@
             $http({
                 method: 'POST',
                 url: '/api/Bettings',
-                data: { newBettings: newBettings, topScorer: { TopScorerName: vm.topscorer.TopScorerName } }
+                data: { newBettings: newBettings, topScorer: { TopScorerName: vm.topscorer.TopScorerName, TournamentId: $stateParams.tournamentId } }
             }).success(function (data, status, headers, config) {
                 if (vm.topscorer.TopScorerName !== '') {
                     vm.topscorer.isReadOnly = true;

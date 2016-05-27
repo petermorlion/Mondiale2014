@@ -11,9 +11,9 @@ namespace KotProno2.Controllers
 
         [HttpGet]
         [Authorize]
-        public TopScorer TopScorer()
+        public TopScorer TopScorer(int id)
         {
-            return _contextProvider.Context.TopScorers.SingleOrDefault(x => x.UserName == User.Identity.Name);
+            return _contextProvider.Context.TopScorers.SingleOrDefault(x => x.UserName == User.Identity.Name && x.TournamentId == id);
         }
     }
 }

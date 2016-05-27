@@ -55,15 +55,16 @@ namespace KotProno2.Models
             }
 
             var topScorer = data["topScorer"]["TopScorerName"].ToString();
+            var tournamentId = int.Parse(data["topScorer"]["TournamentId"].ToString());
             if (string.IsNullOrEmpty(topScorer))
             {
                 return;
             }
 
-            var currentTopScorer = context.TopScorers.SingleOrDefault(x => x.UserName == UserName);
+            var currentTopScorer = context.TopScorers.SingleOrDefault(x => x.UserName == UserName && x.TournamentId == tournamentId);
             if (currentTopScorer == null)
             {
-                context.TopScorers.Add(new TopScorer { UserName = UserName, TopScorerName = topScorer });
+                context.TopScorers.Add(new TopScorer { UserName = UserName, TopScorerName = topScorer, TournamentId = tournamentId});
             }
             else
             {
