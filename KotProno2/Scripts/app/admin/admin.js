@@ -2,10 +2,7 @@
     'use strict';
     var controllerId = 'admin';
     angular.module('app')
-    .controller(controllerId, ['$q', 'breeze', '$http', '$stateParams', function ($q, breeze, $http, $stateParams) {
-        var EntityQuery = breeze.EntityQuery;
-        var manager = new breeze.EntityManager('/breeze/matches');
-
+    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
         var vm = this;
         vm.title = "Admin gedeelte";
         vm.games = [];
@@ -42,10 +39,9 @@
                 }
             }
 
-
             $http({
                 method: 'POST',
-                url: '/breeze/matches/AddScores',
+                url: '/api/Scores',
                 data: { newScores: newScores }
             }).success(function (data, status, headers, config) {
                 toastr.info('De scores zijn opgeslaan.');
