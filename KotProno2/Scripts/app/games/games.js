@@ -13,10 +13,7 @@
 
     var controllerId = 'games';
     angular.module('app')
-    .controller(controllerId, ['$q', 'breeze', '$http', '$stateParams', function ($q, breeze, $http, $stateParams) {
-        var EntityQuery = breeze.EntityQuery;
-        var manager = new breeze.EntityManager('/breeze/matches');
-
+    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
         var vm = this;
         vm.title = "Pronostieken";
         vm.save = save;
