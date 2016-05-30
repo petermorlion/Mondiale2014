@@ -3,7 +3,7 @@
 
     var controllerId = 'overview';
     angular.module('app')
-        .controller(controllerId, ['$q', 'breeze', '$http', '$stateParams', function ($q, breeze, $http, $stateParams) {
+        .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
         
             var vm = this;
             vm.title = 'Een overzicht';
