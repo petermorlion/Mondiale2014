@@ -236,13 +236,14 @@
 
         function showAllTopscorers() {
             vm.allTopscorers = null;
-            var topScorerQuery = EntityQuery.from('TopScorers');
-            return manager.executeQuery(topScorerQuery)
-                .then(function (data) {
-                    vm.allTopscorers = data.results;
-                    vm.matchDetails = null;
-                })
-                .catch(queryFailed);
+
+            return $http({
+                method: 'GET',
+                url: '/api/TopScorers/' + $stateParams.tournamentId
+            }).success(function (data) {
+                vm.allTopscorers = data;
+                vm.matchDetails = null;
+            }).error(queryFailed);
         }
 
         function showStage(stage) {
