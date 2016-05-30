@@ -48,10 +48,10 @@
                 controller: 'statistics',
                 controllerAs: 'vm'
             })
-            .state('admin', {
+            .state('tournament.admin', {
                 url: "/admin",
                 templateUrl: "/Scripts/app/admin/admin.html",
-                controller: 'tournaments',
+                controller: 'admin',
                 controllerAs: 'vm'
             });
     }

@@ -2,7 +2,7 @@
     'use strict';
     var controllerId = 'admin';
     angular.module('app')
-    .controller(controllerId, ['$q', 'breeze', '$http', function ($q, breeze, $http) {
+    .controller(controllerId, ['$q', 'breeze', '$http', '$stateParams', function ($q, breeze, $http, $stateParams) {
         var EntityQuery = breeze.EntityQuery;
         var manager = new breeze.EntityManager('/breeze/matches');
 
@@ -15,12 +15,14 @@
 
         function getGames() {
             vm.isLoading = true;
-            var matchesQuery = EntityQuery.from('Matches');
-            return manager.executeQuery(matchesQuery).then(matchesQuerySucceeded).catch(queryFailed);
+            return $http({
+                method: 'GET',
+                url: '/api/match/' + $stateParams.tournamentId
+            }).then(matchesQuerySucceeded).catch(queryFailed);
         }
 
-        function matchesQuerySucceeded(data) {
-            vm.games = data.results;
+        function matchesQuerySucceeded(response) {
+            vm.games = response.data;
             vm.isLoading = false;
         }
 
