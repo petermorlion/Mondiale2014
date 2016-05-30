@@ -53,14 +53,6 @@ namespace KotProno2.Controllers
             };
         }
 
-        // ~/breeze/matches/TopScorers
-        [HttpGet]
-        [Authorize]
-        public IQueryable<TopScorer> TopScorers()
-        {
-            return _contextProvider.Context.TopScorers;
-        }
-
         // ~/breeze/matches/Points
         [HttpGet]
         public IQueryable<Points> Points()
