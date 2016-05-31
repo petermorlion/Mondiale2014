@@ -206,6 +206,7 @@
     <Compile Include="Controllers\BettingsController.cs" />
     <Compile Include="Controllers\HasStageStartedQuery.cs" />
     <Compile Include="Controllers\MatchController.cs" />
+    <Compile Include="Controllers\MatchDetailsController.cs" />
     <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />

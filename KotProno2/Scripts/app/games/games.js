@@ -221,8 +221,7 @@
             vm.matchDetails = null;
             $http({
                 method: 'GET',
-                url: '/breeze/matches/MatchDetails',
-                params: { matchId: matchId }
+                url: '/api/MatchDetails/' + matchId
             }).success(function (data, status, headers, config) {
                 vm.matchDetails = data;
                 vm.allTopscorers = null;
