@@ -55,15 +55,11 @@ input[type="checkbox"].input-validation-error {
 }
 
 .bettings-tabs {
-    position: fixed;
     display:block;
     clear:both;
-    top: 40px;
-    padding-top: 20px;
     width: 100%; 
     max-width: 1170px;
     background-color: #fff;
-    z-index: 1020;
 }
 
 .bettings-main {
