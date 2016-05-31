@@ -52,6 +52,11 @@ input[type="checkbox"].input-validation-error {
 
 .betting-input {
     width: 150px;
+    margin: 0 auto;
+}
+
+.topscorer-input {
+    margin: 0 auto;
 }
 
 .bettings-tabs {
