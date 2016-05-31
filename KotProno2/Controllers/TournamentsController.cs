@@ -14,7 +14,7 @@ namespace KotProno2.Controllers
         [HttpGet]
         public IList<Tournament> Get()
         {
-            var tournaments = _contextProvider.Context.Tournaments.ToList();
+            var tournaments = _contextProvider.Context.Tournaments.OrderByDescending(x => x.Id).ToList();
 
             return tournaments;
         }

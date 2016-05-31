@@ -113,3 +113,7 @@ input[type="checkbox"].input-validation-error {
 .overview-betting {
     text-align: center;
 }
+
+.tournaments_logo {
+    margin: 10px;
+}
