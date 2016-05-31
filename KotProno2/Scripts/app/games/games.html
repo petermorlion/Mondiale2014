@@ -78,27 +78,40 @@
 
                 <div class="loading-panel" ng-show="vm.isLoading"></div>
 
-                <div class="row">
-                    <div ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage:true" class="col-md-12 col-sm-12 col-xs-12 text-center">
-                        <h4>{{gameBettingGroup.date | date}}</h4>
-                        <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
-                            <div class="f48">
+                <div class="text-center" ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage:true">
+                    <h4>{{gameBettingGroup.date | date}}</h4>
+                    <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
+                        <div class="row text-center">
+                            <div class="col-xs-12 col-sm-12 text-center">
                                 <span>{{gameBetting.date.getUTCHours() | numberFixedLen:2}}:{{gameBetting.date.getUTCMinutes() | numberFixedLen:2}}</span>
+                            </div>
+                        </div>
+                        <div class="row text-center betting">
+                            <div class="col-xs-6 col-sm-2 f48 text-right">
                                 <span class="betting-flag flag {{gameBetting.homeIso}}" title="{{gameBetting.homeDescription}}"></span>
-                                <input ng-model="gameBetting.homeBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
-                                <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
+                            </div>
+                            <div class="col-xs-6 visible-xs f48 text-left">
                                 <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
-                                <button type="button"
-                                        class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
-                                        title="De andere pronostieken bekijken"
-                                        ng-click="vm.showOtherBettings(gameBetting.matchId)"
-                                        ng-show="gameBetting.isReadOnly"
-                                        data-toggle="modal"
-                                        data-target="#detailsModal"></button>
+                            </div>
+                            <div class="col-xs-6 col-sm-4">
+                                <input ng-model="gameBetting.homeBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
+                            </div>
+                            <div class="col-xs-6 col-sm-4">
+                                <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
+                            </div>
+                            <div class="hidden-xs col-sm-2 f48 text-left">
+                                <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--<button type="button"
+                        class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
+                        title="De andere pronostieken bekijken"
+                        ng-click="vm.showOtherBettings(gameBetting.matchId)"
+                        ng-show="gameBetting.isReadOnly"
+                        data-toggle="modal"
+                        data-target="#detailsModal"></button>-->
             </div>
         </form>
     </div>

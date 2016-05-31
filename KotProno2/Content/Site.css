@@ -50,12 +50,7 @@ input[type="checkbox"].input-validation-error {
     vertical-align: middle;
 }
 
-.betting-input {
-    width: 150px;
-    margin: 0 auto;
-}
-
-.topscorer-input {
+.betting-input, .topscorer-input {
     margin: 0 auto;
 }
 
@@ -121,4 +116,11 @@ input[type="checkbox"].input-validation-error {
 
 .tournaments_logo {
     margin: 10px;
+}
+
+@media (min-width: 768px) {
+    .betting {
+        display: flex;
+        align-items: center;
+    }
 }
