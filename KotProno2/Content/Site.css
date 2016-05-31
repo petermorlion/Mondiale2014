@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #688A69;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -68,13 +69,16 @@ input[type="checkbox"].input-validation-error {
 }
 
 .save-container {
+    margin-left: -15px;
     text-align: center;
     position: fixed;
     width: 100%;
     max-width: 1170px;
     bottom: 0;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    background-color: #688A69;
+    border-top: 1px solid #2B5049;
+    border-right: 1px solid #2B5049;
+    border-left: 1px solid #2B5049;
     padding-top: 20px;
     padding-bottom: 20px;
     z-index: 1010;
