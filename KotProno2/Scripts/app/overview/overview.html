@@ -1,19 +1,6 @@
 ﻿<section id="dashboard-view" class="mainbar">
     <h2>{{vm.title}}</h2>
-    <p>
-        Een overzicht van alle pronostieken. Later komt hier nog een kleuraanduiding naargelang de score dat een
-        pronostiek oplevert.
-    </p>
-    <p>
-        Legende:
-        <span class="two-points example-points">Exacte score correct = 2 punten</span>
-        <span class="one-point example-points">Correct winnend team of gelijkspel = 1 punt</span>
-    </p>
-    <p>
-        Een asterisk (*) naast de vlag wil zeggen dat de ploeg met penalties gewonnen heeft. 
-        In dat geval kan je slechts 1 punt verdienen, als je de correcte winnaar hebt aangeduid.
-    </p>
-
+    
     <div class="loading-panel" ng-show="vm.isLoading">
     </div>
 
@@ -38,6 +25,20 @@
                 <td ng-repeat="betting in match.OverviewBettings" class="overview-betting {{betting.PointsClass}}">{{betting.HomeScore}} - {{betting.AwayScore}}</td>
             </tr>
         </tbody>
-    </table> 
+    </table>
+
+    <p>
+        Legende:
+    </p>
+    <p>
+        <span class="two-points example-points">Exacte score correct = 2 punten</span>
+    </p>
+    <p>
+        <span class="one-point example-points">Correct winnend team of gelijkspel = 1 punt</span>
+    </p>
+    <p>
+        Een asterisk (*) naast de vlag wil zeggen dat de ploeg met penalties gewonnen heeft.
+        In dat geval kan je slechts 1 punt verdienen, als je de correcte winnaar hebt aangeduid.
+    </p>
 
 </section>
