@@ -30,8 +30,6 @@ namespace KotProno2
                       //"~/Scripts/angular-route.js",
                       "~/Scripts/angular-ui-router.js",
                       //"~/Scripts/angular-sanitize.js",
-                      "~/Scripts/breeze.debug.js",
-                      "~/Scripts/breeze.angular.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/config.js",
                       "~/Scripts/app/config.route.js",

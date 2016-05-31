@@ -1,10 +1,5 @@
 ﻿using KotProno2.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using KotProno2.Migrations;
 
 namespace KotProno2.EntityFramework
 {

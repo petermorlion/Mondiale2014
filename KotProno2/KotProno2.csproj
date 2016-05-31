@@ -196,7 +196,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BreezeWebApiConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -207,7 +206,6 @@
     <Compile Include="Controllers\HasStageStartedQuery.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\MatchDetailsController.cs" />
-    <Compile Include="Controllers\MatchesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\OverviewController.cs" />
@@ -253,6 +251,10 @@
     <Compile Include="Migrations\201605271933147_v2.2.0.cs" />
     <Compile Include="Migrations\201605271933147_v2.2.0.Designer.cs">
       <DependentUpon>201605271933147_v2.2.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311124049_v2.3.0.cs" />
+    <Compile Include="Migrations\201605311124049_v2.3.0.Designer.cs">
+      <DependentUpon>201605311124049_v2.3.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1184,9 +1186,6 @@
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -1241,6 +1240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605271933147_v2.2.0.resx">
       <DependentUpon>201605271933147_v2.2.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311124049_v2.3.0.resx">
+      <DependentUpon>201605311124049_v2.3.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,7 +26,7 @@ namespace KotProno2.Migrations
                 "SET @TournamentId = (SELECT Id FROM dbo.Tournaments WHERE Name = 'EK 2016');" +
                 "INSERT INTO dbo.Matches (HomeTeamIsoCode, AwayTeamIsoCode, DateTime, Stage, IsReadOnly, Tournament_Id)" +
                 "VALUES ('fr', 'ro', '2016/06/10 21:00', 0, 0, @TournamentId)," +
-                "       ('gb', 'ru', '2016/06/11 21:00', 0, 0, @TournamentId)," +
+                "       ('_England', 'ru', '2016/06/11 21:00', 0, 0, @TournamentId)," +
                 "       ('_Wales', 'sk', '2016/06/11 18:00', 0, 0, @TournamentId)," +
                 "       ('al', 'ch', '2016/06/11 18:00', 0, 0, @TournamentId);"
                 );
