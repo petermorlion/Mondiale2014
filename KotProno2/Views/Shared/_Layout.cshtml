@@ -41,6 +41,13 @@
             @Scripts.Render("~/bundles/bootstrap")
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
             @RenderSection("scripts", required: false)
+            <script type="text/javascript">
+                $(document).on('click', '.navbar-collapse.in', function(e) {
+                    if ($(e.target).is('a') && $(e.target).attr('class') !== 'dropdown-toggle') {
+                        $(this).collapse('hide');
+                    }
+                });
+            </script>
 
         </div>
     </div>
