@@ -1,8 +1,7 @@
 ﻿<section id="dashboard-view" class="mainbar">
     <h2>{{vm.title}}</h2>
     
-    <div class="loading-panel" ng-show="vm.isLoading">
-    </div>
+    <loading-panel show="vm.isLoading"></loading-panel>
 
     <div ng-hide="vm.isLoading">
         Meeste keren een exact juiste pronostiek ({{vm.mostExactResults}} keer):

@@ -1,8 +1,7 @@
 ﻿<section id="dashboard-view" class="mainbar">
     <h1>{{vm.title}}</h1>
 
-    <div class="loading-panel" ng-show="vm.isLoading">
-    </div>
+    <loading-panel show="vm.isLoading"></loading-panel>
 
     <div class="row">
         <div class="col-xs-12 col-lg-6" ng-repeat="tournament in vm.tournaments">

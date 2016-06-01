@@ -92,11 +92,19 @@ input[type="checkbox"].input-validation-error {
 .loading-panel {
     text-align: center;
     height: 200px;
-    background-image: url('/Content/images/loading.gif');
-    background-position: 50% 50%;
-    background-size: 40px;
-    background-repeat: no-repeat;
+    font-size: 30px;
+    padding-top: 5%;
 }
+
+.loading-panel-icon {
+    -moz-animation: spin 4s linear infinite;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); }}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); }}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}}
 
 .two-points {
     background-color: #4dbf2c !important;

@@ -76,7 +76,7 @@
                             data-target="#detailsModal"></button>
                 </div>
 
-                <div class="loading-panel" ng-show="vm.isLoading"></div>
+                <loading-panel show="vm.isLoading"></loading-panel>
 
                 <div class="text-center" ng-repeat="gameBettingGroup in vm.gameBettingGroups | filter:vm.stageFilter.stage:true">
                     <h4>{{gameBettingGroup.date | date}}</h4>

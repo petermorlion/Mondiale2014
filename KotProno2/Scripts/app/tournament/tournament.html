@@ -1,8 +1,7 @@
 ﻿<section id="dashboard-view" class="mainbar">
     <h1>{{vm.tournament.Name}}</h1>
 
-    <div class="loading-panel" ng-show="vm.isLoading">
-    </div>
+    <loading-panel show="vm.isLoading"></loading-panel>
 
     <div ui-view></div>
 

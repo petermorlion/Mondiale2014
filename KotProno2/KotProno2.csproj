@@ -351,6 +351,7 @@
     <Content Include="Scripts\app\admin\admin.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\config.js" />
+    <Content Include="Scripts\app\directives\loadingPanel.js" />
     <Content Include="Scripts\app\games\games.html" />
     <Content Include="Scripts\app\games\games.js" />
     <Content Include="Scripts\app\main.js" />

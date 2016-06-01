@@ -42,6 +42,7 @@ namespace KotProno2
                       "~/Scripts/app/statistics/statistics.js",
                       "~/Scripts/app/overview/overview.js",
                       "~/Scripts/app/nav.js",
+                      "~/Scripts/app/directives/loadingPanel.js",
                       "~/Scripts/highcharts/highcharts.js",
                       "~/Scripts/toastr.js"));
 
