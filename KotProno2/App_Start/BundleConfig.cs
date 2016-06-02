@@ -47,7 +47,6 @@ namespace KotProno2
                       "~/Scripts/toastr.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/flags/common.css",
                       "~/Content/flags/flags48.css",

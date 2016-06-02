@@ -4,9 +4,9 @@
     <loading-panel show="vm.isLoading"></loading-panel>
 
     <div class="row">
-        <div class="col-xs-12 col-lg-6" ng-repeat="tournament in vm.tournaments">
+        <div class="col-xs-12 col-lg-6 text-center" ng-repeat="tournament in vm.tournaments">
             <a ui-sref="tournament.points({tournamentId: '{{tournament.Id}}'})">
-                <img src="../../../Content/images/logos/{{tournament.Name}}.jpg" class="tournaments_logo"/>
+                <img src="../../../Content/images/logos/{{tournament.Name}}.jpg" class="tournaments-logo"/>
             </a>
         </div>
     </div>

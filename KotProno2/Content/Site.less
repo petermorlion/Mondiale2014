@@ -1,0 +1,153 @@
+﻿@import "bootstrap/bootstrap.less";
+@import "bootstrap/glyphicons.less";
+
+/* Overrides of Bootstrap variables */
+@icon-font-path:          "./fonts/";
+
+@body-bg:               #AECCA1;
+@navbar-inverse-bg:     #3A4436;
+@table-bg-accent:       #B7CCAD;
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.other-bettings-icon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.betting-flag {
+    vertical-align: middle;
+}
+
+.betting-input, .topscorer-input {
+    margin: 0 auto;
+}
+
+.bettings-tabs {
+    display:block;
+    clear:both;
+    width: 100%; 
+    max-width: 1170px;
+    background-color: #fff;
+}
+
+.bettings-main {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.save-container {
+    margin-left: -15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    max-width: 1170px;
+    bottom: 0;
+    background-color: #688A69;
+    border-top: 1px solid #2B5049;
+    border-right: 1px solid #2B5049;
+    border-left: 1px solid #2B5049;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 1010;
+}
+
+.side-panel-details {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.loading-panel {
+    text-align: center;
+    height: 200px;
+    font-size: 30px;
+    padding-top: 5%;
+}
+
+.loading-panel-icon {
+    -moz-animation: spin 4s linear infinite;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); }}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); }}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}}
+
+.two-points {
+    background-color: #4dbf2c !important;
+}
+
+.one-point {
+    background-color: #fc7318 !important;
+}
+
+.example-points {
+    padding: 8px;
+}
+
+.overview-betting {
+    text-align: center;
+}
+
+.tournaments-logo {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 150px;
+    height: 190px;
+}
+
+.home-link span {
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+@media (min-width: 768px) {
+    .betting {
+        display: flex;
+        align-items: center;
+    }
+}
