@@ -129,8 +129,7 @@ input[type="checkbox"].input-validation-error {
 .home-link span {
     color: #999;
     font-size: 20px;
-    padding: 15px;
-    float: left;
+    padding: 0 5px;
 }
 
 @media (min-width: 768px) {

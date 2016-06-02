@@ -20,8 +20,11 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="home-link">
-                            <span class="glyphicon glyphicon-home"></span>
-                            @Html.ActionLink("Mondiale 2014", "Index", "Home", null, new {@class = "navbar-brand" })
+                            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                                <span class="glyphicon glyphicon-home"></span>
+                                Mondiale 2014
+                            </a>
+                            @*@Html.ActionLink("Mondiale 2014", "Index", "Home", null, new { @class = "navbar-brand" })*@
                         </div>
                     </div>
 
@@ -42,7 +45,7 @@
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
             @RenderSection("scripts", required: false)
             <script type="text/javascript">
-                $(document).on('click', '.navbar-collapse.in', function(e) {
+                $(document).on('click', '.navbar-collapse.in', function (e) {
                     if ($(e.target).is('a') && $(e.target).attr('class') !== 'dropdown-toggle') {
                         $(this).collapse('hide');
                     }
