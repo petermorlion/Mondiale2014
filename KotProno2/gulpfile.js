@@ -10,3 +10,7 @@ gulp.task('less', function () {
       }))
       .pipe(gulp.dest('./Content/'));
 });
+
+gulp.task('watch', function() {
+    gulp.watch('./Content/**/*.less', ['less']);
+});
