@@ -4,9 +4,16 @@
 /* Overrides of Bootstrap variables */
 @icon-font-path:          "./fonts/";
 
-@body-bg:               #AECCA1;
-@navbar-inverse-bg:     #3A4436;
-@table-bg-accent:       #B7CCAD;
+@body-bg:                            #F9EBE0;
+@navbar-inverse-bg:                  #463F1A;
+@table-bg:                           @body-bg;
+@table-bg-accent:                    darken(@table-bg, 10%);
+@navbar-inverse-link-color:          @body-bg;
+@navbar-inverse-link-hover-color:    #A0A651;
+@navbar-inverse-brand-color:         @navbar-inverse-link-color;
+@navbar-inverse-brand-hover-color:   @navbar-inverse-link-hover-color;
+@table-border-color:                 #A0A651;
+@table-bg-hover:                     #C8ED89;
 
 body {
     padding-top: 50px;
