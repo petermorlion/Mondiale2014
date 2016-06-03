@@ -283,10 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\KotProno2.mdf" />
-    <Content Include="App_Data\KotProno2.mdf.bak" />
-    <Content Include="App_Data\KotProno2_log.ldf">
-      <DependentUpon>KotProno2.mdf.bak</DependentUpon>
-    </Content>
     <Content Include="Content\breeze.directives.css" />
     <Content Include="Content\flags\common.css" />
     <Content Include="Content\flags\flags16-semi.css" />
