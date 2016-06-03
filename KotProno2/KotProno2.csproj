@@ -307,6 +307,7 @@
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logos\EK 2016.jpg" />
     <Content Include="Content\images\logos\WK 2014.jpg" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
