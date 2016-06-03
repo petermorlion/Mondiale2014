@@ -6857,3 +6857,6 @@ input[type="checkbox"].input-validation-error {
     align-items: center;
   }
 }
+.overview-table-container {
+  overflow: auto;
+}
