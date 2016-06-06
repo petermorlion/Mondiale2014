@@ -176,6 +176,12 @@
                 dz: 'Algerije',
                 ru: 'Rusland',
                 kr: 'Zuid-Korea',
+
+                ro: 'Roemenië',
+                al: 'Albanië',
+                _Wales: 'Wales',
+                sk: 'Slovakije',
+                _England: 'Engeland'
             };
         }
 
