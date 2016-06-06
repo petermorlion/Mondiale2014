@@ -57,6 +57,10 @@
             .state('login', {
                 url: "/login",
                 templateUrl: "/Account/Login"
+            })
+            .state('account', {
+                url: "/account",
+                templateUrl: "/Account/Manage"
             });
     }
 })();
