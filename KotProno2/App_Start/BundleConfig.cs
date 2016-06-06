@@ -47,6 +47,8 @@ namespace KotProno2
                       "~/Content/flags/flags48.css",
                       "~/Content/flags/flags24.css",
                       "~/Content/toastr.css"));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
