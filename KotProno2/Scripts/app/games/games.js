@@ -181,7 +181,17 @@
                 al: 'Albanië',
                 _Wales: 'Wales',
                 sk: 'Slovakije',
-                _England: 'Engeland'
+                _England: 'Engeland',
+                tr: 'Turkije',
+                pl: 'Polen',
+                _Northern_Ireland: 'Noord-Ierland',
+                ua: 'Oekraïne',
+                cz: 'Tsjechië',
+                ie: 'Ierland',
+                se: 'Zweden',
+                at: 'Oostenrijk',
+                hu: 'Hongarije',
+                is: 'Ijsland'
             };
         }
 

@@ -25,15 +25,10 @@ namespace KotProno2
 
             // TODO: a scriptbundle would be better but the minification is breaking angular
             bundles.Add(new Bundle("~/bundles/angular").Include(
-                      //"~/Scripts/angular.js",
-                      //"~/Scripts/angular-animate.js",
-                      //"~/Scripts/angular-route.js",
                       "~/Scripts/angular-ui-router.js",
-                      //"~/Scripts/angular-sanitize.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/config.js",
                       "~/Scripts/app/config.route.js",
-                      //"~/Scripts/app/main.js",
                       "~/Scripts/app/games/games.js",
                       "~/Scripts/app/admin/admin.js",
                       "~/Scripts/app/points/points.js",
