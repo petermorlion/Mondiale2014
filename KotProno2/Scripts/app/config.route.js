@@ -53,6 +53,10 @@
                 templateUrl: "/Scripts/app/admin/admin.html",
                 controller: 'admin',
                 controllerAs: 'vm'
+            })
+            .state('login', {
+                url: "/login",
+                templateUrl: "/Account/Login"
             });
     }
 })();
