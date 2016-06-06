@@ -21,7 +21,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'Finals' };
+        vm.stageFilter = { stage: 'GroupStage' };
 
         //TODO: async
         getGameBettings();

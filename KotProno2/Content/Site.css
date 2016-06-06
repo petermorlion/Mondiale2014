@@ -6788,10 +6788,10 @@ input[type="checkbox"].input-validation-error {
   width: 100%;
   max-width: 1170px;
   bottom: 0;
-  background-color: #688A69;
-  border-top: 1px solid #2B5049;
-  border-right: 1px solid #2B5049;
-  border-left: 1px solid #2B5049;
+  background-color: #463F1A;
+  border-top: 1px solid #A0A651;
+  border-right: 1px solid #A0A651;
+  border-left: 1px solid #A0A651;
   padding-top: 20px;
   padding-bottom: 20px;
   z-index: 1010;
