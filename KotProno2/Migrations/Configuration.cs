@@ -122,7 +122,7 @@ namespace KotProno2.Migrations
                     new Match { DateTime = new DateTime(2014, 6, 14, 18, 0, 0), HomeTeamIsoCode = Teams.Colombia.IsoCode, AwayTeamIsoCode = Teams.Greece.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 14, 21, 0, 0), HomeTeamIsoCode = Teams.Uruguay.IsoCode, AwayTeamIsoCode = Teams.CostaRica.IsoCode },
 
-                    new Match { DateTime = new DateTime(2014, 6, 15, 00, 0, 0), HomeTeamIsoCode = Teams.England.IsoCode, AwayTeamIsoCode = Teams.Italy.IsoCode },
+                    new Match { DateTime = new DateTime(2014, 6, 15, 00, 0, 0), HomeTeamIsoCode = Teams.GreatBritain.IsoCode, AwayTeamIsoCode = Teams.Italy.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 15, 03, 0, 0), HomeTeamIsoCode = Teams.IvoryCoast.IsoCode, AwayTeamIsoCode = Teams.Japan.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 15, 18, 0, 0), HomeTeamIsoCode = Teams.Switzerland.IsoCode, AwayTeamIsoCode = Teams.Ecuador.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 15, 21, 0, 0), HomeTeamIsoCode = Teams.France.IsoCode, AwayTeamIsoCode = Teams.Honduras.IsoCode },
@@ -141,7 +141,7 @@ namespace KotProno2.Migrations
 
                     new Match { DateTime = new DateTime(2014, 6, 19, 00, 0, 0), HomeTeamIsoCode = Teams.Cameroon.IsoCode, AwayTeamIsoCode = Teams.Croatia.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 19, 18, 0, 0), HomeTeamIsoCode = Teams.Colombia.IsoCode, AwayTeamIsoCode = Teams.IvoryCoast.IsoCode },
-                    new Match { DateTime = new DateTime(2014, 6, 19, 21, 0, 0), HomeTeamIsoCode = Teams.Uruguay.IsoCode, AwayTeamIsoCode = Teams.England.IsoCode },
+                    new Match { DateTime = new DateTime(2014, 6, 19, 21, 0, 0), HomeTeamIsoCode = Teams.Uruguay.IsoCode, AwayTeamIsoCode = Teams.GreatBritain.IsoCode },
 
                     new Match { DateTime = new DateTime(2014, 6, 20, 00, 0, 0), HomeTeamIsoCode = Teams.Japan.IsoCode, AwayTeamIsoCode = Teams.Greece.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 20, 18, 0, 0), HomeTeamIsoCode = Teams.Italy.IsoCode, AwayTeamIsoCode = Teams.CostaRica.IsoCode },
@@ -162,7 +162,7 @@ namespace KotProno2.Migrations
                     new Match { DateTime = new DateTime(2014, 6, 23, 22, 0, 0), HomeTeamIsoCode = Teams.Croatia.IsoCode, AwayTeamIsoCode = Teams.Mexico.IsoCode },
 
                     new Match { DateTime = new DateTime(2014, 6, 24, 18, 0, 0), HomeTeamIsoCode = Teams.Italy.IsoCode, AwayTeamIsoCode = Teams.Uruguay.IsoCode },
-                    new Match { DateTime = new DateTime(2014, 6, 24, 18, 0, 0), HomeTeamIsoCode = Teams.CostaRica.IsoCode, AwayTeamIsoCode = Teams.England.IsoCode },
+                    new Match { DateTime = new DateTime(2014, 6, 24, 18, 0, 0), HomeTeamIsoCode = Teams.CostaRica.IsoCode, AwayTeamIsoCode = Teams.GreatBritain.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 24, 22, 0, 0), HomeTeamIsoCode = Teams.Japan.IsoCode, AwayTeamIsoCode = Teams.Colombia.IsoCode },
                     new Match { DateTime = new DateTime(2014, 6, 24, 22, 0, 0), HomeTeamIsoCode = Teams.Greece.IsoCode, AwayTeamIsoCode = Teams.IvoryCoast.IsoCode },
                     

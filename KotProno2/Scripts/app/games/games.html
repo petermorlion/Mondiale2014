@@ -101,17 +101,17 @@
                             </div>
                             <div class="hidden-xs col-sm-2 f48 text-left">
                                 <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
+                                <button type="button"
+                                        class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
+                                        title="De andere pronostieken bekijken"
+                                        ng-click="vm.showOtherBettings(gameBetting.matchId)"
+                                        ng-show="gameBetting.isReadOnly"
+                                        data-toggle="modal"
+                                        data-target="#detailsModal"></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--<button type="button"
-                        class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
-                        title="De andere pronostieken bekijken"
-                        ng-click="vm.showOtherBettings(gameBetting.matchId)"
-                        ng-show="gameBetting.isReadOnly"
-                        data-toggle="modal"
-                        data-target="#detailsModal"></button>-->
             </div>
         </form>
     </div>

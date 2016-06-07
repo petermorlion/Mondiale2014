@@ -17,41 +17,57 @@ namespace KotProno2.Models
                         Teams.Croatia,
                         Teams.Mexico,
                         Teams.Cameroon,
-                        
+
                         Teams.Spain,
                         Teams.Netherlands,
                         Teams.Chili,
                         Teams.Australia,
-                        
+
                         Teams.Colombia,
                         Teams.Greece,
                         Teams.IvoryCoast,
                         Teams.Japan,
-                        
+
                         Teams.Uruguay,
                         Teams.CostaRica,
-                        Teams.England,
+                        Teams.GreatBritain,
                         Teams.Italy,
-                        
+
                         Teams.Switzerland,
                         Teams.Ecuador,
                         Teams.France,
                         Teams.Honduras,
-                        
+
                         Teams.Argentinia,
                         Teams.Bosnia,
                         Teams.Iran,
                         Teams.Nigeria,
-                        
+
                         Teams.Germany,
                         Teams.Portugal,
                         Teams.Ghana,
                         Teams.USA,
-                        
+
                         Teams.Belgium,
                         Teams.Algeria,
                         Teams.Russia,
-                        Teams.Korea
+                        Teams.Korea,
+
+                        Teams.Romania,
+                        Teams.Albania,
+                        Teams.Wales,
+                        Teams.Slovakia,
+                        Teams.England,
+                        Teams.Turkey,
+                        Teams.Poland,
+                        Teams.NorthernIreland,
+                        Teams.Ukraine,
+                        Teams.Czech,
+                        Teams.Ireland,
+                        Teams.Sweden,
+                        Teams.Austria,
+                        Teams.Hungary,
+                        Teams.Iceland
                     };
             }
         }
@@ -73,7 +89,7 @@ namespace KotProno2.Models
 
         public static Team Uruguay = new Team { GroupLetter = "D", Name = "Uruguay", IsoCode = "uy" };
         public static Team CostaRica = new Team { GroupLetter = "D", Name = "Costa Rica", IsoCode = "cr" };
-        public static Team England = new Team { GroupLetter = "D", Name = "Engeland", IsoCode = "gb" };
+        public static Team GreatBritain = new Team { GroupLetter = "D", Name = "Groot Brittannië", IsoCode = "gb" };
         public static Team Italy = new Team { GroupLetter = "D", Name = "Italië", IsoCode = "it" };
 
         public static Team Switzerland = new Team { GroupLetter = "E", Name = "Zwitserland", IsoCode = "ch" };
@@ -95,5 +111,21 @@ namespace KotProno2.Models
         public static Team Algeria = new Team { GroupLetter = "H", Name = "Algerije", IsoCode = "dz" };
         public static Team Russia = new Team { GroupLetter = "H", Name = "Rusland", IsoCode = "ru" };
         public static Team Korea = new Team { GroupLetter = "H", Name = "Zuid-Korea", IsoCode = "kr" };
+
+        public static Team Romania = new Team { IsoCode = "ro", Name = "Roemenië" };
+        public static Team Albania = new Team { IsoCode = "al", Name = "Albanië" };
+        public static Team Wales = new Team { IsoCode = "_Wales", Name = "Wales" };
+        public static Team Slovakia = new Team { IsoCode = "sk", Name = "Slovakije" };
+        public static Team England = new Team { IsoCode = "_England", Name = "Engeland" };
+        public static Team Turkey = new Team { IsoCode = "tr", Name = "Turkije" };
+        public static Team Poland = new Team { IsoCode = "pl", Name = "Polen" };
+        public static Team NorthernIreland = new Team { IsoCode = "_Northern_Ireland", Name = "Noord-Ierland" };
+        public static Team Ukraine = new Team { IsoCode = "ua", Name = "Oekraïne" };
+        public static Team Czech = new Team { IsoCode = "cz", Name = "Tsjechië" };
+        public static Team Ireland = new Team { IsoCode = "ie", Name = "Ierland" };
+        public static Team Sweden = new Team { IsoCode = "se", Name = "Zweden" };
+        public static Team Austria = new Team { IsoCode = "at", Name = "Oostenrijk" };
+        public static Team Hungary = new Team { IsoCode = "hu", Name = "Hongarije" };
+        public static Team Iceland = new Team { IsoCode = "is", Name = "Ijsland" };
     }
 }
