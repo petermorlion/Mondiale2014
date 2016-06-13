@@ -19,7 +19,6 @@ namespace KotProno2.Controllers
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
             var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
-            //TODO: this code assumes all users have entered all bettings
             foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
@@ -56,22 +55,22 @@ namespace KotProno2.Controllers
                     overviewMatch.AwayTeam = awayTeam.Name;
                 }
 
-                if (bettings.Contains(match.Id))
+                var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);
+
+                foreach (var user in users)
                 {
-                    var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);
-                    foreach (var betting in bettingsForMatch)
+                    var overviewBetting = new OverviewBetting();
+
+                    var betting = bettingsForMatch.SingleOrDefault(x => x.UserName == user.UserName);
+                    if (betting != null)
                     {
-                        var overviewBetting = new OverviewBetting
-                        {
-                            HomeScore = betting.HomeScore,
-                            AwayScore = betting.AwayScore,
-                            PointsClass = GetPointsClass(betting, match)
-                        };
-
-                        overviewMatch.OverviewBettings.Add(overviewBetting);
+                        overviewBetting.HomeScore = betting.HomeScore;
+                        overviewBetting.AwayScore = betting.AwayScore;
+                        overviewBetting.PointsClass = GetPointsClass(betting, match);
                     }
-                }
 
+                    overviewMatch.OverviewBettings.Add(overviewBetting);
+                }
 
                 result.OverviewMatches.Add(overviewMatch);
             }
