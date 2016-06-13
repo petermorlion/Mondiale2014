@@ -22,24 +22,26 @@ namespace KotProno2.Controllers
             var semiFinalsStart = GetStageStart(matches, Stage.SemiFinals);
             var finalsStart = GetStageStart(matches, Stage.Finals);
 
+            var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
+
             foreach (var match in matches)
             {
                 switch (match.Stage)
                 {
                     case Stage.GroupStage:
-                        match.IsReadOnly = DateTime.UtcNow >= groupStageStart;
+                        match.IsReadOnly = now >= groupStageStart;
                         break;
                     case Stage.EighthFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= eighthFinalStart;
+                        match.IsReadOnly = now >= eighthFinalStart;
                         break;
                     case Stage.QuarterFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= quarterFinalsStart;
+                        match.IsReadOnly = now >= quarterFinalsStart;
                         break;
                     case Stage.SemiFinals:
-                        match.IsReadOnly = DateTime.UtcNow >= semiFinalsStart;
+                        match.IsReadOnly = now >= semiFinalsStart;
                         break;
                     case Stage.Finals:
-                        match.IsReadOnly = DateTime.UtcNow >= finalsStart;
+                        match.IsReadOnly = now >= finalsStart;
                         break;
                     default:
                         match.IsReadOnly = true;
