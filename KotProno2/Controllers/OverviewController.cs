@@ -19,7 +19,7 @@ namespace KotProno2.Controllers
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
             var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
-            //TODO: code grew organically with increasing number 
+            //TODO: code grew organically with increasing number of ifs, indenting,... Crap
             foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
