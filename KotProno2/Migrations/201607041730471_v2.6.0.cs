@@ -18,7 +18,7 @@ namespace KotProno2.Migrations
         
         public override void Down()
         {
-            Sql("DELETE FROM dbo.Matches WHERE DateTime > '2016/06/30'");
+            Sql("DELETE FROM dbo.Matches WHERE DateTime > '2016/07/06'");
         }
     }
 }
