@@ -45,7 +45,7 @@
                 }
 
                 for (var i = 0; i < data.Categories.length; i++) {
-                    pointsGraphData.xAxis.categories.push(data.Categories[i]);
+                    pointsGraphData.xAxis.categories.push('');
                 }
 
                 for (var i = 0; i < data.Series.length; i++) {
