@@ -11,9 +11,11 @@ namespace KotProno2.Models
         {
             UserNames = new List<string>();
             OverviewMatches = new List<OverviewMatch>();
+            UsersWithCorrectTopScorer = new List<string>();
         }
 
         public IList<string> UserNames { get; private set; }
         public IList<OverviewMatch> OverviewMatches { get; private set; }
+        public IList<string> UsersWithCorrectTopScorer { get; private set; }
     }
 }

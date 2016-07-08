@@ -3,6 +3,9 @@
     
     <loading-panel show="vm.isLoading"></loading-panel>
 
+    <strong ng-if="vm.overview.UsersWithCorrectTopScorer.length > 0">Correcte topscorer: </strong>
+    <span ng-repeat="user in vm.overview.UsersWithCorrectTopScorer">{{user}}{{$last ? '' : ', '}}</span>
+
     <div class="overview-table-container">
         <table class="table table-hover table-condensed table-fixed-header" ng-hide="vm.isLoading">
             <thead>

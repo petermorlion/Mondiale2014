@@ -18,11 +18,17 @@ namespace KotProno2.Controllers
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
             var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderByDescending(x => x.DateTime).ToList();
+            var usersWithCorrectTopScorer = _matchesContext.Context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
 
             //TODO: code grew organically with increasing number of ifs, indenting,... Crap
             foreach (var user in users)
             {
                 result.UserNames.Add(user.UserName);
+            }
+
+            foreach (var user in usersWithCorrectTopScorer)
+            {
+                result.UsersWithCorrectTopScorer.Add(user);   
             }
 
             var hasStageStartedQuery = new HasStageStartedQuery();
