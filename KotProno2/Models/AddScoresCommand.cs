@@ -31,7 +31,7 @@ namespace KotProno2.Models
                 match.AwayScore = awayScore;
 
                 PenaltyWinner penaltyWinner;
-                if (Enum.TryParse<PenaltyWinner>(penaltyWinnerString, out penaltyWinner))
+                if (Enum.TryParse(penaltyWinnerString, out penaltyWinner))
                 {
                     match.PenaltyWinner = penaltyWinner;
                 }

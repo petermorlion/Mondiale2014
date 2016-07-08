@@ -6,5 +6,6 @@
         public string UserName { get; set; }
         public string TopScorerName { get; set; }
         public int TournamentId { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

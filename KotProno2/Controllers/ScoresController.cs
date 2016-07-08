@@ -13,6 +13,7 @@ namespace KotProno2.Controllers
         [Authorize]
         public void Post(object data)
         {
+            // TODO: use roles
             if (User.Identity.Name != "petermorlion")
             {
                 return;
