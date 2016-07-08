@@ -13,7 +13,7 @@ namespace KotProno2.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201607081105119_v2.8.0"; }
+            get { return "201607081115459_v.2.8.0"; }
         }
         
         string IMigrationMetadata.Source

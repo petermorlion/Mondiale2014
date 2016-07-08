@@ -7,12 +7,12 @@ namespace KotProno2.Migrations
     {
         public override void Up()
         {
-            Sql("ALTER TABLE TopScorers ADD IsCorrect BIT;");
+            AddColumn("dbo.TopScorers", "IsCorrect", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            Sql("ALTER TABLE TopScorers DROP COLUMN IsCorrect;");
+            DropColumn("dbo.TopScorers", "IsCorrect");
         }
     }
 }
