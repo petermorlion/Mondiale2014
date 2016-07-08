@@ -17,10 +17,18 @@ namespace KotProno2.Controllers
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToList();
             var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).ToList();
             var users = new ApplicationDbContext().Users.ToList();
+            var usersWithCorrectTopScorer = _matchesContext.Context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
 
             foreach (var user in users)
             {
-                result.Add(new Points { UserName = user.UserName });
+                var points = new Points { UserName = user.UserName };
+
+                if (usersWithCorrectTopScorer.Contains(user.UserName))
+                {
+                    points.Total += 2;
+                }
+
+                result.Add(points);
             }
 
             foreach (var match in matches)
@@ -41,8 +49,7 @@ namespace KotProno2.Controllers
                         result.Add(points);
                     }
 
-                    if (bettingForMatch.HomeScore == match.HomeScore
-                        && bettingForMatch.AwayScore == match.AwayScore)
+                    if (bettingForMatch.HomeScore == match.HomeScore && bettingForMatch.AwayScore == match.AwayScore)
                     {
                         points.Total += 2;
                     }
