@@ -191,7 +191,16 @@
                 se: 'Zweden',
                 at: 'Oostenrijk',
                 hu: 'Hongarije',
-                is: 'Ijsland'
+                is: 'Ijsland',
+                eg: 'Egypte',
+                sa: 'Saoedi-Arabië',
+                ma: 'Marokko',
+                pe: 'Peru',
+                dk: 'Denemarken',
+                rs: 'Serbia',
+                pa: 'Panama',
+                sn: 'Senegal',
+                tn: 'Tunesië'
             };
         }
 

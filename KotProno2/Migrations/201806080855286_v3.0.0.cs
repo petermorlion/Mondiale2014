@@ -7,6 +7,9 @@ namespace KotProno2.Migrations
     {
         public override void Up()
         {
+            Sql("DELETE FROM dbo.Tournaments WHERE Name = 'WK 2018'");
+
+
             Sql("INSERT INTO dbo.Tournaments(Name) VALUES('WK 2018');");
             Sql("DECLARE @TournamentId INT;" +
                 "SET @TournamentId = (SELECT Id FROM dbo.Tournaments WHERE Name = 'WK 2018');" +
@@ -55,7 +58,7 @@ namespace KotProno2.Migrations
                 "       ('pl', 'co', '2018/06/24 20:00', 0, 0, @TournamentId)," +
                 
                 "       ('sa', 'eg', '2018/06/25 16:00', 0, 0, @TournamentId)," +
-                "       ('ur', 'ru', '2018/06/25 16:00', 0, 0, @TournamentId)," +
+                "       ('uy', 'ru', '2018/06/25 16:00', 0, 0, @TournamentId)," +
                 "       ('ir', 'pt', '2018/06/25 20:00', 0, 0, @TournamentId)," +
                 "       ('es', 'ma', '2018/06/25 20:00', 0, 0, @TournamentId)," +
                 
@@ -80,7 +83,7 @@ namespace KotProno2.Migrations
         
         public override void Down()
         {
-            Sql("DELETE FROM dbo.Tournaments WHERE Name > 'WK 2018'");
+            Sql("DELETE FROM dbo.Tournaments WHERE Name = 'WK 2018'");
             Sql("DELETE FROM dbo.Matches WHERE DateTime > '2018/06/13'");
         }
     }

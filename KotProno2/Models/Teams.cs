@@ -67,7 +67,16 @@ namespace KotProno2.Models
                         Teams.Sweden,
                         Teams.Austria,
                         Teams.Hungary,
-                        Teams.Iceland
+                        Teams.Iceland,
+                        Teams.Egypt,
+                        Teams.SaudiArabia,
+                        Teams.Marocco,
+                        Teams.Peru,
+                        Teams.Denmark,
+                        Teams.Serbia,
+                        Teams.Panama,
+                        Teams.Senegal,
+                        Teams.Tunisia
                     };
             }
         }
@@ -127,5 +136,14 @@ namespace KotProno2.Models
         public static Team Austria = new Team { IsoCode = "at", Name = "Oostenrijk" };
         public static Team Hungary = new Team { IsoCode = "hu", Name = "Hongarije" };
         public static Team Iceland = new Team { IsoCode = "is", Name = "Ijsland" };
+        public static Team Egypt = new Team { IsoCode = "eg", Name = "Egypte" };
+        public static Team SaudiArabia = new Team { IsoCode = "sa", Name = "Saoedi-Arabië" };
+        public static Team Marocco = new Team { IsoCode = "ma", Name = "Marokko" };
+        public static Team Peru = new Team { IsoCode = "pe", Name = "Peru" };
+        public static Team Denmark = new Team { IsoCode = "dk", Name = "Denemarken" };
+        public static Team Serbia = new Team { IsoCode = "rs", Name = "Serbia" };
+        public static Team Panama = new Team { IsoCode = "pa", Name = "Panama" };
+        public static Team Senegal = new Team { IsoCode = "sn", Name = "Senegal" };
+        public static Team Tunisia = new Team { IsoCode = "tn", Name = "Tunesië" };
     }
 }
