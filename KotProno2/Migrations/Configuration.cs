@@ -18,12 +18,12 @@ namespace KotProno2.Migrations
 
         protected override void Seed(MatchesDbContext context)
         {
-            CreateGroupstageMatches(context);
-            UpdateGroupStageMatches(context);
-            CreateEighthFinalMatches(context);
-            CreateQuarterFinalMatches(context);
-            CreateSemiFinalMatches(context);
-            CreateFinalMatches(context);
+            //CreateGroupstageMatches(context);
+            //UpdateGroupStageMatches(context);
+            //CreateEighthFinalMatches(context);
+            //CreateQuarterFinalMatches(context);
+            //CreateSemiFinalMatches(context);
+            //CreateFinalMatches(context);
         }
 
         private void CreateFinalMatches(MatchesDbContext context)
