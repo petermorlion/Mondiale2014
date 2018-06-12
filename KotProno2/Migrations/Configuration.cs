@@ -12,6 +12,7 @@ namespace KotProno2.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "KotProno2.EntityFramework.MatchesDbContext";
         }
 
