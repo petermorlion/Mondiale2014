@@ -6763,12 +6763,29 @@ input[type="checkbox"].input-validation-error {
   cursor: pointer;
   font-size: 18px;
 }
+.match {
+    border: 1px solid lightgray;
+    margin: 5px;
+}
 .betting-flag {
   vertical-align: middle;
+    display: inline-block;
+    margin-top: 9px;
 }
-.betting-input,
-.topscorer-input {
-  margin: 10px auto;
+.betting-time {
+    display: inline-block;
+    padding-top: 25px;
+    margin-left: 10px;
+}
+.betting-input.form-inline {
+  width: 35px;
+    padding: 1px;
+    text-align: center;
+    margin: 3px 0;
+}
+.betting-country {
+    display: inline-block;
+    padding-top: 11px;
 }
 .bettings-tabs {
   display: block;
@@ -6859,4 +6876,9 @@ input[type="checkbox"].input-validation-error {
 }
 .overview-table-container {
   overflow: auto;
+}
+.equal {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
 }

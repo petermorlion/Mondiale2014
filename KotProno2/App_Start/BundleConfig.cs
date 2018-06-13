@@ -44,7 +44,7 @@ namespace KotProno2
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css",
                       "~/Content/flags/common.css",
-                      "~/Content/flags/flags48.css",
+                      "~/Content/flags/flags32.css",
                       "~/Content/flags/flags24.css",
                       "~/Content/toastr.css"));
 
