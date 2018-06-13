@@ -6761,7 +6761,8 @@ input[type="checkbox"].input-validation-error {
 }
 .other-bettings-icon {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 12px;
+    margin-left: 10px;
 }
 .match {
     border: 1px solid lightgray;

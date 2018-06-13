@@ -117,6 +117,13 @@
                                 </div>
                                 <div class="col-xs-4">
                                     <span class="betting-time">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
+                                    <button type="button"
+                                            class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
+                                            title="De andere pronostieken bekijken"
+                                            ng-click="vm.showOtherBettings(gameBetting.matchId)"
+                                            ng-show="gameBetting.isReadOnly"
+                                            data-toggle="modal"
+                                            data-target="#detailsModal"></button>
                                 </div>
                             </div>
                         </div>
@@ -125,13 +132,4 @@
             </div>
         </form>
     </div>
-    <!--<div class="col-sm-1">
-        <button type="button"
-                class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
-                title="De andere pronostieken bekijken"
-                ng-click="vm.showOtherBettings(gameBetting.matchId)"
-                ng-show="gameBetting.isReadOnly"
-                data-toggle="modal"
-                data-target="#detailsModal"></button>
-    </div>-->
 </section>
