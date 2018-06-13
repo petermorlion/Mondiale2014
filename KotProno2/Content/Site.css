@@ -6768,7 +6768,7 @@ input[type="checkbox"].input-validation-error {
 }
 .betting-input,
 .topscorer-input {
-  margin: 10 auto;
+  margin: 10px auto;
 }
 .bettings-tabs {
   display: block;
