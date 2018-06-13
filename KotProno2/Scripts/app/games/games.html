@@ -84,7 +84,7 @@
                     <div ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                         <div class="row text-center">
                             <div class="col-xs-12 col-sm-12 text-center">
-                                <span>{{gameBetting.date.getUTCHours() | numberFixedLen:2}}:{{gameBetting.date.getUTCMinutes() | numberFixedLen:2}}</span>
+                                <span>{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
                             </div>
                         </div>
                         <div class="row text-center betting">
