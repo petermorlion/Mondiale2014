@@ -16,13 +16,6 @@ namespace KotProno2.Controllers
         {
             var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
-            var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
-
-            foreach (var match in matches)
-            {
-                match.IsReadOnly = now >= match.DateTime;
-            }
-
             return matches;
         }
     }

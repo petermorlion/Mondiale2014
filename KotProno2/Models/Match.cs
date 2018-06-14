@@ -35,7 +35,14 @@ namespace KotProno2.Models
 
         public Stage Stage { get; set; }
 
-        public bool IsReadOnly { get; set; }
+        public bool IsReadOnly
+        {
+            get
+            {
+                var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
+                return now >= DateTime;
+            }
+        }
 
         public PenaltyWinner? PenaltyWinner { get; set; }
 
