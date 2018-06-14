@@ -14,10 +14,14 @@ namespace KotProno2.Controllers
         [HttpGet]
         public Overview Get(int id)
         {
+            var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
+
             var result = new Overview();
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
-            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderByDescending(x => x.DateTime).ToList();
+            var matches = _matchesContext.Context.Matches
+                .Where(x => x.TournamentId == id && now >= x.DateTime)
+                .OrderByDescending(x => x.DateTime).ToList();
             var usersWithCorrectTopScorer = _matchesContext.Context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
 
             //TODO: code grew organically with increasing number of ifs, indenting,... Crap
