@@ -22,13 +22,8 @@ namespace KotProno2.Models
             get { return _dateTime; }
             set {
                 _dateTime = value;
-                Date = value.ToString("dd MM");
-                Time = value.ToString("Hh:mm");
             }
         }
-
-        public string Date { get; set; }
-        public string Time { get; set; }
 
         public int? HomeScore { get; set; }
         public int? AwayScore { get; set; }
