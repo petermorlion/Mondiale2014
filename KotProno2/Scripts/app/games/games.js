@@ -236,7 +236,7 @@
                     vm.topscorer.isReadOnly = true;
                 }
 
-                toastr.info('De scores werden opgeslaan.');
+                toastr.info('De scores werden opgeslagen.');
             }).error(function (data, status, headers, config) {
                 toastr.error('Er is helaas een fout gebeurd...');
             });

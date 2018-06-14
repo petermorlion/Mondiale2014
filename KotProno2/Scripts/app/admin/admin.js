@@ -44,7 +44,7 @@
                 url: '/api/Scores',
                 data: { newScores: newScores }
             }).success(function (data, status, headers, config) {
-                toastr.info('De scores zijn opgeslaan.');
+                toastr.info('De scores zijn opgeslagen.');
             }).error(function (data, status, headers, config) {
                 toastr.error('Er is helaas een fout gebeurd.');
             });
