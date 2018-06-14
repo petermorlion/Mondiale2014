@@ -79,10 +79,7 @@ namespace KotProno2.Models
             if (match == null)
                 return false;
 
-            var tournamentId = match.TournamentId;
-            var stage = match.Stage;
-
-            return !(new HasStageStartedQuery().Execute(tournamentId, stage));
+            return !match.IsReadOnly;
         }
     }
 }
