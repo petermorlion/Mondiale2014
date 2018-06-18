@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Web.Http;
 using KotProno2.EntityFramework;
@@ -39,18 +40,22 @@ namespace KotProno2.Controllers
                     continue;
                 }
 
-                var bettingsForMatch = bettings[match.Id].OrderBy(x => x.UserName);
-                foreach (var betting in bettingsForMatch)
+                foreach (var user in users)
                 {
-                    var serie = result.Series.Single(x => x.Name == betting.UserName);
+                    var bettingForMatch = bettings[match.Id].SingleOrDefault(x => x.UserName == user.UserName);
+                    var serie = result.Series.Single(x => x.Name == user.UserName);
                     var previousScore = serie.Data.LastOrDefault();
 
-                    if (betting.HomeScore == match.HomeScore && betting.AwayScore == match.AwayScore)
+                    if (bettingForMatch == null)
+                    {
+                        serie.Data.Add(previousScore);
+                    }
+                    else if (bettingForMatch.HomeScore == match.HomeScore && bettingForMatch.AwayScore == match.AwayScore)
                     {
                         serie.Data.Add(previousScore + 2);
-                        exactResultsPerUser[betting.UserName] += 1;
+                        exactResultsPerUser[user.UserName] += 1;
                     }
-                    else if (betting.GetMatchResult() == match.GetMatchResult())
+                    else if (bettingForMatch.GetMatchResult() == match.GetMatchResult())
                     {
                         serie.Data.Add(previousScore + 1);
                     }
