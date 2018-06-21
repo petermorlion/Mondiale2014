@@ -215,14 +215,26 @@
 
                 for (var j = 0; j < gameBettingGroup.gameBettings.length; j++) {
                     var gameBetting = gameBettingGroup.gameBettings[j];
-                    if (gameBetting.homeBetting !== '' && gameBetting.awayBetting !== '' && !gameBetting.isReadOnly) {
-                        newBettings.push({
-                            gameBetting: gameBetting,
-                            matchId: gameBetting.matchId,
-                            homeBetting: gameBetting.homeBetting,
-                            awayBetting: gameBetting.awayBetting
-                        });
+                    if (gameBettingGroup.stage !== "GroupStage" && gameBetting.homeBetting === gameBetting.awayBetting) {
+                        // TODO: mark as invalid in UI
+                        continue;
                     }
+
+                    if (gameBetting.homeBetting === '' || gameBetting.awayBetting === '') {
+                        // TODO: mark as invalid in UI
+                        continue;
+                    }
+
+                    if (gameBetting.isReadOnly) {
+                        continue;
+                    }
+
+                    newBettings.push({
+                        gameBetting: gameBetting,
+                        matchId: gameBetting.matchId,
+                        homeBetting: gameBetting.homeBetting,
+                        awayBetting: gameBetting.awayBetting
+                    });
                 }
             }
 
