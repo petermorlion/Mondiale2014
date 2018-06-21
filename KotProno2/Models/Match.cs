@@ -34,7 +34,6 @@ namespace KotProno2.Models
         {
             get
             {
-                return false;
                 var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
                 return now >= DateTime;
             }
