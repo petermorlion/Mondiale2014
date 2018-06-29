@@ -95,8 +95,10 @@
                                                 <div class="col-xs-8">
                                                     <span class="betting-country">{{gameBetting.homeDescription}}</span>
                                                 </div>
-                                                <div class="col-xs-2">
-                                                    <input ng-model="gameBetting.homeBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
+                                                <div class="col-xs-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                    <input ng-model="gameBetting.homeBetting" 
+                                                           ng-disabled="gameBetting.isReadOnly" 
+                                                           class="betting-input form-control form-inline" />
                                                 </div>
                                             </div>
                                         </div>
@@ -108,8 +110,10 @@
                                                 <div class="col-xs-8">
                                                     <span class="betting-country">{{gameBetting.awayDescription}}</span>
                                                 </div>
-                                                <div class="col-xs-2">
-                                                    <input ng-model="gameBetting.awayBetting" ng-disabled="gameBetting.isReadOnly" class="betting-input form-control form-inline" />
+                                                <div class="col-xs-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                    <input ng-model="gameBetting.awayBetting" 
+                                                           ng-disabled="gameBetting.isReadOnly" 
+                                                           class="betting-input form-control form-inline" />
                                                 </div>
                                             </div>
                                         </div>

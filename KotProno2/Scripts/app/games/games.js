@@ -21,7 +21,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'GroupStage' };
+        vm.stageFilter = { stage: 'EighthFinals' };
 
         //TODO: async
         getGameBettings();
@@ -78,6 +78,10 @@
             bettings = response.data;
         }
 
+        function GameBetting() {
+            
+        }
+
         function gameBettingsQuerySucceeded(data) {
             var bettingsByGameId = {};
             for (var i = 0; i < bettings.length; i++) {
@@ -121,7 +125,13 @@
                     awayDescription: teams[currentGame.AwayTeamIsoCode],
                     homeBetting: homeBetting,
                     awayBetting: awayBetting,
-                    isReadOnly: currentGame.IsReadOnly
+                    isReadOnly: currentGame.IsReadOnly,
+                    stage: currentGame.Stage,
+                    hasError: function () {
+                        return this.stage !== 'GroupStage'
+                            && this.homeBetting !== ''
+                            && this.homeBetting === this.awayBetting;
+                    }
                 };
 
                 previousGameBettingGroup.gameBettings.push(gameBetting);
@@ -207,6 +217,7 @@
         function save() {
             //TODO: async
             var newBettings = [];
+            var hasError = false;
             for (var i = 0; i < vm.gameBettingGroups.length; i++) {
                 var gameBettingGroup = vm.gameBettingGroups[i];
                 if (gameBettingGroup.stage != vm.stageFilter.stage) {
@@ -215,13 +226,12 @@
 
                 for (var j = 0; j < gameBettingGroup.gameBettings.length; j++) {
                     var gameBetting = gameBettingGroup.gameBettings[j];
-                    if (gameBettingGroup.stage !== "GroupStage" && gameBetting.homeBetting === gameBetting.awayBetting) {
-                        // TODO: mark as invalid in UI
+                    if (gameBetting.hasError()) {
+                        hasError = true;
                         continue;
                     }
 
                     if (gameBetting.homeBetting === '' || gameBetting.awayBetting === '') {
-                        // TODO: mark as invalid in UI
                         continue;
                     }
 
@@ -238,7 +248,6 @@
                 }
             }
 
-
             $http({
                 method: 'POST',
                 url: '/api/Bettings',
@@ -248,7 +257,11 @@
                     vm.topscorer.isReadOnly = true;
                 }
 
-                toastr.info('De scores werden opgeslagen.');
+                if (hasError) {
+                    toastr.warning('Je kan enkel gelijkspel invullen in de groepsfase. Gelieve de rood gemarkeerde pronostieken te corrigeren.');
+                } else {
+                    toastr.info('De scores werden opgeslagen.');   
+                }
             }).error(function (data, status, headers, config) {
                 toastr.error('Er is helaas een fout gebeurd...');
             });
