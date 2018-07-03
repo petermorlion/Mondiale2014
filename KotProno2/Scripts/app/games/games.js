@@ -78,10 +78,6 @@
             bettings = response.data;
         }
 
-        function GameBetting() {
-            
-        }
-
         function gameBettingsQuerySucceeded(data) {
             var bettingsByGameId = {};
             for (var i = 0; i < bettings.length; i++) {

@@ -1,15 +1,14 @@
 ﻿<section id="dashboard-view" class="mainbar">
 
-    <div class="modal" id="detailsModal">
+    <div class="modal fade" id="detailsModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
+                        <h5 class="modal-title" ng-hide="vm.matchDetails == null">{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h5>
+                        <h5 class="modal-title" ng-hide="vm.allTopscorers == null">Alle topscorer-pronostieken</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
                         </button>
-                        <h4 class="modal-title" ng-hide="vm.matchDetails == null">{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h4>
-                        <h4 class="modal-title" ng-hide="vm.allTopscorers == null">Alle topscorer-pronostieken</h4>
                     </div>
                     <div class="modal-body">
                         <div ng-hide="vm.allTopscorers == null">
