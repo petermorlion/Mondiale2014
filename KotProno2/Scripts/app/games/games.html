@@ -122,7 +122,7 @@
                                 <div class="col-4">
                                     <span class="betting-time">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
                                     <button type="button"
-                                            class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"
+                                            class="btn btn-info other-bettings-icon fas fa-users"
                                             title="De andere pronostieken bekijken"
                                             ng-click="vm.showOtherBettings(gameBetting.matchId)"
                                             ng-show="gameBetting.isReadOnly"
