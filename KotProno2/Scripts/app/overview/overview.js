@@ -32,20 +32,32 @@
                 var tableHeader = table.find('thead');
                 var clonedHeader = tableHeader.clone(true);
 
+                var tableHeaderCells = tableHeader.find('th');
+                var clonedHeaderCells = clonedHeader.find('th');
+                for (var i = 0; i < tableHeaderCells.length; i++) {
+                    $(clonedHeaderCells[i]).css({ width: $(tableHeaderCells[i]).width() });
+                }
+
                 var navbarHeight = $('.navbar').height();
 
                 var fixedTable = $('<table class="table"/>')
                       .insertBefore(table)
-                      .css({ position: 'fixed', top: navbarHeight + 'px', 'background-color': '#fff', width: table.width() });
+                    .css({
+                        position: 'fixed',
+                        top: navbarHeight + 'px',
+                        'background-color': '#fff',
+                        width: table.width()
+                    });
 
                 clonedHeader
                     .hide()
                     .appendTo(fixedTable);
 
-                var y = tableHeader.position().top - navbarHeight;
+                var y = table.position().top - navbarHeight;
 
                 var handleScroll = function () {
-                    if ($(window).scrollTop() > y) {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > y) {
                         clonedHeader.show();
                     } else {
                         clonedHeader.hide();
@@ -59,6 +71,10 @@
                 handleScroll();
 
                 $(window).scroll(function () {
+                    handleScroll();
+                });
+
+                $('.overview-table-container').scroll(function() {
                     handleScroll();
                 });
             };
