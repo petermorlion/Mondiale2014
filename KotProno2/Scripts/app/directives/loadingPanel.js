@@ -10,7 +10,7 @@
                     show: '=show'
                 },
                 template: '<div class="loading-panel" ng-show="show">' +
-                    '<span class="loading-panel-icon glyphicon glyphicon-refresh"></span>' +
+                    '<i class="loading-panel-icon fas fa-spinner"></i>' +
                     '</div>'
             };
         });

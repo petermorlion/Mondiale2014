@@ -1,6 +1,5 @@
 ﻿(function () {
     'use strict';
-
     var app = angular.module('app');
 
     // Configure the routes and route resolvers

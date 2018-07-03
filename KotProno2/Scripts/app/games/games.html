@@ -49,20 +49,20 @@
 
     <div class="bettings-tabs">
         <ul class="nav nav-tabs">
-            <li ng-class="{ active: vm.isActiveStage('GroupStage')}"><a href="" ng-click="vm.showStage('GroupStage')">Groepsronde</a></li>
-            <li ng-class="{ active: vm.isActiveStage('EighthFinals')}"><a href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
-            <li ng-class="{ active: vm.isActiveStage('QuarterFinals')}"><a href="" ng-click="vm.showStage('QuarterFinals')">Kwartfinales</a></li>
-            <li ng-class="{ active: vm.isActiveStage('SemiFinals')}"><a href="" ng-click="vm.showStage('SemiFinals')">Halve finales</a></li>
-            <li ng-class="{ active: vm.isActiveStage('Finals')}"><a href="" ng-click="vm.showStage('Finals')">Finales</a></li>
+            <li class="nav-item"><a class="nav-link" ng-class="{ active: vm.isActiveStage('GroupStage')}" href="" ng-click="vm.showStage('GroupStage')">Groepsronde</a></li>
+            <li class="nav-item"><a class="nav-link" ng-class="{ active: vm.isActiveStage('EighthFinals')}" href="" ng-click="vm.showStage('EighthFinals')">8ste finales</a></li>
+            <li class="nav-item"><a class="nav-link" ng-class="{ active: vm.isActiveStage('QuarterFinals')}" href="" ng-click="vm.showStage('QuarterFinals')">Kwartfinales</a></li>
+            <li class="nav-item"><a class="nav-link" ng-class="{ active: vm.isActiveStage('SemiFinals')}" href="" ng-click="vm.showStage('SemiFinals')">Halve finales</a></li>
+            <li class="nav-item"><a class="nav-link" ng-class="{ active: vm.isActiveStage('Finals')}" href="" ng-click="vm.showStage('Finals')">Finales</a></li>
         </ul>
     </div>
 
     <div class="bettings-main">
         <form class="form-inline games-list">
-            <div class="save-container">
-                <button type="button" class="btn btn-default" ng-click="vm.save()">Opslaan</button>
+            <div class="navbar navbar-dark bg-dark fixed-bottom">
+                <button type="button" class="btn btn-default mx-auto" ng-click="vm.save()">Opslaan</button>
             </div>
-
+            
             <div class="container-fluid">
                 <div class="row text-center" ng-show="vm.isActiveStage('GroupStage')">
                     De topscorer wordt
@@ -83,34 +83,34 @@
                     <h4>{{gameBettingGroup.date | date}}</h4>
                         
                     <div class="row">
-                        <div class="col-xs-12 col-sm-3 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
+                        <div class="col-12 col-sm-5 col-md-5 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                             <div class="row equal">
-                                <div class="col-xs-8">
+                                <div class="col-8">
                                     <div class="row">
-                                        <div class="col-xs-12 f24">
+                                        <div class="col-12 f24">
                                             <div class="row">
-                                                <div class="col-xs-2">
+                                                <div class="col-2">
                                                     <span class="betting-flag flag {{gameBetting.homeIso}}" title="{{gameBetting.homeDescription}}"></span>
                                                 </div>
-                                                <div class="col-xs-8">
+                                                <div class="col-8">
                                                     <span class="betting-country">{{gameBetting.homeDescription}}</span>
                                                 </div>
-                                                <div class="col-xs-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                <div class="col-2" ng-class="{'has-error': gameBetting.hasError()}">
                                                     <input ng-model="gameBetting.homeBetting" 
                                                            ng-disabled="gameBetting.isReadOnly" 
-                                                           class="betting-input form-control form-inline" />
+                                                           class="betting-input form-control"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 f24">
+                                        <div class="col-12 f24">
                                             <div class="row">
-                                                <div class="col-xs-2">
+                                                <div class="col-2">
                                                     <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                                                 </div>
-                                                <div class="col-xs-8">
+                                                <div class="col-8">
                                                     <span class="betting-country">{{gameBetting.awayDescription}}</span>
                                                 </div>
-                                                <div class="col-xs-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                <div class="col-2" ng-class="{'has-error': gameBetting.hasError()}">
                                                     <input ng-model="gameBetting.awayBetting" 
                                                            ng-disabled="gameBetting.isReadOnly" 
                                                            class="betting-input form-control form-inline" />
@@ -119,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-4">
                                     <span class="betting-time">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
                                     <button type="button"
                                             class="btn btn-info other-bettings-icon glyphicon glyphicon-th-list"

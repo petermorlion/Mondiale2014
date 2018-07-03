@@ -3,7 +3,7 @@
 
     var controllerId = 'overview';
     angular.module('app')
-        .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
+        .controller(controllerId, ['$q', '$http', '$stateParams', 'alertr', function ($q, $http, $stateParams, alertr) {
         
             var vm = this;
             vm.title = 'Een overzicht';
@@ -18,7 +18,7 @@
                 vm.isLoading = false;
                 setTimeout(initializeTable, 1);
             }).error(function (data, status, headers, config) {
-                toastr.error('Er is helaas een fout gebeurd.');
+                alertr.error('Er is helaas een fout gebeurd.');
             });
 
             // TODO: UI logic in controller...

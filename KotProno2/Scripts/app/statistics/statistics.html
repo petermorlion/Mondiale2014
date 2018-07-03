@@ -1,6 +1,7 @@
 ﻿<section id="dashboard-view" class="mainbar">
+
     <h2>{{vm.title}}</h2>
-    
+
     <loading-panel show="vm.isLoading"></loading-panel>
 
     <div ng-hide="vm.isLoading">
@@ -13,6 +14,6 @@
         <span ng-repeat="username in vm.leastExactResultsUsers">{{username}}{{$last === false ? ',' : ''}}</span>
     </div>
 
-    <div id="container" style="margin: 0 auto"></div>
+    <canvas id="chart"></canvas>
 
 </section>

@@ -2,7 +2,7 @@
     'use strict';
     var controllerId = 'admin';
     angular.module('app')
-    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
+        .controller(controllerId, ['$q', '$http', '$stateParams', 'alertr', function ($q, $http, $stateParams, alertr) {
         var vm = this;
         vm.title = "Admin gedeelte";
         vm.games = [];
@@ -44,15 +44,15 @@
                 url: '/api/Scores',
                 data: { newScores: newScores }
             }).success(function (data, status, headers, config) {
-                toastr.info('De scores zijn opgeslagen.');
+                alertr.info('De scores zijn opgeslagen.');
             }).error(function (data, status, headers, config) {
-                toastr.error('Er is helaas een fout gebeurd.');
+                alertr.error('Er is helaas een fout gebeurd.');
             });
         }
 
         function queryFailed(data) {
             // TODO
-            toastr.error('Er is helaas een fout gebeurd.');
+            alertr.error('Er is helaas een fout gebeurd.');
         };
     }]);
 })();

@@ -14,8 +14,6 @@ namespace KotProno2.Controllers
         [HttpGet]
         public Overview Get(int id)
         {
-            var now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time"));
-
             var result = new Overview();
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
             var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);

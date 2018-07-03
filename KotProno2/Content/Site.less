@@ -1,9 +1,4 @@
-﻿@import "bootstrap/bootstrap.less";
-@import "bootstrap/glyphicons.less";
-
-/* Overrides of Bootstrap variables */
-@icon-font-path:          "./fonts/";
-
+﻿/* Overrides of Bootstrap variables */
 @body-bg:                            #EEE;
 @navbar-inverse-bg:                  #463F1A;
 @table-bg:                           @body-bg;
@@ -60,16 +55,40 @@ input[type="checkbox"].input-validation-error {
 
 .other-bettings-icon {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.match {
+    border: 1px solid lightgray;
+    border-radius: .25rem;
+    margin: 5px;
 }
 
 .betting-flag {
     vertical-align: middle;
+    display: inline-block;
+    margin-top: 9px;
 }
 
-.betting-input, .topscorer-input {
-    margin: 0 auto;
-    width 80%;
+.betting-time {
+    display: inline-block;
+    padding-top: 25px;
+    margin-left: 10px;
+}
+
+.form-inline .betting-input.form-control {
+    width: 35px;
+    text-align: center;
+    margin: 3px 0;
+}
+
+.betting-country {
+    display: inline-block;
+    padding-top: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .bettings-tabs {
@@ -83,22 +102,6 @@ input[type="checkbox"].input-validation-error {
 .bettings-main {
     padding-top: 60px;
     padding-bottom: 60px;
-}
-
-.save-container {
-    margin-left: -15px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    max-width: 1170px;
-    bottom: 0;
-    background-color: @navbar-inverse-bg;
-    border-top: 1px solid @table-border-color;
-    border-right: 1px solid @table-border-color;
-    border-left: 1px solid @table-border-color;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    z-index: 1010;
 }
 
 .side-panel-details {
@@ -146,11 +149,6 @@ input[type="checkbox"].input-validation-error {
     background-color: #fff;
     width: 150px;
     height: 190px;
-}
-
-.home-link span {
-    font-size: 20px;
-    padding: 0 5px;
 }
 
 @media (min-width: 768px) {

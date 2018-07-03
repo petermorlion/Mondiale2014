@@ -13,7 +13,7 @@
 
     var controllerId = 'games';
     angular.module('app')
-    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
+    .controller(controllerId, ['$q', '$http', '$stateParams', 'alertr', function ($q, $http, $stateParams, alertr) {
         var vm = this;
         vm.title = "Pronostieken";
         vm.save = save;
@@ -142,7 +142,7 @@
 
         function queryFailed(data) {
             // TODO
-            toastr.error('Er is helaas een fout gebeurd.');
+            alertr.error('Er is helaas een fout gebeurd.');
         };
 
         function GetTeams() {
@@ -258,12 +258,12 @@
                 }
 
                 if (hasError) {
-                    toastr.warning('Je kan enkel gelijkspel invullen in de groepsfase. Gelieve de rood gemarkeerde pronostieken te corrigeren.');
+                    alertr.warning('Je kan enkel gelijkspel invullen in de groepsfase. Gelieve de rood gemarkeerde pronostieken te corrigeren.');
                 } else {
-                    toastr.info('De scores werden opgeslagen.');   
+                    alertr.info('De scores werden opgeslagen.');   
                 }
             }).error(function (data, status, headers, config) {
-                toastr.error('Er is helaas een fout gebeurd...');
+                alertr.error('Er is helaas een fout gebeurd...');
             });
         }
 
@@ -276,7 +276,7 @@
                 vm.matchDetails = data;
                 vm.allTopscorers = null;
             }).error(function (data, status, headers, config) {
-                toastr.error('Er is helaas een fout gebeurd...');
+                alertr.error('Er is helaas een fout gebeurd...');
             });
         }
 

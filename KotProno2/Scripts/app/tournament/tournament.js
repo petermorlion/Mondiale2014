@@ -3,7 +3,7 @@
 
     var controllerId = 'tournament';
     angular.module('app')
-        .controller(controllerId, ['$stateParams', '$http', function ($stateParams, $http) {
+        .controller(controllerId, ['$stateParams', '$http', 'alertr', function ($stateParams, $http, alertr) {
         
             var vm = this;
             vm.tournamentId = $stateParams.tournamentId;
@@ -20,7 +20,7 @@
                     vm.isLoading = false;
                 }).error(function () {
                     vm.isLoading = false;
-                    toastr.error('Er is helaas een fout gebeurd...');
+                    alertr.error('Er is helaas een fout gebeurd...');
                 });
             }
         

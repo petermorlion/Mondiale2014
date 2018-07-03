@@ -2,7 +2,7 @@
     'use strict';
     var controllerId = 'points';
     angular.module('app')
-    .controller(controllerId, ['$q', '$http', '$stateParams', function ($q, $http, $stateParams) {
+        .controller(controllerId, ['$q', '$http', '$stateParams', 'alertr', function ($q, $http, $stateParams, alertr) {
         var vm = this;
         vm.title = "De stand";
         vm.points = [];
@@ -19,7 +19,7 @@
                 vm.isLoading = false;
             }).error(function (data, status, headers, config) {
                 vm.isLoading = false;
-                toastr.error('Er is helaas een fout gebeurd.');
+                alertr.error('Er is helaas een fout gebeurd.');
             });
         }
     }]);
