@@ -2,10 +2,10 @@
     'use strict';
     angular.module('app')
         .factory('preventTemplateCache', function ($injector) {
-            var build = '3.3.0';
+            var build = '3.2.0';
             return {
                 'request': function (config) {
-                    if (config.url.indexOf('views') !== -1) {
+                    if (config.url.indexOf('Scripts/app/') !== -1) {
                         config.url = config.url + '?t=' + build;
                     }
                     return config;
