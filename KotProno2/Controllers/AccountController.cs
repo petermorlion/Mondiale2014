@@ -32,7 +32,11 @@ namespace KotProno2.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            if (returnUrl != "/Account/LogOff")
+            {
+                ViewBag.ReturnUrl = returnUrl;
+            }
+
             return View();
         }
 
@@ -49,6 +53,7 @@ namespace KotProno2.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
+
                     return RedirectToLocal(returnUrl);
                 }
                 else
