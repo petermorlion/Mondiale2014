@@ -7,7 +7,7 @@
             var lifetimeAfterFadeOut = alertDuration + 200;
             var service = {
                 error: function (msg) {
-                    var element = $('<div class="alert alert-error alert-dismissible fade show" role="alert"> \
+                    var element = $('<div class="alert alert-danger alert-dismissible fade show" role="alert"> \
                                         '+ msg + ' \
                                         <button type= "button" class="close" data-dismiss="alert" aria-label="Close"> \
                                         <span aria-hidden="true">&times;</span> \
@@ -23,8 +23,8 @@
                         element.remove();
                     }, lifetimeAfterFadeOut);
                 },
-                info: function (msg) {
-                    var element = $('<div class="alert alert-info alert-dismissible fade show" role="alert"> \
+                success: function (msg) {
+                    var element = $('<div class="alert alert-success alert-dismissible fade show" role="alert"> \
                                         '+ msg + ' \
                                         <button type= "button" class="close" data-dismiss="alert" aria-label="Close"> \
                                         <span aria-hidden="true">&times;</span> \

@@ -44,7 +44,7 @@
                 url: '/api/Scores',
                 data: { newScores: newScores }
             }).success(function (data, status, headers, config) {
-                alertr.info('De scores zijn opgeslagen.');
+                alertr.success('De scores zijn opgeslagen.');
             }).error(function (data, status, headers, config) {
                 alertr.error('Er is helaas een fout gebeurd.');
             });

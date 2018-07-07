@@ -256,7 +256,7 @@
                 if (hasError) {
                     alertr.warning('Je kan enkel gelijkspel invullen in de groepsfase. Gelieve de rood gemarkeerde pronostieken te corrigeren.');
                 } else {
-                    alertr.info('De scores werden opgeslagen.');   
+                    alertr.success('De scores werden opgeslagen.');   
                 }
             }).error(function (data, status, headers, config) {
                 alertr.error('Er is helaas een fout gebeurd...');
