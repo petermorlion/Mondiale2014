@@ -23,7 +23,9 @@ namespace KotProno2.Controllers
                 HomeTeamName = Teams.All.Single(x => x.IsoCode == match.HomeTeamIsoCode).Name,
                 AwayTeamName = Teams.All.Single(x => x.IsoCode == match.AwayTeamIsoCode).Name,
                 DateTime = match.DateTime,
-                Bettings = bettings.ToList()
+                Bettings = bettings.ToList(),
+                HomeScore = match.HomeScore,
+                AwayScore = match.AwayScore
             };
         }
     }

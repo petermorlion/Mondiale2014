@@ -4,7 +4,13 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" ng-hide="vm.matchDetails == null">{{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} - {{vm.matchDetails.DateTime | date}}</h5>
+                        <h5 class="modal-title" ng-hide="vm.matchDetails == null">
+                            {{vm.matchDetails.HomeTeamName}} vs {{vm.matchDetails.AwayTeamName}} 
+                            - {{vm.matchDetails.DateTime | date}}
+                            <span ng-hide="vm.matchDetails.HomeScore == null || vm.matchDetails.AwayScore == null">
+                                ({{vm.matchDetails.HomeScore}} - {{vm.matchDetails.AwayScore}})
+                            </span>
+                        </h5>
                         <h5 class="modal-title" ng-hide="vm.allTopscorers == null">Alle topscorer-pronostieken</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
