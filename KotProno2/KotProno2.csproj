@@ -296,6 +296,10 @@
     <Compile Include="Migrations\201807062031443_v3.4.0.Designer.cs">
       <DependentUpon>201807062031443_v3.4.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807081344497_v3.5.0.cs" />
+    <Compile Include="Migrations\201807081344497_v3.5.0.Designer.cs">
+      <DependentUpon>201807081344497_v3.5.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddScoresCommand.cs" />
@@ -1257,6 +1261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807062031443_v3.4.0.resx">
       <DependentUpon>201807062031443_v3.4.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807081344497_v3.5.0.resx">
+      <DependentUpon>201807081344497_v3.5.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
