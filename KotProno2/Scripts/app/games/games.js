@@ -21,7 +21,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'SemiFinals' };
+        vm.stageFilter = { stage: 'Finals' };
 
         //TODO: async
         getGameBettings();
