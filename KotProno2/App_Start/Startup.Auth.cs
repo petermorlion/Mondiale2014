@@ -13,7 +13,6 @@ namespace KotProno2
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
-
             });
         }
     }

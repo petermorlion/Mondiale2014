@@ -8,13 +8,18 @@ namespace KotProno2.Controllers
 {
     public class TournamentsController : ApiController
     {
-        private readonly MatchesContext _contextProvider = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public TournamentsController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         // ~/api/tournaments
         [HttpGet]
         public IList<Tournament> Get()
         {
-            var tournaments = _contextProvider.Context.Tournaments.OrderByDescending(x => x.Id).ToList();
+            var tournaments = _context.Tournaments.OrderByDescending(x => x.Id).ToList();
 
             return tournaments;
         }
@@ -23,7 +28,7 @@ namespace KotProno2.Controllers
         [HttpGet]
         public Tournament Get(int id)
         {
-            var tournament = _contextProvider.Context.Tournaments.SingleOrDefault(x => x.Id == id);
+            var tournament = _context.Tournaments.SingleOrDefault(x => x.Id == id);
 
             return tournament;
         }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO.Ports;
 using System.Linq;
 using System.Web.Http;
 using KotProno2.EntityFramework;
@@ -9,8 +8,13 @@ namespace KotProno2.Controllers
 {
     public class StatsController : ApiController
     {
-        private readonly MatchesContext _matchesContext = new MatchesContext();
+        private readonly MatchesDbContext _context;
         private readonly ApplicationDbContext _applicationDbContext = new ApplicationDbContext();
+
+        public StatsController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public Statistics Statistics(int id)
@@ -19,8 +23,8 @@ namespace KotProno2.Controllers
 
             var result = new Statistics();
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
-            var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
-            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
+            var bettings = _context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
+            var matches = _context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
             result.Categories = new List<string>();
             result.Series = new List<Serie>();

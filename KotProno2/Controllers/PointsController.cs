@@ -8,16 +8,21 @@ namespace KotProno2.Controllers
 {
     public class PointsController : ApiController
     {
-        private readonly MatchesContext _matchesContext = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public PointsController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public IList<Points> Get(int id)
         {
             var result = new List<Points>();
-            var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToList();
-            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == id).ToList();
+            var bettings = _context.Bettings.Where(x => x.Match.TournamentId == id).ToList();
+            var matches = _context.Matches.Where(x => x.TournamentId == id).ToList();
             var users = new ApplicationDbContext().Users.ToList();
-            var usersWithCorrectTopScorer = _matchesContext.Context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
+            var usersWithCorrectTopScorer = _context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
 
             foreach (var user in users)
             {

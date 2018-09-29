@@ -7,15 +7,20 @@ namespace KotProno2.Controllers
 {
     public class MatchDetailsController : ApiController
     {
-        private readonly MatchesContext _contextProvider = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public MatchDetailsController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         /// <param name="id">The match id</param>
         [HttpGet]
         [Authorize]
         public MatchDetails MatchDetails(int id)
         {
-            var match = _contextProvider.Context.Matches.Single(x => x.Id == id);
-            var bettings = _contextProvider.Context.Bettings.Where(x => x.MatchId == id);
+            var match = _context.Matches.Single(x => x.Id == id);
+            var bettings = _context.Bettings.Where(x => x.MatchId == id);
 
             return new MatchDetails
             {

@@ -8,13 +8,18 @@ namespace KotProno2.Controllers
 {
     public class TopScorersController : ApiController
     {
-        private readonly MatchesContext _contextProvider = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public TopScorersController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         [Authorize]
         public IList<TopScorer> TopScorer(int id)
         {
-            return _contextProvider.Context.TopScorers.Where(x => x.TournamentId == id).ToList();
+            return _context.TopScorers.Where(x => x.TournamentId == id).ToList();
         }
     }
 }

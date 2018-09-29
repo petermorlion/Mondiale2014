@@ -8,11 +8,11 @@ namespace KotProno2.Controllers
 {
     public class HasStageStartedQuery
     {
-        private readonly MatchesContext _matchesContext = new MatchesContext();
+        private readonly MatchesDbContext _context = new MatchesDbContext();
 
         public bool Execute(int tournamentId, Stage stage)
         {
-            var matches = _matchesContext.Context.Matches.Where(x => x.TournamentId == tournamentId).OrderBy(x => x.DateTime).ToList();
+            var matches = _context.Matches.Where(x => x.TournamentId == tournamentId).OrderBy(x => x.DateTime).ToList();
 
             var stageStart = GetStageStart(matches, stage);
 

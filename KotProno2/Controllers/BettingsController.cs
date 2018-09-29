@@ -9,13 +9,18 @@ namespace KotProno2.Controllers
 {
     public class BettingsController : ApiController
     {
-        private readonly MatchesContext _contextProvider = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public BettingsController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         [Authorize]
         public IList<Betting> Get()
         {
-            return _contextProvider.Context.Bettings.Where(x => x.UserName == User.Identity.Name).ToList();
+            return _context.Bettings.Where(x => x.UserName == User.Identity.Name).ToList();
         }
 
         [HttpPost]
@@ -30,9 +35,9 @@ namespace KotProno2.Controllers
                 UserName = User.Identity.Name,
             };
 
-            command.Execute(_contextProvider.Context);
-            _contextProvider.Context.Commands.Add(command);
-            _contextProvider.Context.SaveChangesAsync();
+            command.Execute(_context);
+            _context.Commands.Add(command);
+            _context.SaveChangesAsync();
         }
     }
 }

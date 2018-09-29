@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using KotProno2.EntityFramework;
 using KotProno2.Models;
@@ -8,22 +7,27 @@ namespace KotProno2.Controllers
 {
     public class OverviewController : ApiController
     {
-        private readonly MatchesContext _matchesContext = new MatchesContext();
+        private readonly MatchesDbContext _context;
         private readonly ApplicationDbContext _applicationDbContext = new ApplicationDbContext();
+
+        public OverviewController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public Overview Get(int id)
         {
             var result = new Overview();
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
-            var bettings = _matchesContext.Context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
-            var matches = _matchesContext.Context.Matches
+            var bettings = _context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
+            var matches = _context.Matches
                 .Where(x => x.TournamentId == id)
                 .OrderByDescending(x => x.DateTime)
                 .ToList()
                 .Where(x => x.IsReadOnly)
                 .ToList();
-            var usersWithCorrectTopScorer = _matchesContext.Context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
+            var usersWithCorrectTopScorer = _context.TopScorers.Where(x => x.TournamentId == id && x.IsCorrect).Select(x => x.UserName).ToList();
 
             //TODO: code grew organically with increasing number of ifs, indenting,... Crap
             foreach (var user in users)

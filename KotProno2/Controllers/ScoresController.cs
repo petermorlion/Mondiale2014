@@ -7,7 +7,12 @@ namespace KotProno2.Controllers
 {
     public class ScoresController : ApiController
     {
-        private readonly MatchesContext _contextProvider = new MatchesContext();
+        private readonly MatchesDbContext _context;
+
+        public ScoresController(MatchesDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpPost]
         [Authorize]
@@ -27,9 +32,9 @@ namespace KotProno2.Controllers
                 UserName = User.Identity.Name,
             };
 
-            command.Execute(_contextProvider.Context);
-            _contextProvider.Context.Commands.Add(command);
-            _contextProvider.Context.SaveChangesAsync();
+            command.Execute(_context);
+            _context.Commands.Add(command);
+            _context.SaveChangesAsync();
         }
     }
 }
