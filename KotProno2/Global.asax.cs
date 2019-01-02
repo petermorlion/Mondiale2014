@@ -24,7 +24,14 @@ namespace KotProno2
         protected void Application_Error()
         {
             var e = Server.GetLastError();
+        }
 
+        protected void Application_End()
+        {
+#if DEBUG
+#else
+            Startup.TelemetryClient.Flush();
+#endif
         }
     }
 }

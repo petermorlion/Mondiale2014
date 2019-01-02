@@ -6,7 +6,7 @@ namespace KotProno2
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new MvcExceptionFilter());
         }
     }
 }
