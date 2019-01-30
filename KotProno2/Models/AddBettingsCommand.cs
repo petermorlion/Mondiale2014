@@ -1,10 +1,8 @@
 ﻿using KotProno2.EntityFramework;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
-using KotProno2.Controllers;
 
 namespace KotProno2.Models
 {
@@ -18,11 +16,17 @@ namespace KotProno2.Models
             var matches = context.Matches;
             var currentBettings = context.Bettings.Where(x => x.UserName == UserName);
 
+            AddBettingsToContext(context, bettings, matches, currentBettings);
+            AddTopScorerToContext(context, data);
+        }
+
+        private void AddBettingsToContext(MatchesDbContext context, JArray bettings, DbSet<Match> matches, IQueryable<Betting> currentBettings)
+        {
             foreach (var betting in bettings)
             {
-                var matchId = (int)betting["matchId"];
-                var homeBetting = (int)betting["homeBetting"];
-                var awayBetting = (int)betting["awayBetting"];
+                var matchId = (int) betting["matchId"];
+                var homeBetting = (int) betting["homeBetting"];
+                var awayBetting = (int) betting["awayBetting"];
 
                 if (!CanSave(matchId, matches))
                 {
@@ -40,7 +44,7 @@ namespace KotProno2.Models
                         UserName = UserName
                     };
 
-                    context.Bettings.Add(newBetting);   
+                    context.Bettings.Add(newBetting);
                 }
                 else
                 {
@@ -48,7 +52,10 @@ namespace KotProno2.Models
                     existingBetting.AwayScore = awayBetting;
                 }
             }
+        }
 
+        private void AddTopScorerToContext(MatchesDbContext context, JObject data)
+        {
             if (data["topScorer"] == null)
             {
                 return;
@@ -64,7 +71,12 @@ namespace KotProno2.Models
             var currentTopScorer = context.TopScorers.SingleOrDefault(x => x.UserName == UserName && x.TournamentId == tournamentId);
             if (currentTopScorer == null)
             {
-                context.TopScorers.Add(new TopScorer { UserName = UserName, TopScorerName = topScorer, TournamentId = tournamentId});
+                context.TopScorers.Add(new TopScorer
+                {
+                    UserName = UserName,
+                    TopScorerName = topScorer,
+                    TournamentId = tournamentId
+                });
             }
             else
             {

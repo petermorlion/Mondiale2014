@@ -1,9 +1,7 @@
 ﻿using KotProno2.EntityFramework;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace KotProno2.Models
 {
@@ -30,8 +28,7 @@ namespace KotProno2.Models
                 match.HomeScore = homeScore;
                 match.AwayScore = awayScore;
 
-                PenaltyWinner penaltyWinner;
-                if (Enum.TryParse(penaltyWinnerString, out penaltyWinner))
+                if (Enum.TryParse(penaltyWinnerString, out PenaltyWinner penaltyWinner))
                 {
                     match.PenaltyWinner = penaltyWinner;
                 }
