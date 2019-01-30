@@ -37,15 +37,15 @@
     <Name>Microsoft.Owin.Host.SystemWeb</Name>
   </FrameworkAssemblies>
   <Dirs>
-    <Dir>C:\Users\Peter\Projects\Mondiale2014\KotProno2\bin</Dir>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319</Dir>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\WPF</Dir>
     <Dir>C:\Users\Peter\.nuget\packages</Dir>
+    <Dir>C:\Users\Peter\Projects\Mondiale2014\KotProno2\bin</Dir>
   </Dirs>
   <MergeCodeGeneratedByCompiler>True</MergeCodeGeneratedByCompiler>
   <Report Kind="0" SectionsEnabled="110591" XslPath="" Flags="261120" />
   <BuildComparisonSetting ProjectMode="CurrentProject" BuildMode="NDaysAgoAnalysisResult" ProjectFileToCompareWith="" BuildFileToCompareWith="" NDaysAgo="30" />
-  <BaselineInUISetting ProjectMode="CurrentProject" BuildMode="ParticularAnalysisResult" ProjectFileToCompareWith="C:\Users\Peter\Projects\Mondiale2014\KotProno2.ndproj" BuildFileToCompareWith="C:\Users\Peter\Projects\Mondiale2014\NDependOut\NDependAnalysisResult_KotProno2_2019Jan02_13h41.ndar" NDaysAgo="30" />
+  <BaselineInUISetting ProjectMode="DontCompare" BuildMode="ParticularAnalysisResult" ProjectFileToCompareWith="C:\Users\Peter\Projects\Mondiale2014\KotProno2.ndproj" BuildFileToCompareWith="C:\Users\Peter\Projects\Mondiale2014\NDependOut\NDependAnalysisResult_KotProno2_2019Jan02_13h41.ndar" NDaysAgo="30" />
   <CoverageFiles CoverageDir="" UncoverableAttribute="" />
   <TrendMetrics UseCustomLog="False" LogRecurrence="3" LogLabel="2" UseCustomDir="False" CustomDir="">
     <Chart Name="Size" ShowInReport="True">

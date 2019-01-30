@@ -141,6 +141,7 @@
             alertr.error('Er is helaas een fout gebeurd.');
         };
 
+        // TODO: load a script based on Teams.cs
         function GetTeams() {
             return {
                 br: 'Brazilië',

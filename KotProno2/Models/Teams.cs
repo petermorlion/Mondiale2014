@@ -1,149 +1,132 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace KotProno2.Models
 {
     public static class Teams
     {
-        public static IEnumerable<Team> All
+        public static IEnumerable<Team> All => new List<Team>
         {
-            get
-            {
-                return new List<Team>
-                    {
-                        Teams.Brasil,
-                        Teams.Croatia,
-                        Teams.Mexico,
-                        Teams.Cameroon,
+            Brasil,
+            Croatia,
+            Mexico,
+            Cameroon,
 
-                        Teams.Spain,
-                        Teams.Netherlands,
-                        Teams.Chili,
-                        Teams.Australia,
+            Spain,
+            Netherlands,
+            Chili,
+            Australia,
 
-                        Teams.Colombia,
-                        Teams.Greece,
-                        Teams.IvoryCoast,
-                        Teams.Japan,
+            Colombia,
+            Greece,
+            IvoryCoast,
+            Japan,
 
-                        Teams.Uruguay,
-                        Teams.CostaRica,
-                        Teams.GreatBritain,
-                        Teams.Italy,
+            Uruguay,
+            CostaRica,
+            GreatBritain,
+            Italy,
 
-                        Teams.Switzerland,
-                        Teams.Ecuador,
-                        Teams.France,
-                        Teams.Honduras,
+            Switzerland,
+            Ecuador,
+            France,
+            Honduras,
 
-                        Teams.Argentinia,
-                        Teams.Bosnia,
-                        Teams.Iran,
-                        Teams.Nigeria,
+            Argentinia,
+            Bosnia,
+            Iran,
+            Nigeria,
 
-                        Teams.Germany,
-                        Teams.Portugal,
-                        Teams.Ghana,
-                        Teams.USA,
+            Germany,
+            Portugal,
+            Ghana,
+            USA,
 
-                        Teams.Belgium,
-                        Teams.Algeria,
-                        Teams.Russia,
-                        Teams.Korea,
+            Belgium,
+            Algeria,
+            Russia,
+            Korea,
 
-                        Teams.Romania,
-                        Teams.Albania,
-                        Teams.Wales,
-                        Teams.Slovakia,
-                        Teams.England,
-                        Teams.Turkey,
-                        Teams.Poland,
-                        Teams.NorthernIreland,
-                        Teams.Ukraine,
-                        Teams.Czech,
-                        Teams.Ireland,
-                        Teams.Sweden,
-                        Teams.Austria,
-                        Teams.Hungary,
-                        Teams.Iceland,
-                        Teams.Egypt,
-                        Teams.SaudiArabia,
-                        Teams.Marocco,
-                        Teams.Peru,
-                        Teams.Denmark,
-                        Teams.Serbia,
-                        Teams.Panama,
-                        Teams.Senegal,
-                        Teams.Tunisia
-                    };
-            }
-        }
+            Romania,
+            Albania,
+            Wales,
+            Slovakia,
+            England,
+            Turkey,
+            Poland,
+            NorthernIreland,
+            Ukraine,
+            Czech,
+            Ireland,
+            Sweden,
+            Austria,
+            Hungary,
+            Iceland,
+            Egypt,
+            SaudiArabia,
+            Marocco,
+            Peru,
+            Denmark,
+            Serbia,
+            Panama,
+            Senegal,
+            Tunisia
+        };
 
-        public static Team Brasil = new Team { GroupLetter = "A", Name = "Brazilië", IsoCode = "br" };
-        public static Team Croatia = new Team { GroupLetter = "A", Name = "Kroatië", IsoCode = "hr" };
-        public static Team Mexico = new Team { GroupLetter = "A", Name = "Mexico", IsoCode = "mx" };
-        public static Team Cameroon = new Team { GroupLetter = "A", Name = "Kameroen", IsoCode = "cm" };
-
-        public static Team Spain = new Team { GroupLetter = "B", Name = "Spanje", IsoCode = "es" };
-        public static Team Netherlands = new Team { GroupLetter = "B", Name = "Nederland", IsoCode = "nl" };
-        public static Team Chili = new Team { GroupLetter = "B", Name = "Chili", IsoCode = "cl" };
-        public static Team Australia = new Team { GroupLetter = "B", Name = "Australië", IsoCode = "au" };
-
-        public static Team Colombia = new Team { GroupLetter = "C", Name = "Colombia", IsoCode = "co" };
-        public static Team Greece = new Team { GroupLetter = "C", Name = "Griekenland", IsoCode = "gr" };
-        public static Team IvoryCoast = new Team { GroupLetter = "C", Name = "Ivoorkust", IsoCode = "ci" };
-        public static Team Japan = new Team { GroupLetter = "C", Name = "Japan", IsoCode = "jp" };
-
-        public static Team Uruguay = new Team { GroupLetter = "D", Name = "Uruguay", IsoCode = "uy" };
-        public static Team CostaRica = new Team { GroupLetter = "D", Name = "Costa Rica", IsoCode = "cr" };
-        public static Team GreatBritain = new Team { GroupLetter = "D", Name = "Groot Brittannië", IsoCode = "gb" };
-        public static Team Italy = new Team { GroupLetter = "D", Name = "Italië", IsoCode = "it" };
-
-        public static Team Switzerland = new Team { GroupLetter = "E", Name = "Zwitserland", IsoCode = "ch" };
-        public static Team Ecuador = new Team { GroupLetter = "E", Name = "Ecuador", IsoCode = "ec" };
-        public static Team France = new Team { GroupLetter = "E", Name = "Frankrijk", IsoCode = "fr" };
-        public static Team Honduras = new Team { GroupLetter = "E", Name = "Honduras", IsoCode = "hn" };
-
-        public static Team Argentinia = new Team { GroupLetter = "F", Name = "Argentinië", IsoCode = "ar" };
-        public static Team Bosnia = new Team { GroupLetter = "F", Name = "Boznië-Herzegovina", IsoCode = "ba" };
-        public static Team Iran = new Team { GroupLetter = "F", Name = "Iran", IsoCode = "ir" };
-        public static Team Nigeria = new Team { GroupLetter = "F", Name = "Nigeria", IsoCode = "ng" };
-
-        public static Team Germany = new Team { GroupLetter = "G", Name = "Duitsland", IsoCode = "de" };
-        public static Team Portugal = new Team { GroupLetter = "G", Name = "Portugal", IsoCode = "pt" };
-        public static Team Ghana = new Team { GroupLetter = "G", Name = "Ghana", IsoCode = "gh" };
-        public static Team USA = new Team { GroupLetter = "G", Name = "USA", IsoCode = "us" };
-
-        public static Team Belgium = new Team { GroupLetter = "H", Name = "België", IsoCode = "be" };
-        public static Team Algeria = new Team { GroupLetter = "H", Name = "Algerije", IsoCode = "dz" };
-        public static Team Russia = new Team { GroupLetter = "H", Name = "Rusland", IsoCode = "ru" };
-        public static Team Korea = new Team { GroupLetter = "H", Name = "Zuid-Korea", IsoCode = "kr" };
-
-        public static Team Romania = new Team { IsoCode = "ro", Name = "Roemenië" };
-        public static Team Albania = new Team { IsoCode = "al", Name = "Albanië" };
-        public static Team Wales = new Team { IsoCode = "_Wales", Name = "Wales" };
-        public static Team Slovakia = new Team { IsoCode = "sk", Name = "Slovakije" };
-        public static Team England = new Team { IsoCode = "_England", Name = "Engeland" };
-        public static Team Turkey = new Team { IsoCode = "tr", Name = "Turkije" };
-        public static Team Poland = new Team { IsoCode = "pl", Name = "Polen" };
-        public static Team NorthernIreland = new Team { IsoCode = "_Northern_Ireland", Name = "Noord-Ierland" };
-        public static Team Ukraine = new Team { IsoCode = "ua", Name = "Oekraïne" };
-        public static Team Czech = new Team { IsoCode = "cz", Name = "Tsjechië" };
-        public static Team Ireland = new Team { IsoCode = "ie", Name = "Ierland" };
-        public static Team Sweden = new Team { IsoCode = "se", Name = "Zweden" };
-        public static Team Austria = new Team { IsoCode = "at", Name = "Oostenrijk" };
-        public static Team Hungary = new Team { IsoCode = "hu", Name = "Hongarije" };
-        public static Team Iceland = new Team { IsoCode = "is", Name = "Ijsland" };
-        public static Team Egypt = new Team { IsoCode = "eg", Name = "Egypte" };
-        public static Team SaudiArabia = new Team { IsoCode = "sa", Name = "Saoedi-Arabië" };
-        public static Team Marocco = new Team { IsoCode = "ma", Name = "Marokko" };
-        public static Team Peru = new Team { IsoCode = "pe", Name = "Peru" };
-        public static Team Denmark = new Team { IsoCode = "dk", Name = "Denemarken" };
-        public static Team Serbia = new Team { IsoCode = "rs", Name = "Serbia" };
-        public static Team Panama = new Team { IsoCode = "pa", Name = "Panama" };
-        public static Team Senegal = new Team { IsoCode = "sn", Name = "Senegal" };
-        public static Team Tunisia = new Team { IsoCode = "tn", Name = "Tunesië" };
+        private static readonly Team Brasil = new Team("Brazilië", "br");
+        private static readonly Team Croatia = new Team("Kroatië", "hr");
+        private static readonly Team Mexico = new Team("Mexico", "mx");
+        private static readonly Team Cameroon = new Team("Kameroen", "cm");
+        private static readonly Team Spain = new Team("Spanje", "es");
+        private static readonly Team Netherlands = new Team("Nederland", "nl");
+        private static readonly Team Chili = new Team("Chili", "cl");
+        private static readonly Team Australia = new Team("Australië", "au");
+        private static readonly Team Colombia = new Team("Colombia", "co");
+        private static readonly Team Greece = new Team("Griekenland", "gr");
+        private static readonly Team IvoryCoast = new Team("Ivoorkust", "ci");
+        private static readonly Team Japan = new Team("Japan", "jp");
+        private static readonly Team Uruguay = new Team("Uruguay", "uy");
+        private static readonly Team CostaRica = new Team("Costa Rica", "cr");
+        private static readonly Team GreatBritain = new Team("Groot Brittannië", "gb");
+        private static readonly Team Italy = new Team("Italië", "it");
+        private static readonly Team Switzerland = new Team("Zwitserland", "ch");
+        private static readonly Team Ecuador = new Team("Ecuador", "ec");
+        private static readonly Team France = new Team("Frankrijk", "fr");
+        private static readonly Team Honduras = new Team("Honduras", "hn");
+        private static readonly Team Argentinia = new Team("Argentinië", "ar");
+        private static readonly Team Bosnia = new Team("Boznië-Herzegovina", "ba");
+        private static readonly Team Iran = new Team("Iran", "ir");
+        private static readonly Team Nigeria = new Team("Nigeria", "ng");
+        private static readonly Team Germany = new Team("Duitsland", "de");
+        private static readonly Team Portugal = new Team("Portugal", "pt");
+        private static readonly Team Ghana = new Team("Ghana", "gh");
+        private static readonly Team USA = new Team("USA", "us");
+        private static readonly Team Belgium = new Team("België", "be");
+        private static readonly Team Algeria = new Team("Algerije", "dz");
+        private static readonly Team Russia = new Team("Rusland", "ru");
+        private static readonly Team Korea = new Team("Zuid-Korea", "kr");
+        private static readonly Team Romania = new Team("ro", "Roemenië");
+        private static readonly Team Albania = new Team("al", "Albanië");
+        private static readonly Team Wales = new Team("_Wales", "Wales");
+        private static readonly Team Slovakia = new Team("sk", "Slovakije");
+        private static readonly Team England = new Team("_England", "Engeland");
+        private static readonly Team Turkey = new Team("tr", "Turkije");
+        private static readonly Team Poland = new Team("pl", "Polen");
+        private static readonly Team NorthernIreland = new Team("_Northern_Ireland", "Noord-Ierland");
+        private static readonly Team Ukraine = new Team("ua", "Oekraïne");
+        private static readonly Team Czech = new Team("cz", "Tsjechië");
+        private static readonly Team Ireland = new Team("ie", "Ierland");
+        private static readonly Team Sweden = new Team("se", "Zweden");
+        private static readonly Team Austria = new Team("at", "Oostenrijk");
+        private static readonly Team Hungary = new Team("hu", "Hongarije");
+        private static readonly Team Iceland = new Team("is", "Ijsland");
+        private static readonly Team Egypt = new Team("eg", "Egypte");
+        private static readonly Team SaudiArabia = new Team("sa", "Saoedi-Arabië");
+        private static readonly Team Marocco = new Team("ma", "Marokko");
+        private static readonly Team Peru = new Team("pe", "Peru");
+        private static readonly Team Denmark = new Team("dk", "Denemarken");
+        private static readonly Team Serbia = new Team("rs", "Serbia");
+        private static readonly Team Panama = new Team("pa", "Panama");
+        private static readonly Team Senegal = new Team("sn", "Senegal");
+        private static readonly Team Tunisia = new Team("tn", "Tunesië");
     }
 }
