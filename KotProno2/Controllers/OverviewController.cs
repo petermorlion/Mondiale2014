@@ -81,7 +81,7 @@ namespace KotProno2.Controllers
                 return "";
             }
 
-            if (betting.HomeScore == match.HomeScore && betting.AwayScore == match.AwayScore)
+            if (betting.HasExactResultForMatch(match))
             {
                 return "two-points";
             }

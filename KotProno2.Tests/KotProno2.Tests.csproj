@@ -43,6 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BettingTests.cs" />
     <Compile Include="MatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -54,18 +54,14 @@ namespace KotProno2.Controllers
                     {
                         serie.Data.Add(previousScore);
                     }
-                    else if (bettingForMatch.HomeScore == match.HomeScore && bettingForMatch.AwayScore == match.AwayScore)
-                    {
-                        serie.Data.Add(previousScore + 2);
-                        exactResultsPerUser[user.UserName] += 1;
-                    }
-                    else if (bettingForMatch.GetMatchResult() == match.GetMatchResult())
-                    {
-                        serie.Data.Add(previousScore + 1);
-                    }
                     else
                     {
-                        serie.Data.Add(previousScore);
+                        serie.Data.Add(previousScore + bettingForMatch.GetUserScoreForMatch(match));
+
+                        if (bettingForMatch.HasExactResultForMatch(match))
+                        {
+                            exactResultsPerUser[user.UserName] += 1;
+                        }
                     }
                 }
             }

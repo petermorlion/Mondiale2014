@@ -54,25 +54,11 @@ namespace KotProno2.Controllers
                         result.Add(points);
                     }
 
-                    if (bettingForMatch.HomeScore == match.HomeScore && bettingForMatch.AwayScore == match.AwayScore)
-                    {
-                        points.Total += 2;
-                    }
-                    else if (BettingHasCorrectResult(bettingForMatch, match))
-                    {
-                        points.Total += 1;
-                    }
+                    points.Total += bettingForMatch.GetUserScoreForMatch(match);
                 }
             }
 
             return result;
-        }
-
-        private bool BettingHasCorrectResult(Betting bettingForMatch, Match match)
-        {
-            var bettingResult = bettingForMatch.GetMatchResult();
-            var realResult = match.GetMatchResult();
-            return bettingResult == realResult;
         }
     }
 }
