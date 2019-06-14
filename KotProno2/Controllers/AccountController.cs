@@ -377,7 +377,7 @@ namespace KotProno2.Controllers
             }
         }
 
-        private class ChallengeResult : HttpUnauthorizedResult
+        private sealed class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
             {
