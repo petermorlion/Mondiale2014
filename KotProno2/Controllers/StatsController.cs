@@ -19,31 +19,17 @@ namespace KotProno2.Controllers
         [HttpGet]
         public Statistics Statistics(int id)
         {
-            var exactResultsPerUser = new Dictionary<string, int>();
-
             var result = new Statistics();
             var users = _applicationDbContext.Users.OrderBy(x => x.UserName).ToList();
             var bettings = _context.Bettings.Where(x => x.Match.TournamentId == id).ToLookup(x => x.MatchId);
             var matches = _context.Matches.Where(x => x.TournamentId == id).OrderBy(x => x.DateTime).ToList();
 
-            result.Categories = new List<string>();
-            result.Series = new List<Serie>();
+            result.Categories = matches.Select(match => $"{match.HomeTeamIsoCode} vs {match.AwayTeamIsoCode}").ToList();
+            result.Series = users.Select(user => new Serie { Name = user.UserName, Data = new List<int>() }).ToList();
+            var exactResultsPerUser = users.ToDictionary(x => x.UserName, x => 0);
 
-            foreach (var user in users)
+            foreach (var match in matches.Where(match => match.HasScores()))
             {
-                result.Series.Add(new Serie { Name = user.UserName, Data = new List<int>() });
-                exactResultsPerUser.Add(user.UserName, 0);
-            }
-
-            foreach (var match in matches)
-            {
-                result.Categories.Add($"{match.HomeTeamIsoCode} vs {match.AwayTeamIsoCode}");
-
-                if (!match.HomeScore.HasValue && !match.AwayScore.HasValue)
-                {
-                    continue;
-                }
-
                 foreach (var user in users)
                 {
                     var bettingForMatch = bettings[match.Id].SingleOrDefault(x => x.UserName == user.UserName);

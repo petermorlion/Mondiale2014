@@ -51,5 +51,29 @@ namespace KotProno2.Tests
             Assert.False(match1.IsSameAs(match2));
             Assert.False(match2.IsSameAs(match1));
         }
+
+        [Fact]
+        public void HasScores_WithBothScores_ReturnsTrue()
+        {
+            var match = new Match() { AwayScore = 1, HomeScore = 2 };
+
+            Assert.True(match.HasScores());
+        }
+
+        [Fact]
+        public void HasScores_WithoutHomeScore_ReturnsFalse()
+        {
+            var match = new Match() { AwayScore = 1 };
+
+            Assert.False(match.HasScores());
+        }
+
+        [Fact]
+        public void HasScores_WithoutAwayScore_ReturnsFalse()
+        {
+            var match = new Match() { HomeScore = 1 };
+
+            Assert.False(match.HasScores());
+        }
     }
 }

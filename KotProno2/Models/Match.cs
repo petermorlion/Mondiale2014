@@ -5,8 +5,6 @@ namespace KotProno2.Models
 {
     public class Match
     {
-        private DateTime _dateTime;
-
         public int Id { get; set; }
 
         [Column("Tournament_Id")]
@@ -17,13 +15,7 @@ namespace KotProno2.Models
 
         public string HomeTeamIsoCode { get; set; }
         public string AwayTeamIsoCode { get; set; }
-        public DateTime DateTime
-        {
-            get { return _dateTime; }
-            set {
-                _dateTime = value;
-            }
-        }
+        public DateTime DateTime { get; set; }
 
         public int? HomeScore { get; set; }
         public int? AwayScore { get; set; }
@@ -52,25 +44,23 @@ namespace KotProno2.Models
             {
                 return MatchResult.HomeWon;
             }
-            else if (HomeScore - AwayScore < 0)
+
+            if (HomeScore - AwayScore < 0)
             {
                 return MatchResult.AwayWon;
             }
-            else
+
+            if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Home)
             {
-                if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Home)
-                {
-                    return MatchResult.HomeWon;
-                }
-                else if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Away)
-                {
-                    return MatchResult.AwayWon;
-                }
-                else
-                {
-                    return MatchResult.Draw;
-                }
+                return MatchResult.HomeWon;
             }
+
+            if (PenaltyWinner.HasValue && PenaltyWinner.Value == KotProno2.Models.PenaltyWinner.Away)
+            {
+                return MatchResult.AwayWon;
+            }
+
+            return MatchResult.Draw;
         }
 
         public bool IsSameAs(Match match)
@@ -82,7 +72,12 @@ namespace KotProno2.Models
 
         public override string ToString()
         {
-            return string.Format("{0} - {1}", HomeTeamIsoCode, AwayTeamIsoCode);
+            return $"{HomeTeamIsoCode} - {AwayTeamIsoCode}";
+        }
+
+        public bool HasScores()
+        {
+            return HomeScore.HasValue && AwayScore.HasValue;
         }
     }
 }
