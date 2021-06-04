@@ -57,9 +57,26 @@
                 url: "/login",
                 templateUrl: "/Account/Login"
             })
+            .state('register', {
+                url: "/register",
+                templateUrl: "/Account/Register"
+            })
             .state('account', {
                 url: "/account",
                 templateUrl: "/Account/Manage"
-            });
+            })
+            .state('forgotPassword', {
+                url: "/forgotPassword",
+                templateUrl: "/Account/ForgotPassword"
+            })
+            .state('resetPassword', {
+                url: "/resetPassword",
+                templateUrl: "/Account/ResetPassword"
+            })
+            .state('resetPasswordConfirmation', {
+                url: "/resetPasswordConfirmation",
+                templateUrl: "/Account/ResetPasswordConfirmation"
+            })
+            ;
     }
 })();

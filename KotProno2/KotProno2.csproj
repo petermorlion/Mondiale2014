@@ -251,6 +251,7 @@
     <Compile Include="Migrations\202106041248020_v3.7.6.designer.cs">
       <DependentUpon>202106041248020_v3.7.6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="MvcExceptionFilter.cs" />
     <Compile Include="Services\MailgunService.cs" />
     <Compile Include="WebApiExceptionFilter.cs" />
@@ -803,6 +804,8 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

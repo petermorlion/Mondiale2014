@@ -22,6 +22,8 @@ namespace KotProno2.Controllers
         public AccountController(IMailgunService mailgunService)
         {
             UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var provider = new DpapiDataProtectionProvider("KotProno");
+            UserManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("PasswordReset"));
             _mailgunService = mailgunService;
         }
 
@@ -116,26 +118,70 @@ namespace KotProno2.Controllers
         {
             if (!ModelState.IsValid)
             {
-                throw new System.Exception("Form not valid");
+                // TODO: show nice error message
+                throw new Exception("Form not valid");
             }
 
             var user = await UserManager.FindByEmailAsync(viewModel.Email);
             if (user == null)
             {
-                viewModel.Message = "Indien je email gekend is zal je een mail krijgen met verdere instructies.";
+                ViewBag.StatusMessage = "Indien je email gekend is zal je een mail krijgen met verdere instructies.";
+                return View();
+            }
+
+            var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            var callbackUrl = new Uri($"{this.Request.Url.Scheme}://{this.Request.Url.Host}:{this.Request.Url.Port}/Account/ResetPassword?userId={user.Id}&code={code}");
+            var subject = "KotProno: paswoord opnieuw instellen";
+            var body = "Paswoord vergeten? <a href=\"" + callbackUrl + "\">Hier</a> kan je die opnieuw instellen. Je gebruikersnaam is " + user.UserName + ".";
+            await _mailgunService.SendMail(user.Email, subject, body);
+
+            ViewBag.StatusMessage = "Indien je email gekend is zal je een mail krijgen met verdere instructies.";
+            return View();
+        }
+
+        //
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string userId, string code)
+        {
+            return View(new ResetPasswordViewModel { UserId = userId, Code = code });
+        }
+
+        //
+        // Post: /Account/ResetPassword
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ErrorMessage = "Er is iets fout gegaan.";
                 return View(viewModel);
             }
 
-            var provider = new DpapiDataProtectionProvider("KotProno");
-            UserManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("PasswordReset"));
-            var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-            var callbackUrl = new Uri($"{this.Request.Url.Scheme}://{this.Request.Url.Host}Account/ResetPassword?userId={user.Id}&code={code}");
-            var subject = "KotProno: paswoord opnieuw instellen";
-            var body = "Paswoord vergeten? <a href=\"" + callbackUrl + "\">Hier</a> kan je die opnieuw instellen.";
-            await _mailgunService.SendMail(user.Email, subject, body);
+            var user = await UserManager.FindByIdAsync(viewModel.UserId);
+            if (user == null)
+            {
+                return RedirectToAction(nameof(ResetPasswordConfirmation));
+            }
 
-            viewModel.Message = "Er is een mail verstuurd. Indien je niets krijgt (ook niet in je spam-folder), laat het weten: peter.morlion@gmail.com.";
-            return View(viewModel);
+            var code = viewModel.Code.Replace(" ", "+");
+            var result = await UserManager.ResetPasswordAsync(user.Id, code, viewModel.NewPassword);
+            if (!result.Succeeded)
+            {
+                ViewBag.ErrorMessage = string.Join(" ", result.Errors);
+                return View(viewModel);
+            }
+
+            return RedirectToAction(nameof(ResetPasswordConfirmation));
+        }
+
+        //
+        // GET: /Account/ResetPasswordConfirmation
+        [AllowAnonymous]
+        public ActionResult ResetPasswordConfirmation()
+        {
+            return View();
         }
 
         //
