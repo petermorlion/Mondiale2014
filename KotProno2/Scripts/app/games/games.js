@@ -21,7 +21,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'Finals' };
+        vm.stageFilter = { stage: 'GroupStage' };
 
         //TODO: async
         getGameBettings();
@@ -207,7 +207,10 @@
                 rs: 'Serbia',
                 pa: 'Panama',
                 sn: 'Senegal',
-                tn: 'Tunesië'
+                tn: 'Tunesië',
+                fi: 'Finland',
+                mk: 'Noord-Macedonië',
+                _Scotland: 'Schotland'
             };
         }
 

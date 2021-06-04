@@ -69,7 +69,10 @@ namespace KotProno2.Models
             Serbia,
             Panama,
             Senegal,
-            Tunisia
+            Tunisia,
+            Finland,
+            NorthMacedonia,
+            Scotland
         };
 
         private static readonly Team Brasil = new Team("Brazilië", "br");
@@ -128,5 +131,8 @@ namespace KotProno2.Models
         private static readonly Team Panama = new Team("pa", "Panama");
         private static readonly Team Senegal = new Team("sn", "Senegal");
         private static readonly Team Tunisia = new Team("tn", "Tunesië");
+        private static readonly Team Finland = new Team("fi", "Finland");
+        private static readonly Team NorthMacedonia = new Team("mk", "Noord-Macedonië");
+        private static readonly Team Scotland = new Team("_Scotland", "Schotland");
     }
 }

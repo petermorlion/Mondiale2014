@@ -235,6 +235,14 @@
     <Compile Include="Controllers\TopScorersController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="EntityFramework\MatchesDbContext.cs" />
+    <Compile Include="Migrations\202106031432307_v3.7.0.cs" />
+    <Compile Include="Migrations\202106031432307_v3.7.0.Designer.cs">
+      <DependentUpon>202106031432307_v3.7.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106040739433_v3.7.1.cs" />
+    <Compile Include="Migrations\202106040739433_v3.7.1.Designer.cs">
+      <DependentUpon>202106040739433_v3.7.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MvcExceptionFilter.cs" />
     <Compile Include="WebApiExceptionFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -375,6 +383,7 @@
     <Content Include="Content\images\flags\flags64_semi.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\logos\EK 2016.jpg" />
+    <Content Include="Content\images\logos\Euro 2020.jpg" />
     <Content Include="Content\images\logos\WK 2014.jpg" />
     <Content Include="Content\images\logos\WK 2018.jpg" />
     <Content Include="Content\Site.css" />
@@ -1286,6 +1295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807120635124_v3.6.0.resx">
       <DependentUpon>201807120635124_v3.6.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106031432307_v3.7.0.resx">
+      <DependentUpon>202106031432307_v3.7.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106040739433_v3.7.1.resx">
+      <DependentUpon>202106040739433_v3.7.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
