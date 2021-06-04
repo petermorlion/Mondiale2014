@@ -22,8 +22,9 @@ namespace KotProno2.Controllers
         public AccountController(IMailgunService mailgunService)
         {
             UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var provider = new DpapiDataProtectionProvider("KotProno");
-            UserManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("PasswordReset"));
+            var provider = Startup.DataProtectionProvider;
+            var userTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("PasswordReset"));
+            UserManager.UserTokenProvider = userTokenProvider;
             _mailgunService = mailgunService;
         }
 
