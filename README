@@ -2,3 +2,20 @@ Disclaimer: this was hacked together very quickly to meet a deadline (the start 
 It is not an example of the code I normally would write :)
 
 It is my first Angular app, and is/was actively used by a group of friends to see who could best predict the scores of the World Cup.
+
+## Database
+
+Just a reminder, so I don't have to Google it everytime (examples).
+
+Add a migration and update the database locally:
+
+```
+Add-Migration v3.7.0
+Update-Database
+```
+
+Update on Azure:
+
+```
+Update-Database -ConnectionString "..." -ConnectionProviderName "System.Data.SqlClient"
+```

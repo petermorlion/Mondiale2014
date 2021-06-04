@@ -1,5 +1,6 @@
 ﻿using KotProno2.EntityFramework;
 using KotProno2.Migrations;
+using KotProno2.Models;
 using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -13,6 +14,7 @@ namespace KotProno2
         protected void Application_Start()
         {
             Database.SetInitializer<MatchesDbContext>(new MigrateDatabaseToLatestVersion<MatchesDbContext, Configuration>());
+            Database.SetInitializer<ApplicationDbContext>(null);
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

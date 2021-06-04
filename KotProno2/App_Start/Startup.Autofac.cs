@@ -7,6 +7,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using KotProno2.EntityFramework;
 using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
 using Owin;
 using Serilog;
 
@@ -16,11 +17,11 @@ namespace KotProno2
     {
         private static TelemetryClient _telemetryClient;
 
-        public static TelemetryClient TelemetryClient => _telemetryClient ?? (_telemetryClient = new TelemetryClient
+        public static TelemetryClient TelemetryClient => _telemetryClient ?? (_telemetryClient = new TelemetryClient(new TelemetryConfiguration("")
         {
-            InstrumentationKey = ConfigurationManager.AppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"]
-        });
-
+            ConnectionString = ConfigurationManager.AppSettings["APPINSIGHTS_CONNECTIONSTRING"]
+        }));
+        
         public void ConfigureAutofac(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
@@ -31,11 +32,11 @@ namespace KotProno2
             builder.RegisterType<MatchesDbContext>().InstancePerRequest();
 
             var log = new LoggerConfiguration()
-#if DEBUG
+//#if DEBUG
                 .WriteTo.Console()
-#else 
-                .WriteTo.ApplicationInsightsEvents(TelemetryClient)
-#endif
+//#else 
+//                .WriteTo.ApplicationInsightsEvents(TelemetryClient)
+//#endif
                 .CreateLogger();
             builder.RegisterInstance(log).As<ILogger>();
 

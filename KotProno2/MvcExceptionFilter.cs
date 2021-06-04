@@ -9,7 +9,10 @@ namespace KotProno2
 
         public void OnException(ExceptionContext filterContext)
         {
-            Logger.Error(filterContext.Exception, "An unhandled exception occurred.");
+            if (Logger != null && filterContext != null && filterContext.Exception != null)
+            {
+                Logger.Error(filterContext.Exception, "An unhandled exception occurred.");
+            }
         }
     }
 }
