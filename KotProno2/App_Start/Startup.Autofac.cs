@@ -6,6 +6,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using KotProno2.EntityFramework;
+using KotProno2.Services;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.Extensibility;
 using Owin;
@@ -39,6 +40,8 @@ namespace KotProno2
 //#endif
                 .CreateLogger();
             builder.RegisterInstance(log).As<ILogger>();
+
+            builder.RegisterType<MailgunService>().As<IMailgunService>();
 
             builder.RegisterType<WebApiExceptionFilter>().AsWebApiExceptionFilterFor<ApiController>().InstancePerRequest();
 

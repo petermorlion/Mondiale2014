@@ -5,20 +5,24 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using KotProno2.Models;
 using System.Web;
+using System;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.Owin.Security.DataProtection;
+using Microsoft.AspNet.Identity.Owin;
+using KotProno2.Services;
 
 namespace KotProno2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-        {
-        }
+        private IMailgunService _mailgunService;
 
-        public AccountController(UserManager<ApplicationUser> userManager)
+        public AccountController(IMailgunService mailgunService)
         {
-            UserManager = userManager;
+            UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            _mailgunService = mailgunService;
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
@@ -94,6 +98,44 @@ namespace KotProno2.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        //
+        // GET: /Account/ForgotPassword
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        //
+        // Post: /Account/ForgotPassword
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new System.Exception("Form not valid");
+            }
+
+            var user = await UserManager.FindByEmailAsync(viewModel.Email);
+            if (user == null)
+            {
+                viewModel.Message = "Indien je email gekend is zal je een mail krijgen met verdere instructies.";
+                return View(viewModel);
+            }
+
+            var provider = new DpapiDataProtectionProvider("KotProno");
+            UserManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("PasswordReset"));
+            var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            var callbackUrl = new Uri($"{this.Request.Url.Scheme}://{this.Request.Url.Host}Account/ResetPassword?userId={user.Id}&code={code}");
+            var subject = "KotProno: paswoord opnieuw instellen";
+            var body = "Paswoord vergeten? <a href=\"" + callbackUrl + "\">Hier</a> kan je die opnieuw instellen.";
+            await _mailgunService.SendMail(user.Email, subject, body);
+
+            viewModel.Message = "Er is een mail verstuurd. Indien je niets krijgt (ook niet in je spam-folder), laat het weten: peter.morlion@gmail.com.";
+            return View(viewModel);
         }
 
         //

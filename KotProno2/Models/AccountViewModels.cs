@@ -60,4 +60,13 @@ namespace KotProno2.Models
         [Compare("Password", ErrorMessage = "Het nieuwe paswoord en de bevestiging komen niet overeen.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class ForgotPasswordViewModel
+    {
+        [Required]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        public string Message { get; set; }
+    }
 }
