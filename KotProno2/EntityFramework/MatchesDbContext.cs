@@ -1,4 +1,5 @@
 ﻿using KotProno2.Models;
+using KotProno2.Models.Commands;
 using System.Data.Entity;
 
 namespace KotProno2.EntityFramework

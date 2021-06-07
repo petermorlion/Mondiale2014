@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 
-namespace KotProno2.Models
+namespace KotProno2.Models.Commands
 {
     public class AddScoresCommand : Command
     {

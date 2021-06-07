@@ -1,7 +1,7 @@
 ﻿using KotProno2.EntityFramework;
 using System;
 
-namespace KotProno2.Models
+namespace KotProno2.Models.Commands
 {
     public abstract class Command
     {
