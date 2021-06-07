@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using KotProno2.Models;
+using KotProno2.Models.ViewModels;
 using System.Web;
 using System;
 using System.Net.Mail;

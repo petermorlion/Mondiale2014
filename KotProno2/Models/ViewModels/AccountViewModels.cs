@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KotProno2.Models
+namespace KotProno2.Models.ViewModels
 {
     public class ExternalLoginConfirmationViewModel
     {

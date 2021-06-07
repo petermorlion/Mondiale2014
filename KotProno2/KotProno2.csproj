@@ -251,7 +251,7 @@
     <Compile Include="Migrations\202106041248020_v3.7.6.designer.cs">
       <DependentUpon>202106041248020_v3.7.6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="MvcExceptionFilter.cs" />
     <Compile Include="Services\MailgunService.cs" />
     <Compile Include="WebApiExceptionFilter.cs" />
@@ -343,7 +343,7 @@
       <DependentUpon>201807120635124_v3.6.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Commands\AddScoresCommand.cs" />
     <Compile Include="Models\Commands\AddBettingsCommand.cs" />
     <Compile Include="Models\Betting.cs" />
