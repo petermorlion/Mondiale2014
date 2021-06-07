@@ -348,7 +348,7 @@
     <Compile Include="Models\Commands\AddBettingsCommand.cs" />
     <Compile Include="Models\Betting.cs" />
     <Compile Include="Models\Commands\Command.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="EntityFramework\ApplicationDbContext.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\MatchDetails.cs" />
     <Compile Include="Models\MatchResult.cs" />
