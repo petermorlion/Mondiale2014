@@ -90,9 +90,9 @@
                     <h4>{{gameBettingGroup.date | date}}</h4>
                         
                     <div class="row">
-                        <div class="col-12 col-sm-5 col-md-5 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
+                        <div class="col-3 col-sm-3 col-md-3 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                             <div class="row equal">
-                                <div class="col-8">
+                                <div class="col-9">
                                     <div class="row">
                                         <div class="col-12 f24">
                                             <div class="row">
@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <span class="betting-time">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
                                     <button type="button"
                                             class="btn btn-info other-bettings-icon fas fa-users"
