@@ -14,3 +14,12 @@ update bettings
 set homescore = 0, awayscore = 1
 where id = 4215
 commit tran
+
+
+-- See who filled out how many bettings for a tournament:
+select b.UserName, count(b.Id)
+from bettings b
+inner join Matches m on m.Id = b.MatchId
+inner join Tournaments t on t.Id = m.Tournament_Id
+where t.Name= 'Euro 2020'
+group by b.UserName
