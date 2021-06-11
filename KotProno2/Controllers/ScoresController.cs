@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using KotProno2.EntityFramework;
 using KotProno2.Models.Commands;
@@ -16,7 +17,7 @@ namespace KotProno2.Controllers
 
         [HttpPost]
         [Authorize]
-        public void Post(object data)
+        public async Task Post(object data)
         {
             // TODO: use roles
             if (User.Identity.Name != "petermorlion")
@@ -34,7 +35,7 @@ namespace KotProno2.Controllers
 
             command.Execute(_context);
             _context.Commands.Add(command);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }
