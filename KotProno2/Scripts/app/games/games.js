@@ -21,7 +21,7 @@
         vm.showAllTopscorers = showAllTopscorers;
         vm.showStage = showStage;
         vm.isActiveStage = isActiveStage;
-        vm.stageFilter = { stage: 'GroupStage' };
+        vm.stageFilter = { stage: 'EighthFinals' };
 
         //TODO: async
         getGameBettings();

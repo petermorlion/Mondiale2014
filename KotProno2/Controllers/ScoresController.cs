@@ -19,8 +19,7 @@ namespace KotProno2.Controllers
         [Authorize]
         public async Task Post(object data)
         {
-            // TODO: use roles
-            if (User.Identity.Name != "petermorlion")
+            if (!User.IsInRole("Admin"))
             {
                 return;
             }

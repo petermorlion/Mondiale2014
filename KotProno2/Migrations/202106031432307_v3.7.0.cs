@@ -48,7 +48,7 @@ namespace KotProno2.Migrations
                 "       ('es', 'pl', '2021/06/19 21:00', 0, @TournamentId)," +
 
                 "       ('it', '_Wales', '2021/06/20 18:00', 0, @TournamentId)," +
-                "       ('ch', 'tk', '2021/06/20 21:00', 0, @TournamentId)," +
+                "       ('ch', 'tk', '2021/06/20 18:00', 0, @TournamentId)," +
 
                 "       ('ua', 'at', '2021/06/21 18:00', 0, @TournamentId)," +
                 "       ('mk', 'nl', '2021/06/21 18:00', 0, @TournamentId)," +

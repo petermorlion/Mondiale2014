@@ -32,8 +32,7 @@
                                 <li class="nav-item"><a class="nav-link" ui-sref="tournament.games" ng-if="vm.hasTournament">Mijn pronostieken</a></li>
                             }
 
-                            @*Ugly and wrong, but IsInRole doesn't work and no time*@
-                            @if (User.Identity.Name == "petermorlion")
+                            @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item"><a class="nav-link" ui-sref="tournament.admin" ng-if="vm.hasTournament">Admin</a></li>
                             }
