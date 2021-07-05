@@ -266,6 +266,18 @@
     <Compile Include="Migrations\202106241821205_v3.8.2.designer.cs">
       <DependentUpon>202106241821205_v3.8.2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106301543431_v3.9.0.cs" />
+    <Compile Include="Migrations\202106301543431_v3.9.0.designer.cs">
+      <DependentUpon>202106301543431_v3.9.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106301555147_v3.9.1.cs" />
+    <Compile Include="Migrations\202106301555147_v3.9.1.designer.cs">
+      <DependentUpon>202106301555147_v3.9.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107051221552_v3.10.0.cs" />
+    <Compile Include="Migrations\202107051221552_v3.10.0.designer.cs">
+      <DependentUpon>202107051221552_v3.10.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="MvcExceptionFilter.cs" />
     <Compile Include="Services\MailgunService.cs" />
@@ -919,6 +931,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106241821205_v3.8.2.resx">
       <DependentUpon>202106241821205_v3.8.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301543431_v3.9.0.resx">
+      <DependentUpon>202106301543431_v3.9.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106301555147_v3.9.1.resx">
+      <DependentUpon>202106301555147_v3.9.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107051221552_v3.10.0.resx">
+      <DependentUpon>202107051221552_v3.10.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
