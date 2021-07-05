@@ -55,12 +55,15 @@ input[type="checkbox"].input-validation-error {
 .betting-time {
   display: inline-block;
   padding-top: 25px;
-  margin-left: 10px;
 }
 .form-inline .betting-input.form-control {
-  width: 35px;
-  text-align: center;
-  margin: 3px 0;
+    width: 35px;
+    -moz-appearance: textfield;
+}
+.betting-input.form-control::-webkit-outer-spin-button,
+.betting-input.form-control::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 .betting-country {
   display: inline-block;

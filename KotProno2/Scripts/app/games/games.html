@@ -90,7 +90,7 @@
                     <h4>{{gameBettingGroup.date | date}}</h4>
                         
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-3 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
+                        <div class="col-sm-12 col-md-6 col-lg-4 match" ng-repeat="gameBetting in gameBettingGroup.gameBettings">
                             <div class="row equal">
                                 <div class="col-9">
                                     <div class="row">
@@ -99,13 +99,14 @@
                                                 <div class="col-2">
                                                     <span class="betting-flag flag {{gameBetting.homeIso}}" title="{{gameBetting.homeDescription}}"></span>
                                                 </div>
-                                                <div class="col-8">
+                                                <div class="col-6">
                                                     <span class="betting-country">{{gameBetting.homeDescription}}</span>
                                                 </div>
-                                                <div class="col-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                <div class="col-4" ng-class="{'has-error': gameBetting.hasError()}">
                                                     <input ng-model="gameBetting.homeBetting" 
                                                            ng-disabled="gameBetting.isReadOnly" 
-                                                           class="betting-input form-control"/>
+                                                           class="betting-input form-control"
+                                                           type="number"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,20 +115,21 @@
                                                 <div class="col-2">
                                                     <span class="betting-flag flag {{gameBetting.awayIso}}" title="{{gameBetting.awayDescription}}"></span>
                                                 </div>
-                                                <div class="col-8">
+                                                <div class="col-6">
                                                     <span class="betting-country">{{gameBetting.awayDescription}}</span>
                                                 </div>
-                                                <div class="col-2" ng-class="{'has-error': gameBetting.hasError()}">
+                                                <div class="col-4" ng-class="{'has-error': gameBetting.hasError()}">
                                                     <input ng-model="gameBetting.awayBetting" 
                                                            ng-disabled="gameBetting.isReadOnly" 
-                                                           class="betting-input form-control form-inline" />
+                                                           class="betting-input form-control form-inline"
+                                                           type="number"/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <span class="betting-time">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
+                                    <span class="betting-time float-right">{{gameBetting.date.getHours() | numberFixedLen:2}}:{{gameBetting.date.getMinutes() | numberFixedLen:2}}</span>
                                     <button type="button"
                                             class="btn btn-info other-bettings-icon fas fa-users"
                                             title="De andere pronostieken bekijken"
