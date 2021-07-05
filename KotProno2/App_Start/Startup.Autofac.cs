@@ -33,11 +33,11 @@ namespace KotProno2
             builder.RegisterType<MatchesDbContext>().InstancePerRequest();
 
             var log = new LoggerConfiguration()
-//#if DEBUG
+#if DEBUG
                 .WriteTo.Console()
-//#else 
-//                .WriteTo.ApplicationInsightsEvents(TelemetryClient)
-//#endif
+#else 
+                .WriteTo.ApplicationInsights(TelemetryConfiguration.Active, TelemetryConverter.Events)
+#endif
                 .CreateLogger();
             builder.RegisterInstance(log).As<ILogger>();
 
